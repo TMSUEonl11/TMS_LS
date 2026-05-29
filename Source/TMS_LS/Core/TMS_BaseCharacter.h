@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "AbilitySystem/TMS_AbilitySystemComponent.h"
 #include "AbilitySystem/TMS_AttributeSet.h"
+#include "Data/TMS_DataTypes.h"
 #include "Data/TMS_MovementData.h"
 #include "GameFramework/Character.h"
 #include "TMS_BaseCharacter.generated.h"
@@ -44,7 +45,13 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	bool bSprinting = false;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Movement)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Movement")
+	FTMS_VaultAnimData VaultAnims;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	bool bIsVaulting = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Movement")
 	TObjectPtr<UTMS_MovementData> MovementData;
 
 	virtual bool CanSprint()

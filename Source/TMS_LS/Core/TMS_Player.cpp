@@ -19,6 +19,8 @@ ATMS_Player::ATMS_Player()
 	Camera = CreateDefaultSubobject<UCameraComponent>("Camera");
 	Camera->SetupAttachment(SpringArm);
 
+	MotionWarper = CreateDefaultSubobject<UMotionWarpingComponent>("MotionWarper");
+
 	TargetFOV = Camera->FieldOfView;
 }
 
@@ -60,7 +62,7 @@ void ATMS_Player::SetupPlayerInputComponent(class UInputComponent* PlayerInputCo
 	EIC->BindAction(InputData->SprintInput, ETriggerEvent::Triggered, this, &ATMS_Player::OnSprintInput);
 	EIC->BindAction(InputData->CrouchInput, ETriggerEvent::Triggered, this, &ATMS_Player::OnCrouchInput);
 
-	EIC->BindAction(InputData->JumpInput, ETriggerEvent::Started, this, &ACharacter::Jump);
+	EIC->BindAction(InputData->JumpInput, ETriggerEvent::Started, this, &ATMS_Player::Jump);
 	EIC->BindAction(InputData->JumpInput, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
 }
 
@@ -118,4 +120,111 @@ void ATMS_Player::OnCrouchInput(const FInputActionValue& Value)
 	
 	MovementComponent->IsCrouching() ? MovementComponent->Crouch() : MovementComponent->UnCrouch();
 	bCrouching = MovementComponent->IsCrouching();
+}
+
+void ATMS_Player::Jump()
+{
+	if (CanVault() && TryVault()) return;
+	Super::Jump();
+}
+
+bool ATMS_Player::CanVault() const
+{
+	return !bIsVaulting;
+}
+
+bool ATMS_Player::TryVault()
+{
+	if (!GetWorld() || !VaultAnims.IsValid()) return false;
+	UCapsuleComponent* Capsule = GetCapsuleComponent();
+	if (!Capsule) return false;
+	float TraceRadius = Capsule->GetScaledCapsuleRadius() / 2.f;
+
+	bool bWallThick = false;
+	bool bWallHigh = false;
+	
+	FHitResult Hit;
+	FVector StartLocation = GetActorLocation() + (FVector::DownVector * 55.f);
+	FVector EndLocation = StartLocation + GetActorForwardVector() * 100.f;
+	TArray<AActor*> IgnoreActors;
+	// Поиск препятствия перед собой
+	GetWorld()->LineTraceSingleByChannel(Hit,
+		StartLocation, EndLocation, ECC_GameTraceChannel1);
+
+	if (!Hit.bBlockingHit) return false;
+
+	FVector HitLocation = Hit.Location;
+	FVector HitNormal = Hit.Normal;
+
+	EndLocation = HitLocation + HitNormal * (-10.f);
+	StartLocation = EndLocation + FVector(0, 0, Capsule->GetScaledCapsuleHalfHeight() * 3.f);
+
+	// Проверка, можем ли мы перелезть
+	GetWorld()->LineTraceSingleByChannel(Hit,
+		StartLocation, EndLocation, ECC_GameTraceChannel1);
+
+	if (!Hit.bBlockingHit || Hit.bStartPenetrating) return false;
+
+	FVector WallPeakLocation = Hit.Location;
+	bWallHigh = WallPeakLocation.Z - HitLocation.Z > 80.f;
+
+	EndLocation = HitLocation + HitNormal * (-50.f);
+	StartLocation = EndLocation + FVector(0, 0, Capsule->GetScaledCapsuleHalfHeight() * 4.f);
+
+	// Проверка на толщину препятствия
+	GetWorld()->LineTraceSingleByChannel(Hit,
+		StartLocation, EndLocation, ECC_GameTraceChannel1);
+
+	if (Hit.bBlockingHit)
+	{
+		bWallThick = WallPeakLocation.Z - Hit.Location.Z < 30.f;
+	}
+
+	// TODO если успеем, добавить Motion Warping
+	MotionWarper->AddOrUpdateWarpTargetFromLocationAndRotation("Vault", WallPeakLocation, GetActorRotation());
+
+	bIsVaulting = true;
+	Capsule->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	GetCharacterMovement()->SetMovementMode(MOVE_Flying);
+	if (!bWallHigh)
+	{
+
+		FVector TargetLocation = bWallThick ? GetActorLocation() + HitNormal * 50.f : FVector(GetActorLocation().X, GetActorLocation().Y, WallPeakLocation.Z - 10.f);
+		SetActorLocation(TargetLocation);
+		float AnimDuration = PlayAnimMontage(bWallThick ? VaultAnims.GetUpMontage : VaultAnims.VaultMontage);
+		FTimerHandle AnimHandle;
+		GetWorldTimerManager().SetTimer(AnimHandle, this, &ATMS_Player::FinishVault, AnimDuration * 0.8f, false);
+		return true;
+	}
+	else
+	{
+		FVector TargetLocation = FVector(GetActorLocation().X, GetActorLocation().Y, WallPeakLocation.Z-20.f);
+		SetActorLocation(TargetLocation);
+		float AnimDuration = PlayAnimMontage(VaultAnims.ClimbMontage);
+		FTimerHandle AnimHandle;
+		FTimerDelegate AnimDelegate = FTimerDelegate::CreateLambda([this, bWallThick]
+		{
+			if (bWallThick)
+			{
+				this->FinishVault();
+			}
+			else
+			{
+				float AnimDuration = PlayAnimMontage(VaultAnims.JumpDownMontage);
+				FTimerHandle AnimHandle;
+				GetWorldTimerManager().SetTimer(AnimHandle,
+					this, &ATMS_Player::FinishVault, AnimDuration * 0.5f, false);
+			}
+		});
+		GetWorld()->GetTimerManager().SetTimer(AnimHandle, AnimDelegate, AnimDuration, false);
+		return true;
+	}
+	return false;
+}
+
+void ATMS_Player::FinishVault()
+{
+	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::Type::QueryAndPhysics);
+	GetCharacterMovement()->SetMovementMode(MOVE_Walking);
+	bIsVaulting = false;
 }

@@ -17,7 +17,8 @@ public class TMS_LS : ModuleRules
 			"EnhancedInput",
 			"GameplayAbilities",
 			"GameplayTags",
-			"GameplayTasks"
+			"GameplayTasks",
+			"MotionWarping"
 		});
 	}
 }

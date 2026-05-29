@@ -7,6 +7,7 @@
 #include "Camera/CameraComponent.h"
 #include "Data/TMS_InputData.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "MotionWarpingComponent.h"
 #include "TMS_LS/TMS_LSCharacter.h"
 #include "TMS_Player.generated.h"
 
@@ -30,6 +31,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Inputs)
 	TObjectPtr<UInputMappingContext> InputContext;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
+	TObjectPtr<UMotionWarpingComponent> MotionWarper;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Inputs)
 	TObjectPtr<UTMS_InputData> InputData;
 
@@ -55,4 +59,12 @@ public:
 	void OnLookInput(const FInputActionValue& Value);
 	void OnSprintInput(const FInputActionValue& Value);
 	void OnCrouchInput(const FInputActionValue& Value);
+
+	virtual void Jump() override;
+
+	bool CanVault() const;
+
+	bool TryVault();
+
+	void FinishVault();
 };
