@@ -11,6 +11,7 @@
 #include "TMS_LS/TMS_LSCharacter.h"
 #include "TMS_Player.generated.h"
 
+class UTMS_WeaponComponent;
 /**
  * 
  */
@@ -27,6 +28,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
 	TObjectPtr<UCameraComponent> Camera;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
+	TObjectPtr<UTMS_WeaponComponent> WeaponComponent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Inputs)
 	TObjectPtr<UInputMappingContext> InputContext;
@@ -46,12 +50,11 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	virtual bool CanSprint() override;
-
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	void UseItem(const FInputActionValue& InputActionValue);
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 

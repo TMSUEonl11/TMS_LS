@@ -18,7 +18,8 @@ public class TMS_LS : ModuleRules
 			"GameplayAbilities",
 			"GameplayTags",
 			"GameplayTasks",
-			"MotionWarping"
+			"MotionWarping",
+			"UMG"
 		});
 	}
 }

@@ -21,6 +21,15 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (Units = "CentimetersPerSecond"))
 	float RunSpeed = 800.f;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	float StaminaCostPerSecond = 5.f;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	float StaminaGainPerSecond = 10.f;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	float StaminaCooldown = 2.f;
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (Units = "Degrees"))
 	float WalkFOV = 90.f;
 

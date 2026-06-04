@@ -4,11 +4,11 @@
 #include "TMS_DataTypes.generated.h"
 
 USTRUCT(Blueprintable, BlueprintType)
-struct FTMS_VaultAnimData
+struct FTMS_AnimData
 {
 	GENERATED_BODY()
 
-	FTMS_VaultAnimData()
+	FTMS_AnimData()
 	{
 		
 	};
@@ -22,8 +22,11 @@ struct FTMS_VaultAnimData
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TObjectPtr<UAnimMontage> VaultMontage = nullptr;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TObjectPtr<UAnimMontage> DeathMontage = nullptr;
+
 	bool IsValid() const
 	{
-		return (GetUpMontage && ClimbMontage && JumpDownMontage && VaultMontage);
+		return (GetUpMontage && ClimbMontage && JumpDownMontage && VaultMontage && DeathMontage);
 	}
 };

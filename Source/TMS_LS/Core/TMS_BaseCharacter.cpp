@@ -9,11 +9,7 @@ ATMS_BaseCharacter::ATMS_BaseCharacter()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	AbilityComponent = CreateDefaultSubobject<UTMS_AbilitySystemComponent>(TEXT("AbilityComponent"));
-	AbilityComponent->SetIsReplicated(true);
-
-	AttributeSet = CreateDefaultSubobject<UTMS_AttributeSet>(TEXT("AttributeSet"));
-
+	HealthComponent = CreateDefaultSubobject<UTMS_HealthComponent>(TEXT("HealthComponent"));
 }
 
 // Called when the game starts or when spawned
@@ -36,22 +32,3 @@ void ATMS_BaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputC
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 }
-
-void ATMS_BaseCharacter::PossessedBy(AController* NewController)
-{
-	Super::PossessedBy(NewController);
-	if (IsValid(AbilityComponent))
-	{
-		AbilityComponent->InitAbilityActorInfo(this, this);
-	}
-}
-
-void ATMS_BaseCharacter::OnRep_PlayerState()
-{
-	Super::OnRep_PlayerState();
-	if (IsValid(AbilityComponent))
-	{
-		AbilityComponent->InitAbilityActorInfo(this, this);
-	}
-}
-

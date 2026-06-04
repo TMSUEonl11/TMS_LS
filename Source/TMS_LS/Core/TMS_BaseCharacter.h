@@ -8,6 +8,7 @@
 #include "Data/TMS_DataTypes.h"
 #include "Data/TMS_MovementData.h"
 #include "GameFramework/Character.h"
+#include "TMS_LS/Components/TMS_HealthComponent.h"
 #include "TMS_BaseCharacter.generated.h"
 
 UCLASS()
@@ -30,15 +31,6 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	virtual void PossessedBy(AController* NewController) override;
-
-	virtual void OnRep_PlayerState() override;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Attributes")
-	TObjectPtr<UTMS_AbilitySystemComponent> AbilityComponent;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Attributes")
-	TObjectPtr<UTMS_AttributeSet> AttributeSet;
-
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	bool bCrouching = false;
 
@@ -46,18 +38,11 @@ public:
 	bool bSprinting = false;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Movement")
-	FTMS_VaultAnimData VaultAnims;
+	FTMS_AnimData VaultAnims;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	bool bIsVaulting = false;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Movement")
-	TObjectPtr<UTMS_MovementData> MovementData;
-
-	virtual bool CanSprint()
-	{
-		if (!IsValid(MovementData)) return false;
-		return true;
-	}
-	virtual bool CanCrouch() { return true; }
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
+	TObjectPtr<UTMS_HealthComponent> HealthComponent;
 };

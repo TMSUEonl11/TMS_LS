@@ -7,7 +7,7 @@
 #include "EnhancedInputSubsystems.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
-#include "Kismet/GameplayStatics.h"
+#include "TMS_LS/Components/TMS_WeaponComponent.h"
 
 ATMS_Player::ATMS_Player()
 {
@@ -21,6 +21,8 @@ ATMS_Player::ATMS_Player()
 
 	MotionWarper = CreateDefaultSubobject<UMotionWarpingComponent>("MotionWarper");
 
+	WeaponComponent = CreateDefaultSubobject<UTMS_WeaponComponent>("WeaponComponent");
+
 	TargetFOV = Camera->FieldOfView;
 }
 
@@ -29,14 +31,17 @@ void ATMS_Player::BeginPlay()
 	Super::BeginPlay();
 }
 
-bool ATMS_Player::CanSprint()
-{
-	return Super::CanSprint();
-}
-
 void ATMS_Player::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+}
+
+void ATMS_Player::UseItem(const FInputActionValue& InputActionValue)
+{
+	if (!WeaponComponent || !WeaponComponent->CurrentWeapon) return;
+	bool bUseItem = InputActionValue.Get<bool>();
+	
+	WeaponComponent->CurrentWeapon->Fire_Input(bUseItem);
 }
 
 void ATMS_Player::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
@@ -64,6 +69,8 @@ void ATMS_Player::SetupPlayerInputComponent(class UInputComponent* PlayerInputCo
 
 	EIC->BindAction(InputData->JumpInput, ETriggerEvent::Started, this, &ATMS_Player::Jump);
 	EIC->BindAction(InputData->JumpInput, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
+
+	EIC->BindAction(InputData->MainInput, ETriggerEvent::Triggered, this, &ATMS_Player::UseItem);
 }
 
 void ATMS_Player::OnMoveInput(const FInputActionValue& Value)
@@ -79,6 +86,9 @@ void ATMS_Player::OnMoveInput(const FInputActionValue& Value)
 	FVector Dir = Forward * MoveInput.X + Right * MoveInput.Y;
 
 	AddMovementInput(Dir, InputScale);
+	GetCharacterMovement()->bUseControllerDesiredRotation = MoveInput.Length() > 0.f;
+	bUseControllerRotationYaw = MoveInput.Length() == 0.f;
+	
 }
 
 void ATMS_Player::OnLookInput(const FInputActionValue& Value)
@@ -95,19 +105,10 @@ void ATMS_Player::OnSprintInput(const FInputActionValue& Value)
 	UE_LOG(LogTemp, Display, TEXT("OnSprintInput : %s"), *Value.ToString());
 	bool ToSprint = Value.Get<bool>();
 
-	if (!CanSprint())
-	{
-		bSprinting = false;
-		return;
-	}
-
-	bSprinting = ToSprint;
-
-	UCharacterMovementComponent* MovementComponent = GetCharacterMovement();
-	if (!MovementComponent) return;
-
-	MovementComponent->MaxWalkSpeed = bSprinting ? MovementData->RunSpeed : MovementData->WalkSpeed;
-	Camera->SetFieldOfView(bSprinting ? MovementData->RunFOV : MovementData->WalkFOV);
+	// if (HealthComp)
+	// {
+	// 	HealthComp->SprintInput(ToSprint);
+	// }
 }
 
 void ATMS_Player::OnCrouchInput(const FInputActionValue& Value)
