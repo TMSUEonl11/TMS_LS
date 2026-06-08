@@ -120,7 +120,7 @@ void UTMS_HealthComponent::SprintInput(bool InValue)
 	if (!MovementComponent) return;
 
 	MovementComponent->MaxWalkSpeed = bSprinting ? MovementData->RunSpeed : MovementData->WalkSpeed;
-	Player->Camera->SetFieldOfView(bSprinting ? MovementData->RunFOV : MovementData->WalkFOV);
+	Player->SetTargetFOV(bSprinting ? MovementData->RunFOV : MovementData->WalkFOV);
 
 }
 

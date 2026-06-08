@@ -30,3 +30,24 @@ struct FTMS_AnimData
 		return (GetUpMontage && ClimbMontage && JumpDownMontage && VaultMontage && DeathMontage);
 	}
 };
+
+UENUM(BlueprintType)
+enum class EWeaponActionType : uint8
+{
+	EWAT_Main,
+	EWAT_Secondary,
+	EWAT_Reload,
+	EWAT_MAX UMETA(Hidden)
+};
+
+USTRUCT(BlueprintType)
+struct FWeaponAnimData
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TObjectPtr<UAnimMontage> CAnim;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TObjectPtr<UAnimMontage> WAnim;
+	
+};

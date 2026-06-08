@@ -45,4 +45,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
 	TObjectPtr<UTMS_HealthComponent> HealthComponent;
+
+	UFUNCTION()
+	void OnDeath();
 };

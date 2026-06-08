@@ -29,19 +29,70 @@ ATMS_Player::ATMS_Player()
 void ATMS_Player::BeginPlay()
 {
 	Super::BeginPlay();
+	CurrentFOV = TargetFOV;
+
+	if (WeaponComponent)
+	{
+		WeaponComponent->OnAim.AddDynamic(this, &ATMS_Player::OnAimUpdate);
+	}
 }
 
 void ATMS_Player::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	FOV_Update(DeltaTime);
 }
 
-void ATMS_Player::UseItem(const FInputActionValue& InputActionValue)
+void ATMS_Player::MainInput(const FInputActionValue& InputActionValue)
 {
 	if (!WeaponComponent || !WeaponComponent->CurrentWeapon) return;
 	bool bUseItem = InputActionValue.Get<bool>();
 	
-	WeaponComponent->CurrentWeapon->Fire_Input(bUseItem);
+	WeaponComponent->UseWeapon(EWeaponActionType::EWAT_Main, bUseItem);
+}
+
+void ATMS_Player::SecondaryInput(const FInputActionValue& InputActionValue)
+{
+	if (!WeaponComponent || !WeaponComponent->CurrentWeapon) return;
+	bool bUseItem = InputActionValue.Get<bool>();
+
+	WeaponComponent->UseWeapon(EWeaponActionType::EWAT_Secondary, bUseItem);
+}
+
+void ATMS_Player::ReloadInput(const FInputActionValue& InputActionValue)
+{
+	if (!WeaponComponent || !WeaponComponent->CurrentWeapon) return;
+
+	WeaponComponent->UseWeapon(EWeaponActionType::EWAT_Reload);
+	
+}
+
+void ATMS_Player::OnAimUpdate(bool bNewActive)
+{
+	if (!WeaponComponent || !WeaponComponent->CurrentWeapon) return;
+	SetTargetFOV(bNewActive ? WeaponComponent->CurrentWeapon->AimingFOV : 90.f);
+}
+
+void ATMS_Player::FOV_Update(float DeltaTime)
+{
+	float AimSpeed = 2.f;
+	if (WeaponComponent && WeaponComponent->CurrentWeapon)
+	{
+		AimSpeed = WeaponComponent->CurrentWeapon->FOV_InterpSpeed;
+	}
+	float NewFOV = FMath::FInterpTo(CurrentFOV, TargetFOV, DeltaTime, AimSpeed);
+
+	if (!FMath::IsNearlyEqual(NewFOV, TargetFOV))
+	{
+		CurrentFOV = NewFOV;
+		Camera->SetFieldOfView(CurrentFOV);
+	}
+}
+
+void ATMS_Player::SetTargetFOV(float NewTarget)
+{
+	TargetFOV = NewTarget;
 }
 
 void ATMS_Player::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
@@ -70,7 +121,9 @@ void ATMS_Player::SetupPlayerInputComponent(class UInputComponent* PlayerInputCo
 	EIC->BindAction(InputData->JumpInput, ETriggerEvent::Started, this, &ATMS_Player::Jump);
 	EIC->BindAction(InputData->JumpInput, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
 
-	EIC->BindAction(InputData->MainInput, ETriggerEvent::Triggered, this, &ATMS_Player::UseItem);
+	EIC->BindAction(InputData->MainInput, ETriggerEvent::Triggered, this, &ATMS_Player::MainInput);
+	EIC->BindAction(InputData->SecondaryInput, ETriggerEvent::Triggered, this, &ATMS_Player::SecondaryInput);
+	EIC->BindAction(InputData->ReloadInput, ETriggerEvent::Triggered, this, &ATMS_Player::ReloadInput);
 }
 
 void ATMS_Player::OnMoveInput(const FInputActionValue& Value)
@@ -105,10 +158,15 @@ void ATMS_Player::OnSprintInput(const FInputActionValue& Value)
 	UE_LOG(LogTemp, Display, TEXT("OnSprintInput : %s"), *Value.ToString());
 	bool ToSprint = Value.Get<bool>();
 
-	// if (HealthComp)
-	// {
-	// 	HealthComp->SprintInput(ToSprint);
-	// }
+	if (WeaponComponent)
+	{
+		WeaponComponent->UseWeapon(EWeaponActionType::EWAT_Secondary, false);
+	}
+
+	if (HealthComponent)
+	{
+		HealthComponent->SprintInput(ToSprint);
+	}
 }
 
 void ATMS_Player::OnCrouchInput(const FInputActionValue& Value)

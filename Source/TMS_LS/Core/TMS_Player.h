@@ -45,6 +45,8 @@ private:
 	FVector2D MoveInput;
 
 	float TargetFOV = 90.f;
+
+	float CurrentFOV = 90.f;
 	
 protected:
 	// Called when the game starts or when spawned
@@ -54,7 +56,15 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	void UseItem(const FInputActionValue& InputActionValue);
+	void MainInput(const FInputActionValue& InputActionValue);
+	void SecondaryInput(const FInputActionValue& InputActionValue);
+	void ReloadInput(const FInputActionValue& InputActionValue);
+
+	UFUNCTION()
+	void OnAimUpdate(bool bNewActive);
+	void FOV_Update(float DeltaTime);
+	void SetTargetFOV(float NewTarget);
+	
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
@@ -71,3 +81,4 @@ public:
 
 	void FinishVault();
 };
+

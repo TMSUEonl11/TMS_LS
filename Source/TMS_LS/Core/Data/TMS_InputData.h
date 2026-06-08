@@ -37,4 +37,6 @@ public:
 	TObjectPtr<UInputAction> MainInput;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TObjectPtr<UInputAction> SecondaryInput;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	TObjectPtr<UInputAction> ReloadInput;
 };

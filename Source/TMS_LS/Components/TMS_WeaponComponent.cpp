@@ -41,8 +41,29 @@ void UTMS_WeaponComponent::SpawnWeapon()
 		{
 			Player->GetMesh()->GetAnimInstance()->LinkAnimClassLayers(NewWeapon->AnimLayer);
 		}
-		
 	}
+	OnWeaponUpdate.Broadcast();
 	
+}
+
+void UTMS_WeaponComponent::UseWeapon(EWeaponActionType Action, bool bInValue)
+{
+	if (!CurrentWeapon) return;
+
+	switch (Action)
+	{
+	case EWeaponActionType::EWAT_Main:
+		CurrentWeapon->Fire_Input(bInValue);
+		break;
+	case EWeaponActionType::EWAT_Secondary:
+		CurrentWeapon->Aim_Input(bInValue);
+		OnAim.Broadcast(bInValue);
+		break;
+	case EWeaponActionType::EWAT_Reload:
+		CurrentWeapon->Reload_Input();
+		break;
+	case EWeaponActionType::EWAT_MAX:
+		break;
+	}
 }
 

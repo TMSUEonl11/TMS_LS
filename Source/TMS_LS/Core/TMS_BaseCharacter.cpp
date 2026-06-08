@@ -16,7 +16,10 @@ ATMS_BaseCharacter::ATMS_BaseCharacter()
 void ATMS_BaseCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	if (IsValid(HealthComponent))
+	{
+		HealthComponent->OnDeath.AddDynamic(this, &ATMS_BaseCharacter::OnDeath);
+	}
 }
 
 // Called every frame
@@ -31,4 +34,16 @@ void ATMS_BaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputC
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+void ATMS_BaseCharacter::OnDeath()
+{
+	if (!VaultAnims.IsValid()) return;
+	PlayAnimMontage(VaultAnims.DeathMontage);
+	if (APlayerController* PC = Cast<APlayerController>(GetController()))
+	{
+		PC->UnPossess();
+		PC->StartSpectatingOnly();
+		SetLifeSpan(5.f);
+	}
 }

@@ -4,9 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "TMS_LS/Core/Data/TMS_DataTypes.h"
 #include "TMS_LS/Items/Weapons/TMS_BaseWeapon.h"
 #include "TMS_WeaponComponent.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnAimSignature, bool, bIsAiming);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnWeaponUpdateSignature);
 
 UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
 class TMS_LS_API UTMS_WeaponComponent : public UActorComponent
@@ -22,10 +25,17 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TObjectPtr<ATMS_BaseWeapon> CurrentWeapon;
 
+	UPROPERTY(BlueprintAssignable)
+	FOnAimSignature OnAim;
+	UPROPERTY(BlueprintAssignable)
+	FOnWeaponUpdateSignature OnWeaponUpdate;
+
 protected:
 	virtual void BeginPlay() override;
 
 public:
 
 	void SpawnWeapon();
+
+	void UseWeapon(EWeaponActionType Action, bool bInValue = true);
 };
