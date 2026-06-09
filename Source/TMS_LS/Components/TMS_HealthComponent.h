@@ -9,6 +9,8 @@
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDeathSignature);
 
 class UTMS_MovementData;
+class ATMS_Player;
+class UCharacterMovementComponent;
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class TMS_LS_API UTMS_HealthComponent : public UActorComponent
@@ -52,6 +54,21 @@ public:
 	bool bDead = false;
 
 	FTimerHandle CoolDownHandle;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Attribute)
+	bool bHasFallDamage = true;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Attribute)
+	float FallDamageMultiply = 20.f;
+	
+	UPROPERTY()
+	ATMS_Player* Player;
+	
+	UPROPERTY()
+	UCharacterMovementComponent* MovementComponent;
+	
+	
+	FVector StartFallLocation = FVector::ZeroVector;
 
 protected:
 	virtual void BeginPlay() override;
@@ -97,4 +114,9 @@ private:
 	
 	bool CanSprint();
 	void FinishCooldown();
+	
+	void SetStartFallLocation();
+	
+	void CheckFallDamage();
+	
 };

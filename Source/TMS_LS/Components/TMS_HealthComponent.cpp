@@ -3,6 +3,7 @@
 
 #include "TMS_HealthComponent.h"
 
+#include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "TMS_LS/Core/TMS_Player.h"
 #include "TMS_LS/Core/Data/TMS_MovementData.h"
@@ -20,6 +21,11 @@ void UTMS_HealthComponent::BeginPlay()
 
 	SetHealth(MaxHealth);
 	SetStamina(MaxStamina);
+	Player = Cast<ATMS_Player>(GetOwner());
+	if (Player)
+	{
+		MovementComponent = Player->GetCharacterMovement();
+	}
 
 	if (GetOwner())
 	{
@@ -52,6 +58,19 @@ void UTMS_HealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 	{
 		GainStamina(DeltaTime);
 	}
+	
+	//Fall Damage
+	if (bHasFallDamage)
+	{
+		if (MovementComponent->IsFalling())
+		{
+			SetStartFallLocation();
+		} else
+		{
+			CheckFallDamage();
+		}
+	}
+
 	// ...
 }
 
@@ -113,10 +132,7 @@ void UTMS_HealthComponent::SprintInput(bool InValue)
 
 	bSprinting = InValue;
 	
-	ATMS_Player* Player = Cast<ATMS_Player>(GetOwner());
 	if (!Player) return;
-	
-	UCharacterMovementComponent* MovementComponent = Player->GetCharacterMovement();
 	if (!MovementComponent) return;
 
 	MovementComponent->MaxWalkSpeed = bSprinting ? MovementData->RunSpeed : MovementData->WalkSpeed;
@@ -133,4 +149,41 @@ bool UTMS_HealthComponent::CanSprint()
 void UTMS_HealthComponent::FinishCooldown()
 {
 	bCooldown = false;
+}
+
+void UTMS_HealthComponent::SetStartFallLocation()
+{
+	if (!Player) return;
+	if (StartFallLocation == FVector::ZeroVector)
+	{
+		StartFallLocation = Player->GetActorLocation();
+	}
+}
+
+void UTMS_HealthComponent::CheckFallDamage()
+{
+	if (!Player) return;
+	if (StartFallLocation != FVector::ZeroVector)
+	{
+		FVector FinishFallLocation = Player->GetActorLocation();
+		float HeightPlayer = Player->GetCapsuleComponent()->GetScaledCapsuleHalfHeight()*2;
+		float HeightFall = FMath::Abs(StartFallLocation.Z - FinishFallLocation.Z);
+		if (HeightFall <= HeightPlayer*3)
+		{
+			StartFallLocation = FVector::ZeroVector;
+		} else
+		{
+			float FallDamage = (HeightFall/HeightPlayer - 3) * FallDamageMultiply;
+			StartFallLocation = FVector::ZeroVector;
+			OnTakeDamage(
+				GetOwner(),
+				FallDamage,
+				nullptr,
+				nullptr,
+				nullptr
+			);
+			
+		}
+		
+	}
 }
