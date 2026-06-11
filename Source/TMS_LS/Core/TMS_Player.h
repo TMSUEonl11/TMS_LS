@@ -9,6 +9,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "MotionWarpingComponent.h"
 #include "TMS_LS/TMS_LSCharacter.h"
+#include "TMS_HUD.h"
 #include "TMS_Player.generated.h"
 
 class UTMS_WeaponComponent;
@@ -47,6 +48,12 @@ private:
 	float TargetFOV = 90.f;
 
 	float CurrentFOV = 90.f;
+
+	UPROPERTY()
+	TObjectPtr<APlayerController> PPC;
+
+	UPROPERTY()
+	TObjectPtr<ATMS_HUD> PHUD;
 	
 protected:
 	// Called when the game starts or when spawned
@@ -73,7 +80,7 @@ public:
 	void OnLookInput(const FInputActionValue& Value);
 	void OnSprintInput(const FInputActionValue& Value);
 	void OnCrouchInput(const FInputActionValue& Value);
-
+	void OnInventoryInput(const FInputActionValue& Value);
 	virtual void Jump() override;
 
 	bool CanVault() const;

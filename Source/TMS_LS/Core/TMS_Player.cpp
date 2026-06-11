@@ -35,6 +35,11 @@ void ATMS_Player::BeginPlay()
 	{
 		WeaponComponent->OnAim.AddDynamic(this, &ATMS_Player::OnAimUpdate);
 	}
+	PPC = Cast<APlayerController>(GetController());
+	if (!PPC) return;
+
+	PHUD = Cast<ATMS_HUD>(PPC->GetHUD());
+	if (!PHUD) return;
 }
 
 void ATMS_Player::Tick(float DeltaTime)
@@ -125,6 +130,8 @@ void ATMS_Player::SetupPlayerInputComponent(class UInputComponent* PlayerInputCo
 	EIC->BindAction(InputData->MainInput, ETriggerEvent::Triggered, this, &ATMS_Player::MainInput);
 	EIC->BindAction(InputData->SecondaryInput, ETriggerEvent::Triggered, this, &ATMS_Player::SecondaryInput);
 	EIC->BindAction(InputData->ReloadInput, ETriggerEvent::Triggered, this, &ATMS_Player::ReloadInput);
+
+	EIC->BindAction(InputData->InventoryInput, ETriggerEvent::Triggered, this, &ATMS_Player::OnInventoryInput);
 }
 
 void ATMS_Player::OnMoveInput(const FInputActionValue& Value)
@@ -186,6 +193,24 @@ void ATMS_Player::OnCrouchInput(const FInputActionValue& Value)
 	
 	MovementComponent->IsCrouching() ? MovementComponent->Crouch() : MovementComponent->UnCrouch();
 	bCrouching = MovementComponent->IsCrouching();
+}
+
+void ATMS_Player::OnInventoryInput(const FInputActionValue& Value)
+{
+	if (!PHUD) return;
+
+	switch (PHUD->GetUIState())
+	{
+	case EUIState::EUIS_Game :
+		PHUD->SetUIState(EUIState::EUIS_Equipment);
+		break;
+	case EUIState::EUIS_Pause:
+		break;
+	case EUIState::EUIS_Loot:
+	case EUIState::EUIS_Equipment:
+		PHUD->SetUIState(EUIState::EUIS_Game);
+		break;
+	}
 }
 
 void ATMS_Player::Jump()
