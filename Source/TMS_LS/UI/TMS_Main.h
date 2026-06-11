@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "TMS_AttributePanel.h"
 #include "Blueprint/UserWidget.h"
+#include "TMS_LS/Core/TMS_HUD.h"
 #include "TMS_Main.generated.h"
 
 /**
@@ -20,4 +21,11 @@ public:
 
 	UFUNCTION()
 	virtual void NativeConstruct() override;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void OnUIStateChanged(EUIState InNewState);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	EUIState CurrentUIState;
+	
 };

@@ -10,6 +10,8 @@ ATMS_BaseCharacter::ATMS_BaseCharacter()
 	PrimaryActorTick.bCanEverTick = true;
 
 	HealthComponent = CreateDefaultSubobject<UTMS_HealthComponent>(TEXT("HealthComponent"));
+
+	InventoryComponent = CreateDefaultSubobject<UTMS_InventoryComponent>(TEXT("InventoryComponent"));
 }
 
 // Called when the game starts or when spawned
@@ -20,6 +22,8 @@ void ATMS_BaseCharacter::BeginPlay()
 	{
 		HealthComponent->OnDeath.AddDynamic(this, &ATMS_BaseCharacter::OnDeath);
 	}
+
+	
 }
 
 // Called every frame

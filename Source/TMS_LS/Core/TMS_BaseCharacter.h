@@ -9,6 +9,7 @@
 #include "Data/TMS_MovementData.h"
 #include "GameFramework/Character.h"
 #include "TMS_LS/Components/TMS_HealthComponent.h"
+#include "Inventory/TMS_InventoryComponent.h"
 #include "TMS_BaseCharacter.generated.h"
 
 UCLASS()
@@ -46,6 +47,11 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
 	TObjectPtr<UTMS_HealthComponent> HealthComponent;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Components)
+	TObjectPtr<UTMS_InventoryComponent> InventoryComponent;
+
 	UFUNCTION()
 	void OnDeath();
+
+	
 };
