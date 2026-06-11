@@ -69,6 +69,7 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	void OnMoveInput(const FInputActionValue& Value);
+	void StopMoveInput(const FInputActionValue& Value);
 	void OnLookInput(const FInputActionValue& Value);
 	void OnSprintInput(const FInputActionValue& Value);
 	void OnCrouchInput(const FInputActionValue& Value);

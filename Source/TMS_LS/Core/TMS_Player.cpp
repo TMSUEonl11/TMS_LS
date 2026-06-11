@@ -114,6 +114,7 @@ void ATMS_Player::SetupPlayerInputComponent(class UInputComponent* PlayerInputCo
 	if (!EIC) return;
 
 	EIC->BindAction(InputData->MoveInput, ETriggerEvent::Triggered, this, &ATMS_Player::OnMoveInput);
+	EIC->BindAction(InputData->MoveInput, ETriggerEvent::Completed, this, &ATMS_Player::StopMoveInput);
 	EIC->BindAction(InputData->LookInput, ETriggerEvent::Triggered, this, &ATMS_Player::OnLookInput);
 	EIC->BindAction(InputData->SprintInput, ETriggerEvent::Triggered, this, &ATMS_Player::OnSprintInput);
 	EIC->BindAction(InputData->CrouchInput, ETriggerEvent::Triggered, this, &ATMS_Player::OnCrouchInput);
@@ -141,7 +142,13 @@ void ATMS_Player::OnMoveInput(const FInputActionValue& Value)
 	AddMovementInput(Dir, InputScale);
 	GetCharacterMovement()->bUseControllerDesiredRotation = MoveInput.Length() > 0.f;
 	bUseControllerRotationYaw = MoveInput.Length() == 0.f;
+	GetCharacterMovement()->bOrientRotationToMovement = false;
 	
+}
+
+void ATMS_Player::StopMoveInput(const FInputActionValue& Value)
+{
+	GetCharacterMovement()->bOrientRotationToMovement = true;
 }
 
 void ATMS_Player::OnLookInput(const FInputActionValue& Value)
