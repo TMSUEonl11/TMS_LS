@@ -132,6 +132,7 @@ void ATMS_Player::SetupPlayerInputComponent(class UInputComponent* PlayerInputCo
 	EIC->BindAction(InputData->ReloadInput, ETriggerEvent::Triggered, this, &ATMS_Player::ReloadInput);
 
 	EIC->BindAction(InputData->InventoryInput, ETriggerEvent::Triggered, this, &ATMS_Player::OnInventoryInput);
+	EIC->BindAction(InputData->StatsInput, ETriggerEvent::Triggered, this, &ATMS_Player::OnStatsInput);
 }
 
 void ATMS_Player::OnMoveInput(const FInputActionValue& Value)
@@ -207,8 +208,29 @@ void ATMS_Player::OnInventoryInput(const FInputActionValue& Value)
 	case EUIState::EUIS_Pause:
 		break;
 	case EUIState::EUIS_Loot:
+	case EUIState::EUIS_Score:
 	case EUIState::EUIS_Equipment:
 		PHUD->SetUIState(EUIState::EUIS_Game);
+		break;
+	}
+}
+
+void ATMS_Player::OnStatsInput(const FInputActionValue& Value)
+{
+	if (!PHUD) return;
+
+	switch (PHUD->GetUIState())
+	{
+	case EUIState::EUIS_Game :
+		PHUD->SetUIState(EUIState::EUIS_Score);
+		break;
+	case EUIState::EUIS_Pause:
+		break;
+	case EUIState::EUIS_Loot:
+	case EUIState::EUIS_Score:
+		PHUD->SetUIState(EUIState::EUIS_Game);
+		break;
+	case EUIState::EUIS_Equipment:
 		break;
 	}
 }

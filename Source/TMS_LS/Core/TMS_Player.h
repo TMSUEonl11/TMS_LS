@@ -81,6 +81,7 @@ public:
 	void OnSprintInput(const FInputActionValue& Value);
 	void OnCrouchInput(const FInputActionValue& Value);
 	void OnInventoryInput(const FInputActionValue& Value);
+	void OnStatsInput(const FInputActionValue& Value);
 	virtual void Jump() override;
 
 	bool CanVault() const;

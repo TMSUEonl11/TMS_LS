@@ -38,5 +38,12 @@ void UTMS_Main::OnUIStateChanged_Implementation(EUIState InNewState)
 			this->SetKeyboardFocus();
 			break;
 		}
+	case EUIState::EUIS_Score:
+		{
+			FInputModeGameOnly InputMode;
+			GetOwningPlayer()->SetInputMode(InputMode);
+			GetOwningPlayer()->SetShowMouseCursor(false);
+			break;
+		}
 	}
 }

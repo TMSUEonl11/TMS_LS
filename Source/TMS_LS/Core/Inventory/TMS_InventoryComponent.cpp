@@ -84,6 +84,11 @@ void UTMS_InventoryComponent::RemoveItem(FItemSlotData InItem)
 	OnInventoryUpdated.Broadcast();
 }
 
+void UTMS_InventoryComponent::UpdateInventory()
+{
+	OnInventoryUpdated.Broadcast();
+}
+
 
 void UTMS_InventoryComponent::DEBUG_PrintSlots()
 {

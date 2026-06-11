@@ -14,6 +14,7 @@ enum class EUIState : uint8
 	EUIS_Game,
 	EUIS_Pause,
 	EUIS_Loot,
+	EUIS_Score,
 	EUIS_Equipment
 };
 
