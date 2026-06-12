@@ -2,13 +2,33 @@
 
 
 #include "TMS_HUD.h"
-
 #include "Engine/Canvas.h"
 
 void ATMS_HUD::DrawHUD()
 {
 	Super::DrawHUD();
 	DrawCrosshair();
+}
+
+void ATMS_HUD::BeginPlay()
+{
+	Super::BeginPlay();
+	if (IsValid(HUD_Widget.Get()))
+	{
+		if (UUserWidget* WHUD =
+			CreateWidget(GetOwningPlayerController(), HUD_Widget, "HUD_Main"))
+		{
+			WHUD->AddToViewport();
+		}
+	}
+}
+
+void ATMS_HUD::SetUIState(EUIState InState)
+{
+	CurrentUIState = InState;
+
+
+	OnUIStateChanged.Broadcast(CurrentUIState);
 }
 
 void ATMS_HUD::DrawCrosshair()

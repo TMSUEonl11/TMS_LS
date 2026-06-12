@@ -10,14 +10,15 @@ public class TMS_LS : ModuleRules
 
 		PublicDependencyModuleNames.AddRange(new string[]
 		{
-			"Core", 
+			"Core",
 			"CoreUObject", 
 			"Engine", 
 			"InputCore", 
-			"EnhancedInput",
+			"EnhancedInput", 
 			"GameplayAbilities",
-			"GameplayTags",
 			"GameplayTasks",
+			"GameplayTags",
+			"AnimGraphRuntime",
 			"MotionWarping",
 			"UMG"
 		});
