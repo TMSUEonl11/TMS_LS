@@ -20,7 +20,8 @@ public class TMS_LS : ModuleRules
 			"GameplayTags",
 			"AnimGraphRuntime",
 			"MotionWarping",
-			"UMG"
+			"UMG",
+			"DeveloperSettings"
 		});
 	}
 }

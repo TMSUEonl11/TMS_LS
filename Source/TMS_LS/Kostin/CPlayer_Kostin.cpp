@@ -25,8 +25,18 @@ ACPlayer_Kostin::ACPlayer_Kostin()
 	
 	WeaponComponent_Kostin = CreateDefaultSubobject<UTMS_WeaponComponent_Kostin>("WeaponComponent");
 	HealthComponent_Kostin = CreateDefaultSubobject<UTMS_HealthComponent_Kostin>("HealthComponent");
+	InventoryComponent_Kostin = CreateDefaultSubobject<UInventoryComponent_Kostin>("InventoryComponent");
 	//TargetFOV = Camera->FieldOfView;
 	
+}
+
+void ACPlayer_Kostin::BeginPlay()
+{
+	Super::BeginPlay();
+	PlayerController = Cast<APlayerController>(GetController());
+	if (!PlayerController) return;
+	PHUD = Cast<AHUD_Kostin>(PlayerController->GetHUD());
+	if (!PHUD) return;
 }
 
 void ACPlayer_Kostin::OnMoveInput(const FInputActionValue& InputActionValue)
@@ -90,9 +100,16 @@ void ACPlayer_Kostin::UseItem(const FInputActionValue& InputActionValue)
 	WeaponComponent_Kostin->CurrentWeapon->Fire_Input(bUseItem);
 }
 
+void ACPlayer_Kostin::OnInventoryInput(const FInputActionValue& InputActionValue)
+{
+	if (!PHUD) return;
+	PHUD->ToggleInventory();
+}
+
 
 void ACPlayer_Kostin::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
+
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 	if (!InputContext || !IsValid(InputData)) return;
 	PlayerController = Cast<APlayerController>(GetController());
@@ -117,6 +134,7 @@ void ACPlayer_Kostin::SetupPlayerInputComponent(UInputComponent* PlayerInputComp
 	 EIC->BindAction(InputData->JumpInput, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
 	//
 	 EIC->BindAction(InputData->MainInput, ETriggerEvent::Triggered, this, &ACPlayer_Kostin::UseItem);
+	EIC->BindAction(InputData->InventoryInput, ETriggerEvent::Triggered, this, &ACPlayer_Kostin::OnInventoryInput);
 }
 
 void ACPlayer_Kostin::Landed(const FHitResult& Hit)

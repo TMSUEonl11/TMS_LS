@@ -4,9 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "CCharacter_Kostin.h"
+#include "HUD_Kostin.h"
 #include "MotionWarpingComponent.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Item/InventoryComponent_Kostin.h"
 #include "TMS_LS/TMS_LSCharacter.h"
 #include "TMS_LS/Core/Data/TMS_InputData.h"
 #include "CPlayer_Kostin.generated.h"
@@ -25,6 +27,8 @@ private:
 	
 
 public:
+	
+	virtual void BeginPlay() override;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
 	TObjectPtr<USpringArmComponent> SpringArm;
@@ -47,6 +51,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
 	TObjectPtr<UTMS_HealthComponent_Kostin> HealthComponent_Kostin;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
+	TObjectPtr<UInventoryComponent_Kostin> InventoryComponent_Kostin;
+	
+	
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Fall Damage")
 	float FallDamageVelocity = 700.0f; 
@@ -55,10 +63,14 @@ public:
 	void OnLookInput(const FInputActionValue& InputActionValue);
 	void OnSprintInput(const FInputActionValue& InputActionValue);
 	void UseItem(const FInputActionValue& InputActionValue);
+	void OnInventoryInput(const FInputActionValue& InputActionValue);
 	
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 	virtual void Landed(const FHitResult& Hit) override;
 	
+private:
+	UPROPERTY()
+	TObjectPtr<AHUD_Kostin> PHUD;
 	
 	APlayerController* PlayerController;
 };
