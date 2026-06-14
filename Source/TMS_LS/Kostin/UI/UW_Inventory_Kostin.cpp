@@ -7,12 +7,13 @@
 
 void UUW_Inventory_Kostin::NativeConstruct()
 {
-	Super::NativeConstruct();
+
 	if (APlayerController* PC = GetOwningPlayer())
 	{	
 		PC->OnPossessedPawnChanged.AddDynamic(this, &UUW_Inventory_Kostin::OnPawnChanged);
 		if (PC->GetPawn())OnPawnChanged(nullptr, PC->GetPawn());
 	}
+	Super::NativeConstruct();
 }
 
 void UUW_Inventory_Kostin::OnPawnChanged(APawn* OldPawn, APawn* NewPawn)
@@ -24,10 +25,6 @@ void UUW_Inventory_Kostin::OnPawnChanged(APawn* OldPawn, APawn* NewPawn)
 		UE_LOG(LogTemp, Error, TEXT("Inventory Component FALSE"));
 	}
 	else UE_LOG(LogTemp, Error, TEXT("Inventory Component TRUE"));
-	if (InventoryComponent)
-	{
-		OnInventoryReady.Broadcast();
-	}
 }
 
 void UUW_Inventory_Kostin::InitData(TArray<FSlotData_Kostin>& Slots,int32 &ContainerSize)

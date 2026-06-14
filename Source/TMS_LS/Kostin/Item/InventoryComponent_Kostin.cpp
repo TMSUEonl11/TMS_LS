@@ -59,12 +59,12 @@ int32 UInventoryComponent_Kostin::GetMaxAmount(int32 ItemID)
 	return 0;
 }
 
-bool UInventoryComponent_Kostin::AddItem(int32 ItemID, int32 Amount)
+int32 UInventoryComponent_Kostin::AddItem(int32 ItemID, int32 Amount)
 {
-	if (Amount <= 0) return false;
+	if (Amount <= 0) return 0;
 	int32 MaxAmount=GetMaxAmount(ItemID);
-	if (MaxAmount <= 0) return false;
-	int32 BufAmount=FMath::Clamp(Amount,1,MaxAmount);
+	if (MaxAmount <= 0) return Amount;
+	int32 BufAmount=Amount;
 	for (int32 i = 0; i < ContainerSize; ++i)
 	{
 		if (Slots[i].ItemSlotData.ItemID != ItemID) continue;
@@ -73,23 +73,37 @@ bool UInventoryComponent_Kostin::AddItem(int32 ItemID, int32 Amount)
 		{
 			Slots[i].ItemSlotData.Amount += BufAmount;
 			OnInventoryUpdated.Broadcast();
-			return true;
+			return 0;
 		}
 		else
 		{
 			BufAmount=BufAmount-(MaxAmount-Slots[i].ItemSlotData.Amount);
 			Slots[i].ItemSlotData.Amount=MaxAmount;
-			continue;
+			if (BufAmount)continue;
+			OnInventoryUpdated.Broadcast();
+			return 0;
 		}
 	}
 	for (int32 i = 0; i < ContainerSize; ++i)
 	{
 		if (Slots[i].ItemSlotData.ItemID!=-1)continue;
 		Slots[i].ItemSlotData.ItemID = ItemID;
-		Slots[i].ItemSlotData.Amount = BufAmount;
-		OnInventoryUpdated.Broadcast();
-		return true;
+		if (BufAmount < MaxAmount)
+		{
+			Slots[i].ItemSlotData.Amount = BufAmount;
+			OnInventoryUpdated.Broadcast();
+			return 0;
+		}
+		else
+		{
+			Slots[i].ItemSlotData.Amount = MaxAmount;
+			BufAmount-=MaxAmount;
+			continue;
+		}
+
+
 	}
-	return false;
+	OnInventoryUpdated.Broadcast();
+	return BufAmount;
 }
 

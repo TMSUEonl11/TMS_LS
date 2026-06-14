@@ -21,7 +21,7 @@ public:
 	bool GetItemDataByID(int32 ItemID, FItemData_Kostin& OutItemData);
 
 	UFUNCTION(BlueprintCallable)
-	bool AddItem(APlayerController* Target, int32 ItemID, int32 Amount);
+	int32 AddItem(APlayerController* Target, int32 ItemID, int32 Amount);
 private:
 	UPROPERTY()
 	UDataTable* ItemDataTable;

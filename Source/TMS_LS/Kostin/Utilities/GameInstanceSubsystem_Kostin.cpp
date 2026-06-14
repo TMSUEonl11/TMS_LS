@@ -44,11 +44,11 @@ bool UGameInstanceSubsystem_Kostin::GetItemDataByID(int32 ItemID, FItemData_Kost
 return true;
 }
 
-bool UGameInstanceSubsystem_Kostin::AddItem(APlayerController* Target, int32 ItemID, int32 Amount)
+int32 UGameInstanceSubsystem_Kostin::AddItem(APlayerController* Target, int32 ItemID, int32 Amount)
 {
-	if (!Target || !Target->GetPawn()) return false;
+	if (!Target || !Target->GetPawn()) return Amount;
 	UInventoryComponent_Kostin *IC =Target->GetPawn()->GetComponentByClass<UInventoryComponent_Kostin>();
-	if (!IC) return false;
-	IC->AddItem(ItemID, Amount);
-	return true;
+	if (!IC) return Amount;
+	
+	return IC->AddItem(ItemID, Amount);
 }

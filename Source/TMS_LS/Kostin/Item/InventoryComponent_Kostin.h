@@ -40,7 +40,7 @@ public:
 	                           FActorComponentTickFunction* ThisTickFunction) override;
 	
 	UFUNCTION(BlueprintCallable)
-	bool AddItem(int32 ItemID, int32 Amount=1);
+	int32 AddItem(int32 ItemID, int32 Amount=1);
 	
 	int32 GetMaxAmount(int32 ItemID);
 	

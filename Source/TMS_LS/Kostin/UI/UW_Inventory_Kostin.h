@@ -10,7 +10,6 @@
 /**
  * 
  */
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnInventoryReadyDelegate);
 
 
 UCLASS()
@@ -20,9 +19,6 @@ class TMS_LS_API UUW_Inventory_Kostin : public UUserWidget
 public:
 
 	virtual void NativeConstruct() override;
-	
-	UPROPERTY(BlueprintAssignable, Category = "Inventory")
-	FOnInventoryReadyDelegate OnInventoryReady;
 	
 	UFUNCTION()
 	void OnPawnChanged(APawn* OldPawn, APawn* NewPawn);

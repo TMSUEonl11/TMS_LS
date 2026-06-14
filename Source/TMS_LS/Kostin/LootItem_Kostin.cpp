@@ -74,8 +74,8 @@ bool ALootItem_Kostin::InteractCall_Implementation(APlayerController* InPC)
 {
 	IInteractInterface_Kostin::InteractCall_Implementation(InPC);
 	if (!InPC)return false;
-	IS->AddItem(InPC,ItemID,Amount);
-	Destroy();
+	Amount=IS->AddItem(InPC,ItemID,Amount);
+	if (!Amount)Destroy();
 	return true;
 }
 
