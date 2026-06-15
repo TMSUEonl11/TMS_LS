@@ -7,6 +7,7 @@
 #include "Engine/AssetManager.h"
 #include "Engine/StreamableManager.h"
 #include "Net/UnrealNetwork.h"
+#include "TMS_LS/Core/TMS_HUD.h"
 
 
 // Sets default values
@@ -27,18 +28,10 @@ ATMS_Chest::ATMS_Chest()
 
 bool ATMS_Chest::TryInteract(TWeakObjectPtr<class APlayerController> InPC)
 {
-	switch (ChestState)
+	if (ATMS_HUD* InHUD = Cast<ATMS_HUD>(InPC->GetHUD()))
 	{
-	case EChestState::ECS_Closed:
-		SetChestState(EChestState::ECS_Opened);
-		return true;
-	case EChestState::ECS_Opened:
-		SetChestState(EChestState::ECS_Closed);
-		return true;
-	default:
-		break;
+		InHUD->SetUIState(EUIState::EUIS_Loot);
 	}
-	
 	return false;
 }
 
@@ -76,7 +69,23 @@ void ATMS_Chest::GenerateLoot()
 {
 	if (bLooted)
 		return;
-		
+
+	if (PossibleLoot.IsEmpty()) return;
+	
+	for (int32 i = 0; i < LootItemsAmount; ++i)
+	{
+		int32 RandID = FMath::RandRange(0, PossibleLoot.Num()-1);
+		TSubclassOf<UItemObject> RandItem = PossibleLoot[RandID];
+		if (RandItem)
+		{
+			UItemObject* LootItem = NewObject<UItemObject>(this, RandItem);
+
+			bool bSuccess = false;
+			FItemSlotData ItemData(LootItem->ItemData.ItemID, LootItem->Amount);
+
+			InventoryComponent->AddItem(ItemData, bSuccess);
+		}
+	}
 	
 	bLooted = true;
 	OnChestLooted.ExecuteIfBound();

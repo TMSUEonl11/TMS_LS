@@ -85,9 +85,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Loot")
 	TArray<TSubclassOf<UItemObject>> PossibleLoot;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Loot")
-	TArray<TObjectPtr<UItemObject>> Loot;
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Loot", meta = (UIMin = 0, ClampMin = 0, UIMax = 255, ClampMax = 255))
 	uint8 LootItemsAmount = 0;
 

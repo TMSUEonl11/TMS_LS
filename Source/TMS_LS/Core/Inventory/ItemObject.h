@@ -19,5 +19,5 @@ public:
 	FItemData ItemData;
 	
 	UPROPERTY()
-	int32 Amount = 0;
+	int32 Amount = 1;
 };
