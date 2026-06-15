@@ -73,3 +73,6 @@ Plugins/**/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+.idea/.idea.TMS_LS/.idea/vcs.xml
+.idea/.idea.TMS_LS/.idea/workspace.xml
+TMS_LS.sln.DotSettings.user
