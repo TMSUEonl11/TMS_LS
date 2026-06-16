@@ -20,6 +20,9 @@ public:
 	FName SocketName;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Item)
+	EEquipmentType EquipmentType;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Item)
 	TMap<EEquipmentAction, UAnimMontage*> ActionMontages;
 
 protected:

@@ -6,6 +6,7 @@
 #include "TMS_InventoryComponent.h"
 #include "TMS_InventorySubsystem.h"
 #include "GameFramework/Character.h"
+#include "TMS_LS/Components/TMS_WeaponComponent.h"
 
 UTMS_EquipmentComponent::UTMS_EquipmentComponent()
 {
@@ -46,6 +47,7 @@ void UTMS_EquipmentComponent::GetEquipmentBySlot(EEquipmentType InSlot, FItemSlo
 
 void UTMS_EquipmentComponent::NextPendingEquipment()
 {
+	OnSlotUpdate.Broadcast(CurrentEquipmentProcess.Slot);
 	CurrentEquipmentProcess = FEquipmentProcess();
 	if (EquipmentProcesses.IsEmpty()) return;
 	EquipmentProcesses.Dequeue(CurrentEquipmentProcess);
@@ -96,6 +98,14 @@ void UTMS_EquipmentComponent::EquipSlot(EEquipmentType InSlot, const FItemSlotDa
 		return;
 	}
 
+	if (InSlot == EEquipmentType::EET_Main)
+	{
+		if (UTMS_WeaponComponent* WC = GetOwner()->GetComponentByClass<UTMS_WeaponComponent>())
+		{
+			WC->SetCurrentWeapon(Cast<ATMS_BaseWeapon>(EquipmentActor));
+		}
+	}
+
 	EquipmentObjects.Emplace(InSlot, InItemData);
 	EquipmentActors.Emplace(InSlot, EquipmentActor);
 
@@ -106,7 +116,10 @@ void UTMS_EquipmentComponent::EquipSlot(EEquipmentType InSlot, const FItemSlotDa
 
 void UTMS_EquipmentComponent::UnequipSlot(EEquipmentType InSlot)
 {
-	
+	if (!EquipmentActors[InSlot]) return;
+
+	OnBeginUnequip.Broadcast(InSlot);
+	ProcessUnequip(InSlot);
 }
 
 void UTMS_EquipmentComponent::ProcessEquip(EEquipmentType InSlot)
@@ -141,6 +154,25 @@ void UTMS_EquipmentComponent::ProcessEquip(EEquipmentType InSlot)
 
 void UTMS_EquipmentComponent::ProcessUnequip(EEquipmentType InSlot)
 {
+	AItemEquipment* EquipmentItem = EquipmentActors[InSlot];
+	if (!GetWorld() || !GetOwner() || !EquipmentItem)
+	{
+		FinishUnequip();
+		return;
+	}
+
+	UAnimMontage* EquipAnim = EquipmentItem->GetMontageByType(EEquipmentAction::EEA_Unequip);
+	float AnimLength = EquipAnim ? EquipAnim->GetPlayLength() : 1.6f;
+	if (EquipAnim)
+	{
+		if (ACharacter* Player = Cast<ACharacter>(GetOwner()))
+		{
+			Player->GetMesh()->GetAnimInstance()->Montage_Play(EquipAnim);
+		}
+	}
+
+	GetWorld()->GetTimerManager().SetTimer(EquipmentHandle, this,
+		&ThisClass::FinishUnequip, AnimLength, false);
 }
 
 void UTMS_EquipmentComponent::FinishEquip()
@@ -151,6 +183,27 @@ void UTMS_EquipmentComponent::FinishEquip()
 
 void UTMS_EquipmentComponent::FinishUnequip()
 {
+	if (CurrentEquipmentProcess.Slot == EEquipmentType::EET_Main)
+	{
+		if (UTMS_WeaponComponent* WC = GetOwner()->GetComponentByClass<UTMS_WeaponComponent>())
+		{
+			WC->SetCurrentWeapon(nullptr);
+		}
+	}
+	
+	if (AActor* EquipActor = EquipmentActors[CurrentEquipmentProcess.Slot])
+	{
+		EquipActor->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+		EquipActor->Destroy();
+	}
+
+	MoveCurrentItemInInventory();
+
+	EquipmentActors.Emplace(CurrentEquipmentProcess.Slot);
+	EquipmentObjects.Emplace(CurrentEquipmentProcess.Slot, FItemSlotData());
+	
+	OnFinishUnequip.Broadcast(CurrentEquipmentProcess.Slot);
+	NextPendingEquipment();
 }
 
 void UTMS_EquipmentComponent::MoveCurrentItemInInventory()

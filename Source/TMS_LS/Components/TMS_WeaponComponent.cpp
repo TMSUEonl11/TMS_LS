@@ -13,7 +13,7 @@ void UTMS_WeaponComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	SpawnWeapon();
+	//SpawnWeapon();
 }
 
 void UTMS_WeaponComponent::SpawnWeapon()
@@ -65,5 +65,24 @@ void UTMS_WeaponComponent::UseWeapon(EWeaponActionType Action, bool bInValue)
 	case EWeaponActionType::EWAT_MAX:
 		break;
 	}
+}
+
+void UTMS_WeaponComponent::SetCurrentWeapon(ATMS_BaseWeapon* InWeaponActor)
+{
+	if (!GetWorld()) return;
+	ATMS_Player* Player = Cast<ATMS_Player>(GetOwner());
+	if (!Player) return;
+	
+	if (InWeaponActor)
+	{
+		CurrentWeapon = InWeaponActor;
+		InWeaponActor->SetOwner(GetOwner());
+
+		if (InWeaponActor->AnimLayer)
+		{
+			Player->GetMesh()->GetAnimInstance()->LinkAnimClassLayers(InWeaponActor->AnimLayer);
+		}
+	}
+	OnWeaponUpdate.Broadcast();
 }
 
