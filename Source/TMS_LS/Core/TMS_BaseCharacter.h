@@ -10,6 +10,8 @@
 #include "Inventory/TMS_InventoryComponent.h"
 #include "TMS_BaseCharacter.generated.h"
 
+class UTMS_WeaponComponent;
+
 UCLASS()
 class TMS_LS_API ATMS_BaseCharacter : public ACharacter
 {
@@ -50,6 +52,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Components)
 	TObjectPtr<UTMS_EquipmentComponent> EquipmentComponent;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
+	TObjectPtr<UTMS_WeaponComponent> WeaponComponent;
 	
 	UFUNCTION()
 	void OnDeath();

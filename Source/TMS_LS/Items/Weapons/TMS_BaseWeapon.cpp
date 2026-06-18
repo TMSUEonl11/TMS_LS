@@ -57,13 +57,16 @@ void ATMS_BaseWeapon::Shoot()
 
 	if (CurrentAmmo == 0)
 	{
-		Reload_Input();
+		if (!bReloading)
+		{
+			Reload_Input();
+		}
 		return;
 	}
 	
 	FHitResult Hit;
 
-	ATMS_Player* Char = Cast<ATMS_Player>(GetOwner());
+	ATMS_BaseCharacter* Char = Cast<ATMS_BaseCharacter>(GetOwner());
 	if (!Char) return;
 
 	FVector StartLocation;
@@ -131,6 +134,7 @@ void ATMS_BaseWeapon::OnAnimNotify(EWeaponActionType WeaponAction)
 	case EWeaponActionType::EWAT_Secondary:
 		break;
 	case EWeaponActionType::EWAT_Reload:
+		bReloading = false;
 		SetAmmo(MaxAmmo);
 		break;
 	case EWeaponActionType::EWAT_MAX:
@@ -142,11 +146,13 @@ void ATMS_BaseWeapon::Reload()
 {
 	if (CurrentAmmo == MaxAmmo) return;
 
+	bReloading = true;
 	const auto Player = Cast<ACharacter>(GetOwner());
 	if (!Player) return;
 
 	if (!ReloadAnims.CAnim) return;
-	float Length = Player->PlayAnimMontage(ReloadAnims.CAnim);
+	float Length = Player->PlayAnimMontage(ReloadAnims.CAnim);	
+	
 	if (UAnimInstance* WeaponAnim = WeaponMesh->GetAnimInstance())
 	{
 		WeaponAnim->Montage_Play(ReloadAnims.WAnim);
@@ -169,10 +175,21 @@ FVector ATMS_BaseWeapon::GetMuzzleLocation()
 
 bool ATMS_BaseWeapon::GetPlayerViewPoint(FVector& OutViewLocation, FRotator& OutviewDirection)
 {
-	const APlayerController* PC = GetPlayerController();
-	if (!PC) return false;
+	const ATMS_BaseCharacter* Player = Cast<ATMS_BaseCharacter>(GetOwner());
+	if (!Player) return false;
+	
+	if (Player->IsPlayerControlled())
+	{
+		const APlayerController* PC = GetPlayerController();
+		if (!PC) return false;
 
-	PC->GetPlayerViewPoint(OutViewLocation, OutviewDirection);
+		PC->GetPlayerViewPoint(OutViewLocation, OutviewDirection);
+	}
+	else
+	{
+		OutViewLocation = GetMuzzleLocation();
+		OutviewDirection = WeaponMesh->GetSocketRotation(FName("S_Muzzle"));
+	}
 	return true;
 }
 

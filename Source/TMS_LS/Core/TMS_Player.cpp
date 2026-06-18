@@ -22,9 +22,7 @@ ATMS_Player::ATMS_Player()
 	Camera->SetupAttachment(SpringArm);
 
 	MotionWarper = CreateDefaultSubobject<UMotionWarpingComponent>("MotionWarper");
-
-	WeaponComponent = CreateDefaultSubobject<UTMS_WeaponComponent>("WeaponComponent");
-
+	
 	TargetFOV = Camera->FieldOfView;
 }
 

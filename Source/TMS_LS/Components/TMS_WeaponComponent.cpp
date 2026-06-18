@@ -20,7 +20,7 @@ void UTMS_WeaponComponent::SpawnWeapon()
 {
 	if (!GetWorld() || !GetOwner() || !WeaponClass) return;
 
-	ATMS_Player* Player = Cast<ATMS_Player>(GetOwner());
+	ATMS_BaseCharacter* Player = Cast<ATMS_BaseCharacter>(GetOwner());
 	if (!Player) return;
 	
 	if (ATMS_BaseWeapon* NewWeapon = GetWorld()->SpawnActor<ATMS_BaseWeapon>(WeaponClass))
@@ -70,7 +70,7 @@ void UTMS_WeaponComponent::UseWeapon(EWeaponActionType Action, bool bInValue)
 void UTMS_WeaponComponent::SetCurrentWeapon(ATMS_BaseWeapon* InWeaponActor)
 {
 	if (!GetWorld()) return;
-	ATMS_Player* Player = Cast<ATMS_Player>(GetOwner());
+	ATMS_BaseCharacter* Player = Cast<ATMS_BaseCharacter>(GetOwner());
 	if (!Player) return;
 	
 	if (InWeaponActor)

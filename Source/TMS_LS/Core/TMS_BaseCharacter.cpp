@@ -3,6 +3,8 @@
 
 #include "TMS_BaseCharacter.h"
 
+#include "TMS_LS/Components/TMS_WeaponComponent.h"
+
 // Sets default values
 ATMS_BaseCharacter::ATMS_BaseCharacter()
 {
@@ -13,6 +15,8 @@ ATMS_BaseCharacter::ATMS_BaseCharacter()
 
 	InventoryComponent = CreateDefaultSubobject<UTMS_InventoryComponent>(TEXT("InventoryComponent"));
 
+	WeaponComponent = CreateDefaultSubobject<UTMS_WeaponComponent>("WeaponComponent");
+	
 	EquipmentComponent = CreateDefaultSubobject<UTMS_EquipmentComponent>(TEXT("EquipmentComponent"));
 }
 
