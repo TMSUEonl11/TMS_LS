@@ -15,6 +15,8 @@ ATMS_BaseWeapon::ATMS_BaseWeapon()
 
 	WeaponMesh = CreateDefaultSubobject<USkeletalMeshComponent>("WeaponMesh");
 	SetRootComponent(WeaponMesh);
+
+	EquipmentType = EEquipmentType::EET_Main;
 }
 
 void ATMS_BaseWeapon::Fire_Input(bool bInActive)

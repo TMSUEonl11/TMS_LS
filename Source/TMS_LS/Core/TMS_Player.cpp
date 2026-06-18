@@ -5,8 +5,10 @@
 
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "TMS_InteractInterface.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Kismet/KismetSystemLibrary.h"
 #include "TMS_LS/Components/TMS_WeaponComponent.h"
 
 ATMS_Player::ATMS_Player()
@@ -73,6 +75,34 @@ void ATMS_Player::ReloadInput(const FInputActionValue& InputActionValue)
 	
 }
 
+void ATMS_Player::CheckInteractable()
+{
+	TArray<FHitResult> Hits;
+	FVector StartLocation = Camera->GetComponentLocation();
+	FVector Direction = Camera->GetForwardVector();
+	FVector EndLocation = Camera->GetComponentLocation() + Direction * 500.f;
+
+	TArray<AActor*> IgnoreActors;
+	IgnoreActors.Add(GetOwner());
+	
+	
+	UKismetSystemLibrary::CapsuleTraceMulti(GetWorld(), StartLocation, EndLocation,
+		10.f, 10.f, UEngineTypes::ConvertToTraceType(ECC_Visibility),
+		false, IgnoreActors, EDrawDebugTrace::Type::None, Hits, true);
+
+	if (Hits.Num() <= 0) return;
+	
+	FHitResult Hit = Hits[0];
+	
+	if (Hit.bBlockingHit && IsValid(Hit.GetActor()))
+	{
+		if (ITMS_InteractInterface* HitActor = Cast<ITMS_InteractInterface>(Hit.GetActor()))
+		{
+			InteractActor = Hit.GetActor();
+		}
+	}
+}
+
 void ATMS_Player::OnAimUpdate(bool bNewActive)
 {
 	if (!WeaponComponent || !WeaponComponent->CurrentWeapon) return;
@@ -133,6 +163,7 @@ void ATMS_Player::SetupPlayerInputComponent(class UInputComponent* PlayerInputCo
 
 	EIC->BindAction(InputData->InventoryInput, ETriggerEvent::Triggered, this, &ATMS_Player::OnInventoryInput);
 	EIC->BindAction(InputData->StatsInput, ETriggerEvent::Triggered, this, &ATMS_Player::OnStatsInput);
+	EIC->BindAction(InputData->InteractInput, ETriggerEvent::Triggered, this, &ATMS_Player::OnInteractInput);
 }
 
 void ATMS_Player::OnMoveInput(const FInputActionValue& Value)
@@ -150,13 +181,7 @@ void ATMS_Player::OnMoveInput(const FInputActionValue& Value)
 	AddMovementInput(Dir, InputScale);
 	GetCharacterMovement()->bUseControllerDesiredRotation = MoveInput.Length() > 0.f;
 	bUseControllerRotationYaw = MoveInput.Length() == 0.f;
-	GetCharacterMovement()->bOrientRotationToMovement = false;
 	
-}
-
-void ATMS_Player::StopMoveInput(const FInputActionValue& Value)
-{
-	GetCharacterMovement()->bOrientRotationToMovement = true;
 }
 
 void ATMS_Player::OnLookInput(const FInputActionValue& Value)
@@ -232,6 +257,15 @@ void ATMS_Player::OnStatsInput(const FInputActionValue& Value)
 		break;
 	case EUIState::EUIS_Equipment:
 		break;
+	}
+}
+
+void ATMS_Player::OnInteractInput(const FInputActionValue& Value)
+{
+	if (!GetWorld()) return;
+	if (ITMS_InteractInterface* Interactable = Cast<ITMS_InteractInterface>(InteractActor))
+	{
+		Interactable->TryInteract(PPC);
 	}
 }
 

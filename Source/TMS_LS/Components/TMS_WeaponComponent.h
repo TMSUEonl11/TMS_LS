@@ -38,4 +38,5 @@ public:
 	void SpawnWeapon();
 
 	void UseWeapon(EWeaponActionType Action, bool bInValue = true);
+	void SetCurrentWeapon(ATMS_BaseWeapon* InWeaponActor);
 };

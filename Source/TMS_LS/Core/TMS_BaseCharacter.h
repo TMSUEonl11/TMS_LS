@@ -3,11 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "AbilitySystem/TMS_AbilitySystemComponent.h"
-#include "AbilitySystem/TMS_AttributeSet.h"
 #include "Data/TMS_DataTypes.h"
-#include "Data/TMS_MovementData.h"
 #include "GameFramework/Character.h"
+#include "Inventory/TMS_EquipmentComponent.h"
 #include "TMS_LS/Components/TMS_HealthComponent.h"
 #include "Inventory/TMS_InventoryComponent.h"
 #include "TMS_BaseCharacter.generated.h"
@@ -50,6 +48,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Components)
 	TObjectPtr<UTMS_InventoryComponent> InventoryComponent;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Components)
+	TObjectPtr<UTMS_EquipmentComponent> EquipmentComponent;
+	
 	UFUNCTION()
 	void OnDeath();
 

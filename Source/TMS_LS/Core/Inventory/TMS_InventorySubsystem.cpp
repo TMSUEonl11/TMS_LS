@@ -4,6 +4,7 @@
 #include "TMS_InventorySubsystem.h"
 
 #include "TMS_InventoryComponent.h"
+#include "TMS_LS/Utilities/TMS_DeveloperSettings.h"
 
 bool UTMS_InventorySubsystem::AddItem(APlayerController* Target, FItemSlotData Item)
 {
@@ -13,4 +14,12 @@ bool UTMS_InventorySubsystem::AddItem(APlayerController* Target, FItemSlotData I
 	bool Result = false;
 	IC->AddItem(Item, Result);
 	return Result;
+}
+
+void UTMS_InventorySubsystem::GetItemData(FName ItemID, FItemData& OutItem)
+{
+	const UTMS_DeveloperSettings* Settings = UTMS_DeveloperSettings::Get();
+	if (!IsValid(Settings) || !IsValid(Settings->ItemDataTable.LoadSynchronous())) return;
+
+	OutItem = *Settings->ItemDataTable->FindRow<FItemData>(ItemID, "");
 }

@@ -84,6 +84,15 @@ void UTMS_InventoryComponent::RemoveItem(FItemSlotData InItem)
 	OnInventoryUpdated.Broadcast();
 }
 
+void UTMS_InventoryComponent::SwapItems(int32 InSlot, int32 OutSlot)
+{
+	if (Slots.Num()-1 < FMath::Max(OutSlot, InSlot)) return;	
+	FItemSlotData Temp = Slots[OutSlot];
+	Slots[OutSlot] = Slots[InSlot];
+	Slots[InSlot] = Temp;
+	OnInventoryUpdated.Broadcast();
+}
+
 void UTMS_InventoryComponent::UpdateInventory()
 {
 	OnInventoryUpdated.Broadcast();

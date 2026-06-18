@@ -5,12 +5,13 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "TMS_LS/Core/Data/TMS_DataTypes.h"
+#include "TMS_LS/Core/Inventory/Actors/ItemEquipment.h"
 #include "TMS_BaseWeapon.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnAmmoUpdateSignature, int32, NewAmmo);
 
-UCLASS()
-class TMS_LS_API ATMS_BaseWeapon : public AActor
+UCLASS(BlueprintType, Blueprintable)
+class TMS_LS_API ATMS_BaseWeapon : public AItemEquipment
 {
 	GENERATED_BODY()
 

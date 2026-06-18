@@ -12,6 +12,8 @@ ATMS_BaseCharacter::ATMS_BaseCharacter()
 	HealthComponent = CreateDefaultSubobject<UTMS_HealthComponent>(TEXT("HealthComponent"));
 
 	InventoryComponent = CreateDefaultSubobject<UTMS_InventoryComponent>(TEXT("InventoryComponent"));
+
+	EquipmentComponent = CreateDefaultSubobject<UTMS_EquipmentComponent>(TEXT("EquipmentComponent"));
 }
 
 // Called when the game starts or when spawned
