@@ -35,7 +35,7 @@ void UTMS_WeaponComponent::SpawnWeapon()
 		CurrentWeapon = NewWeapon;
 		CurrentWeapon->SetOwner(GetOwner());
 		CurrentWeapon->AttachToComponent(Player->GetMesh(),
-			FAttachmentTransformRules::SnapToTargetIncludingScale, CurrentWeapon->DesiredSocket);
+			FAttachmentTransformRules::SnapToTargetIncludingScale, CurrentWeapon->SocketName);
 
 		if (CurrentWeapon->AnimLayer)
 		{
@@ -53,10 +53,10 @@ void UTMS_WeaponComponent::UseWeapon(EWeaponActionType Action, bool bInValue)
 	switch (Action)
 	{
 	case EWeaponActionType::EWAT_Main:
-		CurrentWeapon->Fire_Input(bInValue);
+		CurrentWeapon->Main_Input(bInValue);
 		break;
 	case EWeaponActionType::EWAT_Secondary:
-		CurrentWeapon->Aim_Input(bInValue);
+		CurrentWeapon->Secondary_Input(bInValue);
 		OnAim.Broadcast(bInValue);
 		break;
 	case EWeaponActionType::EWAT_Reload:

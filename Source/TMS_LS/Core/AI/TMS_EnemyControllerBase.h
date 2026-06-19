@@ -24,6 +24,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
 	FName TargetEnemyKeyName = "TargetActor";
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
+	FName PatrolPathKeyName = "PatrolPath";
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

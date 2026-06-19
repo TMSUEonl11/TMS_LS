@@ -6,8 +6,10 @@
 #include "Components/ActorComponent.h"
 #include "TMS_LS/Core/Data/TMS_DataTypes.h"
 #include "TMS_LS/Items/Weapons/TMS_BaseWeapon.h"
+#include "TMS_LS/Items/Weapons/TMS_FireWeapon.h"
 #include "TMS_WeaponComponent.generated.h"
 
+class ATMS_FireWeapon;
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnAimSignature, bool, bIsAiming);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnWeaponUpdateSignature);
 
@@ -39,4 +41,7 @@ public:
 
 	void UseWeapon(EWeaponActionType Action, bool bInValue = true);
 	void SetCurrentWeapon(ATMS_BaseWeapon* InWeaponActor);
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	FORCEINLINE ATMS_FireWeapon* GetFireWeapon() { return Cast<ATMS_FireWeapon>(CurrentWeapon); };
 };

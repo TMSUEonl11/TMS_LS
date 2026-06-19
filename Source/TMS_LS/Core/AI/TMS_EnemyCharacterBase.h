@@ -6,6 +6,8 @@
 #include "TMS_LS/Core/TMS_BaseCharacter.h"
 #include "TMS_EnemyCharacterBase.generated.h"
 
+class ATMS_AIPatrolPath;
+
 UCLASS()
 class TMS_LS_API ATMS_EnemyCharacterBase : public ATMS_BaseCharacter
 {
@@ -17,6 +19,9 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="AI")
 	TObjectPtr<class UBehaviorTree> BehaviorTree;
+
+	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category="AI")
+	TSoftObjectPtr<ATMS_AIPatrolPath> PatrolPath;
 
 protected:
 	// Called when the game starts or when spawned

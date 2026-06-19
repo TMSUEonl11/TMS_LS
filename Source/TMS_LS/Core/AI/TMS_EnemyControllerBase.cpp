@@ -6,6 +6,7 @@
 #include "TMS_AIPerception.h"
 #include "TMS_EnemyCharacterBase.h"
 #include "BehaviorTree/BlackboardComponent.h"
+#include "TMS_LS/Utilities/TMS_AIPatrolPath.h"
 
 
 // Sets default values
@@ -32,7 +33,7 @@ AActor* ATMS_EnemyControllerBase::GetTargetActor()
 
 FVector ATMS_EnemyControllerBase::GetTargetHeadBoneLocation()
 {
-	FVector DefaultLocation = GetPawn()->GetActorLocation();
+	FVector DefaultLocation = GetBlackboardComponent()->GetValueAsVector("TargetLocation");
 	if (!GetTargetActor()) return DefaultLocation;
 
 	ACharacter* Char = Cast<ACharacter>(GetTargetActor());
@@ -57,6 +58,7 @@ void ATMS_EnemyControllerBase::OnPossess(APawn* InPawn)
 		if (EnemyPawn->BehaviorTree)
 		{
 			RunBehaviorTree(EnemyPawn->BehaviorTree);
+			GetBlackboardComponent()->SetValueAsObject(PatrolPathKeyName, EnemyPawn->PatrolPath.Get());
 		}
 	}
 }
