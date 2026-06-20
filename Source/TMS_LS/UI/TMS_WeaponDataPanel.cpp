@@ -11,16 +11,26 @@ void UTMS_WeaponDataPanel::OnUpdateAmmo(int32 NewAmmo)
 
 void UTMS_WeaponDataPanel::OnUpdateWeapon()
 {
-	if (!WeaponComponent) return;
-
+	if (!WeaponComponent)
+	{
+		SetVisibility(ESlateVisibility::Collapsed);
+		return;
+	}
+	
 	if (CurWeapon)
 	{
 		CurWeapon->OnAmmoUpdate.RemoveAll(this);
 	}
 
-	CurWeapon = WeaponComponent->CurrentWeapon;
-	if (!CurWeapon) return;
-
+	CurWeapon = WeaponComponent->GetFireWeapon();
+	if (!CurWeapon)
+	{
+		SetVisibility(ESlateVisibility::Collapsed);
+		return;
+	}
+	
+	SetVisibility(ESlateVisibility::Visible);
+	
 	CurWeapon->OnAmmoUpdate.AddDynamic(this, &UTMS_WeaponDataPanel::OnUpdateAmmo);
 
 	FString Ammo = FString::Printf(TEXT("%i"), CurWeapon->MaxAmmo);

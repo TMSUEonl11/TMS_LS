@@ -18,4 +18,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	bool AddItem(APlayerController* Target, FItemSlotData Item);
+
+	UFUNCTION(BlueprintCallable)
+	void GetItemData(FName ItemID, FItemData& OutItem);
 };

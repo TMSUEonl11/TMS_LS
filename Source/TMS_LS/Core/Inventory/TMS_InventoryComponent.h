@@ -44,6 +44,8 @@ public:
 	void AddItem(const FItemSlotData& InItem, bool& OutSuccess);
 	UFUNCTION(BlueprintCallable)
 	void RemoveItem(FItemSlotData InItem);
+	UFUNCTION(BlueprintCallable)
+	void SwapItems(int32 InSlot, int32 OutSlot);
 
 	UFUNCTION(BlueprintCallable)
 	void DEBUG_PrintSlots();

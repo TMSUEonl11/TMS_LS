@@ -25,7 +25,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TObjectPtr<UTMS_WeaponComponent> WeaponComponent;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TObjectPtr<ATMS_BaseWeapon> CurWeapon;
+	TObjectPtr<ATMS_FireWeapon> CurWeapon;
 
 	UFUNCTION()
 	void OnUpdateAmmo(int32 NewAmmo);

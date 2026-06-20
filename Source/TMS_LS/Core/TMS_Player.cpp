@@ -5,8 +5,10 @@
 
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "TMS_InteractInterface.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Kismet/KismetSystemLibrary.h"
 #include "TMS_LS/Components/TMS_WeaponComponent.h"
 
 ATMS_Player::ATMS_Player()
@@ -20,9 +22,7 @@ ATMS_Player::ATMS_Player()
 	Camera->SetupAttachment(SpringArm);
 
 	MotionWarper = CreateDefaultSubobject<UMotionWarpingComponent>("MotionWarper");
-
-	WeaponComponent = CreateDefaultSubobject<UTMS_WeaponComponent>("WeaponComponent");
-
+	
 	TargetFOV = Camera->FieldOfView;
 }
 
@@ -47,6 +47,8 @@ void ATMS_Player::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	FOV_Update(DeltaTime);
+	
+	CheckInteractable();
 }
 
 void ATMS_Player::MainInput(const FInputActionValue& InputActionValue)
@@ -73,18 +75,46 @@ void ATMS_Player::ReloadInput(const FInputActionValue& InputActionValue)
 	
 }
 
+void ATMS_Player::CheckInteractable()
+{
+	TArray<FHitResult> Hits;
+	FVector StartLocation = Camera->GetComponentLocation();
+	FVector Direction = Camera->GetForwardVector();
+	FVector EndLocation = Camera->GetComponentLocation() + Direction * 500.f;
+
+	TArray<AActor*> IgnoreActors;
+	IgnoreActors.Add(GetOwner());
+	
+	
+	UKismetSystemLibrary::CapsuleTraceMulti(GetWorld(), StartLocation, EndLocation,
+		10.f, 10.f, UEngineTypes::ConvertToTraceType(ECC_Visibility),
+		false, IgnoreActors, EDrawDebugTrace::Type::None, Hits, true);
+
+	if (Hits.Num() <= 0) return;
+	
+	FHitResult Hit = Hits[0];
+	
+	if (Hit.bBlockingHit && IsValid(Hit.GetActor()))
+	{
+		if (ITMS_InteractInterface* HitActor = Cast<ITMS_InteractInterface>(Hit.GetActor()))
+		{
+			InteractActor = Hit.GetActor();
+		}
+	}
+}
+
 void ATMS_Player::OnAimUpdate(bool bNewActive)
 {
-	if (!WeaponComponent || !WeaponComponent->CurrentWeapon) return;
-	SetTargetFOV(bNewActive ? WeaponComponent->CurrentWeapon->AimingFOV : 90.f);
+	if (!WeaponComponent || !WeaponComponent->GetFireWeapon()) return;
+	SetTargetFOV(bNewActive ? WeaponComponent->GetFireWeapon()->AimingFOV : 90.f);
 }
 
 void ATMS_Player::FOV_Update(float DeltaTime)
 {
 	float AimSpeed = 2.f;
-	if (WeaponComponent && WeaponComponent->CurrentWeapon)
+	if (WeaponComponent && WeaponComponent->GetFireWeapon())
 	{
-		AimSpeed = WeaponComponent->CurrentWeapon->FOV_InterpSpeed;
+		AimSpeed = WeaponComponent->GetFireWeapon()->FOV_InterpSpeed;
 	}
 	float NewFOV = FMath::FInterpTo(CurrentFOV, TargetFOV, DeltaTime, AimSpeed);
 
@@ -131,6 +161,7 @@ void ATMS_Player::SetupPlayerInputComponent(class UInputComponent* PlayerInputCo
 	EIC->BindAction(InputData->ReloadInput, ETriggerEvent::Triggered, this, &ATMS_Player::ReloadInput);
 
 	EIC->BindAction(InputData->InventoryInput, ETriggerEvent::Triggered, this, &ATMS_Player::OnInventoryInput);
+	EIC->BindAction(InputData->InteractInput, ETriggerEvent::Triggered, this, &ATMS_Player::OnInteractInput);
 }
 
 void ATMS_Player::OnMoveInput(const FInputActionValue& Value)
@@ -203,6 +234,15 @@ void ATMS_Player::OnInventoryInput(const FInputActionValue& Value)
 	case EUIState::EUIS_Equipment:
 		PHUD->SetUIState(EUIState::EUIS_Game);
 		break;
+	}
+}
+
+void ATMS_Player::OnInteractInput(const FInputActionValue& Value)
+{
+	if (!GetWorld()) return;
+	if (ITMS_InteractInterface* Interactable = Cast<ITMS_InteractInterface>(InteractActor))
+	{
+		Interactable->TryInteract(PPC);
 	}
 }
 

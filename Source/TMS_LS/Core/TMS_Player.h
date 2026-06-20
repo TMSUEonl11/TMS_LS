@@ -29,9 +29,6 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
 	TObjectPtr<UCameraComponent> Camera;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
-	TObjectPtr<UTMS_WeaponComponent> WeaponComponent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Inputs)
 	TObjectPtr<UInputMappingContext> InputContext;
@@ -41,6 +38,9 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Inputs)
 	TObjectPtr<UTMS_InputData> InputData;
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TObjectPtr<AActor> InteractActor;
 
 private:
 	FVector2D MoveInput;
@@ -67,6 +67,8 @@ public:
 	void SecondaryInput(const FInputActionValue& InputActionValue);
 	void ReloadInput(const FInputActionValue& InputActionValue);
 
+	void CheckInteractable();
+
 	UFUNCTION()
 	void OnAimUpdate(bool bNewActive);
 	void FOV_Update(float DeltaTime);
@@ -80,6 +82,8 @@ public:
 	void OnSprintInput(const FInputActionValue& Value);
 	void OnCrouchInput(const FInputActionValue& Value);
 	void OnInventoryInput(const FInputActionValue& Value);
+	void OnInteractInput(const FInputActionValue& Value);
+	
 	virtual void Jump() override;
 
 	bool CanVault() const;
