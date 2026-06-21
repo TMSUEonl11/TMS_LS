@@ -15,7 +15,8 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
+private:
+	bool Direction=true;
 public:
 	virtual void PostEditChangeProperty(struct FPropertyChangedEvent& PropertyChangedEvent) override;
 
@@ -41,6 +42,23 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void OnReachPoint()
 	{
-		CurrentIndex = (CurrentIndex+1) % SplineComponent->GetNumberOfSplinePoints();
+		int32 MaxIndex = SplineComponent->GetNumberOfSplinePoints();
+		if (SplineComponent->IsClosedLoop())
+		{
+			CurrentIndex = (CurrentIndex+1) % MaxIndex;
+		}
+		else
+		{
+			if (Direction)
+			{
+				CurrentIndex = (CurrentIndex+1) % MaxIndex;
+				if (CurrentIndex==MaxIndex-1)Direction=false;
+			}
+			else
+			{
+				CurrentIndex = (CurrentIndex-1) % MaxIndex;
+				if(!CurrentIndex) Direction=true; 
+			}
+		}
 	}
 };
