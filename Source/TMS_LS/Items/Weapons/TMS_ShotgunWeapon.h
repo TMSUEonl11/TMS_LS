@@ -4,10 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "TMS_BaseWeapon.h"
+#include "TMS_FireWeapon.h"
 #include "TMS_ShotgunWeapon.generated.h"
 
 UCLASS()
-class TMS_LS_API ATMS_ShotgunWeapon : public ATMS_BaseWeapon
+class TMS_LS_API ATMS_ShotgunWeapon : public ATMS_FireWeapon
 {
 	GENERATED_BODY()
 
