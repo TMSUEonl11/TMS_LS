@@ -98,14 +98,6 @@ void UTMS_EquipmentComponent::EquipSlot(EEquipmentType InSlot, const FItemSlotDa
 		return;
 	}
 
-	if (InSlot == EEquipmentType::EET_Main)
-	{
-		if (UTMS_WeaponComponent* WC = GetOwner()->GetComponentByClass<UTMS_WeaponComponent>())
-		{
-			WC->SetCurrentWeapon(Cast<ATMS_BaseWeapon>(EquipmentActor));
-		}
-	}
-
 	EquipmentObjects.Emplace(InSlot, InItemData);
 	EquipmentActors.Emplace(InSlot, EquipmentActor);
 
@@ -177,6 +169,13 @@ void UTMS_EquipmentComponent::ProcessUnequip(EEquipmentType InSlot)
 
 void UTMS_EquipmentComponent::FinishEquip()
 {
+	if (CurrentEquipmentProcess.Slot == EEquipmentType::EET_Main)
+	{
+		if (UTMS_WeaponComponent* WC = GetOwner()->GetComponentByClass<UTMS_WeaponComponent>())
+		{
+			WC->SetCurrentWeapon(Cast<ATMS_BaseWeapon>(EquipmentActors[CurrentEquipmentProcess.Slot]));
+		}
+	}
 	OnFinishEquip.Broadcast(CurrentEquipmentProcess.Slot);
 	NextPendingEquipment();
 }

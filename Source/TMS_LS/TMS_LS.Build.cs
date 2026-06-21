@@ -21,7 +21,9 @@ public class TMS_LS : ModuleRules
 			"AnimGraphRuntime",
 			"MotionWarping",
 			"UMG",
-            "DeveloperSettings"
+            "DeveloperSettings",
+            "AIModule",
+            "NavigationSystem"
 		});
 	}
 }

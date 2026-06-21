@@ -22,9 +22,7 @@ ATMS_Player::ATMS_Player()
 	Camera->SetupAttachment(SpringArm);
 
 	MotionWarper = CreateDefaultSubobject<UMotionWarpingComponent>("MotionWarper");
-
-	WeaponComponent = CreateDefaultSubobject<UTMS_WeaponComponent>("WeaponComponent");
-
+	
 	TargetFOV = Camera->FieldOfView;
 }
 
@@ -105,16 +103,16 @@ void ATMS_Player::CheckInteractable()
 
 void ATMS_Player::OnAimUpdate(bool bNewActive)
 {
-	if (!WeaponComponent || !WeaponComponent->CurrentWeapon) return;
-	SetTargetFOV(bNewActive ? WeaponComponent->CurrentWeapon->AimingFOV : 90.f);
+	if (!WeaponComponent || !WeaponComponent->GetFireWeapon()) return;
+	SetTargetFOV(bNewActive ? WeaponComponent->GetFireWeapon()->AimingFOV : 90.f);
 }
 
 void ATMS_Player::FOV_Update(float DeltaTime)
 {
 	float AimSpeed = 2.f;
-	if (WeaponComponent && WeaponComponent->CurrentWeapon)
+	if (WeaponComponent && WeaponComponent->GetFireWeapon())
 	{
-		AimSpeed = WeaponComponent->CurrentWeapon->FOV_InterpSpeed;
+		AimSpeed = WeaponComponent->GetFireWeapon()->FOV_InterpSpeed;
 	}
 	float NewFOV = FMath::FInterpTo(CurrentFOV, TargetFOV, DeltaTime, AimSpeed);
 

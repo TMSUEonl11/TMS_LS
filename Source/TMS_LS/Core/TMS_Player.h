@@ -29,9 +29,6 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
 	TObjectPtr<UCameraComponent> Camera;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
-	TObjectPtr<UTMS_WeaponComponent> WeaponComponent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Inputs)
 	TObjectPtr<UInputMappingContext> InputContext;
