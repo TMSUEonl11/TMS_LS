@@ -62,7 +62,7 @@ void UTMS_HealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 	//Fall Damage
 	if (bHasFallDamage)
 	{
-		if (MovementComponent->IsFalling())
+		if (IsValid(MovementComponent) && MovementComponent->IsFalling())
 		{
 			SetStartFallLocation();
 		} else

@@ -8,7 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="655b8281-5753-4a03-8620-77c7f245ea64" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Items/Weapons/TMS_ShotgunWeapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Items/Weapons/TMS_ShotgunWeapon.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/BT_EnemyMeleeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/BT_EnemyMeleeBase.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Components/TMS_HealthComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Components/TMS_HealthComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Utilities/TMS_AIPatrolPath.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Utilities/TMS_AIPatrolPath.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +37,8 @@
   }
 }]]></component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="cidr-memory-view://6" root0="FORCE_HIGHLIGHTING" />
+    <setting file="cidr-memory-view://12" root0="FORCE_HIGHLIGHTING" />
+    <setting file="cidr-memory-view://13" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Containers/Array.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Delegates/DelegateInstancesImpl.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Logging/LogCategory.h" root0="FORCE_HIGHLIGHTING" />
@@ -246,7 +250,7 @@
       <workItem from="1781148022937" duration="882000" />
       <workItem from="1781174544761" duration="6181000" />
       <workItem from="1781749029376" duration="5325000" />
-      <workItem from="1782013081157" duration="3786000" />
+      <workItem from="1782013081157" duration="7404000" />
     </task>
     <servers />
   </component>
@@ -277,6 +281,16 @@
           <url>file://$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/ALootItem.cpp</url>
           <line>62</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Source/TMS_LS/Utilities/TMS_AIPatrolPath.h</url>
+          <line>43</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Source/TMS_LS/Core/AI/Tasks/TMS_GetPatrolPathLocation.cpp</url>
+          <line>26</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

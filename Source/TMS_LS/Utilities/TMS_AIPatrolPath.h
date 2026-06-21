@@ -27,11 +27,13 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 CurrentIndex = 0;
+	
+	int32 Dir = 1;
 
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	FVector GetLocationAtCurrentIndex()
 	{
-		CurrentIndex %= SplineComponent->GetNumberOfSplinePoints();
+		CurrentIndex = FMath::Clamp(CurrentIndex, 0, SplineComponent->GetNumberOfSplinePoints() - 1);
 		return SplineComponent->GetLocationAtSplinePoint(CurrentIndex, ESplineCoordinateSpace::World);
 	}
 
@@ -41,6 +43,27 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void OnReachPoint()
 	{
-		CurrentIndex = (CurrentIndex+1) % SplineComponent->GetNumberOfSplinePoints();
+		if (SplineComponent->IsClosedLoop())
+		{
+			CurrentIndex = (CurrentIndex+1) % SplineComponent->GetNumberOfSplinePoints();
+		}
+		else
+		{
+			int32 NumPoints = SplineComponent->GetNumberOfSplinePoints();
+			if(NumPoints <= 1) return;
+			
+			CurrentIndex += Dir;
+			
+			if (CurrentIndex >= NumPoints)
+			{
+				CurrentIndex = NumPoints - 2;
+				Dir = -1;
+			}
+			else if (CurrentIndex < 0)
+			{
+				CurrentIndex = 1;
+				Dir = 1;
+			}
+		}
 	}
 };
