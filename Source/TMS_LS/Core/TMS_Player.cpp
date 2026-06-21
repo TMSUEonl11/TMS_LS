@@ -181,7 +181,13 @@ void ATMS_Player::OnMoveInput(const FInputActionValue& Value)
 	AddMovementInput(Dir, InputScale);
 	GetCharacterMovement()->bUseControllerDesiredRotation = MoveInput.Length() > 0.f;
 	bUseControllerRotationYaw = MoveInput.Length() == 0.f;
+	GetCharacterMovement()->bOrientRotationToMovement = false;
 	
+}
+
+void ATMS_Player::StopMoveInput(const FInputActionValue& Value)
+{
+	GetCharacterMovement()->bOrientRotationToMovement = true;
 }
 
 void ATMS_Player::OnLookInput(const FInputActionValue& Value)
