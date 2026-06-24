@@ -57,7 +57,5 @@ public:
 	TObjectPtr<UTMS_WeaponComponent> WeaponComponent;
 	
 	UFUNCTION()
-	void OnDeath();
-
-	
+	virtual void OnDeath();
 };

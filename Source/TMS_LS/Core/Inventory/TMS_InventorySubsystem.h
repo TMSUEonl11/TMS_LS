@@ -17,8 +17,11 @@ class TMS_LS_API UTMS_InventorySubsystem : public UGameInstanceSubsystem
 public:
 
 	UFUNCTION(BlueprintCallable)
-	bool AddItem(APlayerController* Target, FItemSlotData Item);
+	bool AddItemToController(APlayerController* Target, FItemSlotData Item);
 
+	UFUNCTION(BlueprintCallable)
+	bool AddItem(AActor* Target, FItemSlotData Item);
+		
 	UFUNCTION(BlueprintCallable)
 	void GetItemData(FName ItemID, FItemData& OutItem);
 };
