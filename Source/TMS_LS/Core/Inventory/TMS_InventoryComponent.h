@@ -23,12 +23,13 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-	UPROPERTY(BlueprintAssignable)
-	FOnInventoryUpdatedSignature OnInventoryUpdated;
-	UPROPERTY(BlueprintAssignable)
-	FOnInventoryInitializedSignature OnInventoryInitialized;
 	
 public:
+	UPROPERTY(BlueprintAssignable)
+    FOnInventoryUpdatedSignature OnInventoryUpdated;
+    UPROPERTY(BlueprintAssignable)
+    FOnInventoryInitializedSignature OnInventoryInitialized;
+    
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	FText ContainerName;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory")
@@ -49,7 +50,10 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void DEBUG_PrintSlots();
-	
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	bool IsEmpty();
+
 private:
 	UFUNCTION()
 	bool HasNotFullSlotOfItem(const FName& ItemID, int32& OutIndex);

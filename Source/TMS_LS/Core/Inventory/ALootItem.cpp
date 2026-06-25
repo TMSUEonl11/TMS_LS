@@ -69,7 +69,7 @@ bool AALootItem::TryInteract(TWeakObjectPtr<class APlayerController> InPC)
 	UTMS_InventorySubsystem* IS = GetGameInstance()->GetSubsystem<UTMS_InventorySubsystem>();
 	if (IS)
 	{
-		IS->AddItem(InPC.Get(), ItemSlotData);
+		IS->AddItemToController(InPC.Get(), ItemSlotData);
 	}
 	//InIC->AddItem(ItemSlotData,bSuccess);
 	Destroy();
