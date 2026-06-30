@@ -217,6 +217,11 @@ void ATMS_Player::OnCrouchInput(const FInputActionValue& Value)
  	UCharacterMovementComponent* MovementComponent = GetCharacterMovement();
 	if (!MovementComponent) return;
 	
+	if (MovementComponent->IsSwimming())
+	{
+		AddMovementInput(FVector::DownVector);
+	}
+	
 	MovementComponent->IsCrouching() ? MovementComponent->Crouch() : MovementComponent->UnCrouch();
 	bCrouching = MovementComponent->IsCrouching();
 }
