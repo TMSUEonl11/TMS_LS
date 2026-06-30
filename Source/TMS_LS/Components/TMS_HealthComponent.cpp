@@ -89,6 +89,11 @@ void UTMS_HealthComponent::SetStamina(float NewValue)
 	Stamina = FMath::Clamp(NewValue, 0, MaxStamina);
 }
 
+void UTMS_HealthComponent::RestoreHealth(float InHealth)
+{
+	SetHealth(GetHealth() + InHealth);
+}
+
 void UTMS_HealthComponent::GainStamina(float DeltaTime)
 {
 	if (!MovementData || bCooldown) return;

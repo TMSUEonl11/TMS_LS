@@ -104,6 +104,9 @@ public:
 	
 	UFUNCTION(BlueprintCallable)
 	void SetStamina(float NewValue);
+
+	UFUNCTION(BlueprintCallable)
+	void RestoreHealth(float InHealth);
 	
 	UFUNCTION()
 	void SprintInput(bool InValue);

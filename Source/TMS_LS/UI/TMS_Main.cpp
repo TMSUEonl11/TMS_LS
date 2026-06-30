@@ -3,6 +3,9 @@
 
 #include "TMS_Main.h"
 
+#include "TMS_Pause.h"
+#include "Kismet/GameplayStatics.h"
+
 void UTMS_Main::NativeConstruct()
 {
 	Super::NativeConstruct();
@@ -18,6 +21,14 @@ void UTMS_Main::NativeConstruct()
 void UTMS_Main::OnUIStateChanged_Implementation(EUIState InNewState)
 {
 	CurrentUIState = InNewState;
+
+	UGameplayStatics::SetGamePaused(GetWorld(), false);
+	if (PauseWidget)
+	{
+		PauseWidget->RemoveFromParent();
+		PauseWidget = nullptr;
+	}
+	
 	switch (CurrentUIState)
 	{
 	case EUIState::EUIS_Game:
@@ -28,6 +39,15 @@ void UTMS_Main::OnUIStateChanged_Implementation(EUIState InNewState)
 			break;
 		}
 	case EUIState::EUIS_Pause:
+		if (IsValid(PauseWidgetClass))
+		{
+			PauseWidget = Cast<UTMS_Pause>(CreateWidget(GetOwningPlayer(), PauseWidgetClass));
+			if (PauseWidget)
+			{
+				PauseWidget->AddToViewport(1);
+				UGameplayStatics::SetGamePaused(GetWorld(), true);
+			}
+		}
 	case EUIState::EUIS_Loot:
 	case EUIState::EUIS_Equipment:
 		{

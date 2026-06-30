@@ -73,7 +73,8 @@ public:
 	void OnAimUpdate(bool bNewActive);
 	void FOV_Update(float DeltaTime);
 	void SetTargetFOV(float NewTarget);
-	
+
+	void OnPauseInput();
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 

@@ -19,6 +19,9 @@ public:
 	// Sets default values for this character's properties
 	ATMS_EnemyCharacterBase();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
+	TEnumAsByte<ETeamType> TeamType = ETeamType::ETT_Bandits;
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="AI")
 	TObjectPtr<class UBehaviorTree> BehaviorTree;
 

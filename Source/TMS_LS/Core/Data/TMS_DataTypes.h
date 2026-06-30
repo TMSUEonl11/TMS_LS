@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GenericTeamAgentInterface.h"
 #include "TMS_DataTypes.generated.h"
 
 USTRUCT(Blueprintable, BlueprintType)
@@ -39,6 +40,24 @@ enum class EWeaponActionType : uint8
 	EWAT_Reload,
 	EWAT_MAX UMETA(Hidden)
 };
+UENUM(BlueprintType)
+enum ETeamType : uint8
+{
+	ETT_Player,
+	ETT_NPC,
+	ETT_Bandits,
+	ETT_Mercenaries,
+	ETT_MAX UMETA(Hidden)
+};
+
+USTRUCT(BlueprintType)
+struct FTeamAffiliation
+{
+	GENERATED_BODY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TMap<TEnumAsByte<ETeamType>, TEnumAsByte<ETeamAttitude::Type>> TeamAttitude;
+};
+
 
 USTRUCT(BlueprintType)
 struct FWeaponAnimData
