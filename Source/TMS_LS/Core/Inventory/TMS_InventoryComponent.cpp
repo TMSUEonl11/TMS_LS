@@ -110,6 +110,15 @@ void UTMS_InventoryComponent::DEBUG_PrintSlots()
 	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Green, Result);
 }
 
+bool UTMS_InventoryComponent::IsEmpty()
+{
+	for (const auto& Item : Slots)
+	{
+		if (Item.ItemID != NAME_None) return false;
+	}
+	return true;
+}
+
 bool UTMS_InventoryComponent::HasNotFullSlotOfItem(const FName& ItemID, int32& OutIndex)
 {
 	for (int32 i = 0; i < Slots.Num(); i++)
