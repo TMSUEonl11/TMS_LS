@@ -162,6 +162,8 @@ void ATMS_Player::SetupPlayerInputComponent(class UInputComponent* PlayerInputCo
 
 	EIC->BindAction(InputData->InventoryInput, ETriggerEvent::Triggered, this, &ATMS_Player::OnInventoryInput);
 	EIC->BindAction(InputData->InteractInput, ETriggerEvent::Triggered, this, &ATMS_Player::OnInteractInput);
+
+	EIC->BindAction(InputData->PauseInput, ETriggerEvent::Triggered, this, &ATMS_Player::OnPauseInput);
 }
 
 void ATMS_Player::OnMoveInput(const FInputActionValue& Value)
@@ -219,6 +221,23 @@ void ATMS_Player::OnCrouchInput(const FInputActionValue& Value)
 	bCrouching = MovementComponent->IsCrouching();
 }
 
+void ATMS_Player::OnPauseInput()
+{
+	if (!PHUD) return;
+
+	switch (PHUD->GetUIState())
+	{
+	case EUIState::EUIS_Game :
+		PHUD->SetUIState(EUIState::EUIS_Pause);
+		break;
+	case EUIState::EUIS_Pause:
+		break;
+	case EUIState::EUIS_Loot:
+	case EUIState::EUIS_Equipment:
+		PHUD->SetUIState(EUIState::EUIS_Game);
+		break;
+	}	
+}
 void ATMS_Player::OnInventoryInput(const FInputActionValue& Value)
 {
 	if (!PHUD) return;

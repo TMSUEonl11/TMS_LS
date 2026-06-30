@@ -3,7 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GenericTeamAgentInterface.h"
 #include "Engine/DeveloperSettings.h"
+#include "TMS_LS/Core/Data/TMS_DataTypes.h"
 #include "TMS_DeveloperSettings.generated.h"
 
 /**
@@ -22,5 +24,8 @@ public:
 
 	UPROPERTY(Config, EditDefaultsOnly, BlueprintReadOnly)
 	TSoftObjectPtr<UDataTable> ItemDataTable;
+
+	UPROPERTY(Config, EditDefaultsOnly, BlueprintReadOnly)
+	TMap<TEnumAsByte<ETeamType>, FTeamAffiliation> TeamsAttitudes;
 	
 };

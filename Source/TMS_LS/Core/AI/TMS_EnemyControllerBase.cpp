@@ -7,6 +7,7 @@
 #include "TMS_EnemyCharacterBase.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "TMS_LS/Utilities/TMS_AIPatrolPath.h"
+#include "TMS_LS/Utilities/TMS_DeveloperSettings.h"
 
 
 // Sets default values
@@ -16,6 +17,31 @@ ATMS_EnemyControllerBase::ATMS_EnemyControllerBase()
 	PrimaryActorTick.bCanEverTick = true;
 
 	Perception = CreateDefaultSubobject<UTMS_AIPerception>("Perception");
+}
+
+FGenericTeamId ATMS_EnemyControllerBase::GetGenericTeamId() const
+{
+	return FGenericTeamId(static_cast<uint8>(CurrentTeamType));
+}
+
+ETeamAttitude::Type ATMS_EnemyControllerBase::GetTeamAttitudeTowards(const AActor& Other) const
+{
+	if (const APawn* OtherPawn = Cast<APawn>(&Other))
+	{
+		if (const IGenericTeamAgentInterface* OtherAgent =
+			Cast<IGenericTeamAgentInterface>(OtherPawn->GetController()))
+		{
+			const FGenericTeamId& OtherTeamId = OtherAgent->GetGenericTeamId();
+			ETeamType OtherTeamType = static_cast<ETeamType>(OtherTeamId.GetId());
+			if (UTMS_DeveloperSettings::Get()->TeamsAttitudes.Find(CurrentTeamType) &&
+				UTMS_DeveloperSettings::Get()->TeamsAttitudes[CurrentTeamType].
+				TeamAttitude.Find(OtherTeamType))
+			{
+				return UTMS_DeveloperSettings::Get()->TeamsAttitudes[CurrentTeamType].TeamAttitude[OtherTeamType];
+			}
+		}
+	}
+	return ETeamAttitude::Neutral;
 }
 
 // Called when the game starts or when spawned
@@ -55,6 +81,7 @@ void ATMS_EnemyControllerBase::OnPossess(APawn* InPawn)
 	Super::OnPossess(InPawn);
 	if (ATMS_EnemyCharacterBase* EnemyPawn = Cast<ATMS_EnemyCharacterBase>(InPawn))
 	{
+		CurrentTeamType = EnemyPawn->TeamType;
 		if (EnemyPawn->BehaviorTree)
 		{
 			RunBehaviorTree(EnemyPawn->BehaviorTree);
