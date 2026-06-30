@@ -47,6 +47,8 @@ void ATMS_Player::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	FOV_Update(DeltaTime);
+	
+	CheckInteractable();
 }
 
 void ATMS_Player::MainInput(const FInputActionValue& InputActionValue)

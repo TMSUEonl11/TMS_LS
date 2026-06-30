@@ -104,7 +104,7 @@ void ATMS_FireWeapon::Shoot()
 	CollisionParams.AddIgnoredActors(IgnoreActors);
 
 	GetWorld()->LineTraceSingleByChannel(Hit, StartLocation, EndLocation,
-		ECC_Camera, CollisionParams);
+		ECC_Visibility, CollisionParams);
 
 	if (Hit.bBlockingHit)
 	{

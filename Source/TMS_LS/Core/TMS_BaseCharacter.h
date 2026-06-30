@@ -12,6 +12,9 @@
 
 class UTMS_WeaponComponent;
 
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEnemyDestroyed);
+
 UCLASS()
 class TMS_LS_API ATMS_BaseCharacter : public ACharacter
 {
@@ -32,6 +35,10 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+		
+	UPROPERTY(BlueprintAssignable)
+	FOnEnemyDestroyed OnEnemyDestroyed;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	bool bCrouching = false;
 

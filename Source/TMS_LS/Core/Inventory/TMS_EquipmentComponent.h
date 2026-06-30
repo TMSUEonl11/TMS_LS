@@ -115,4 +115,7 @@ private:
 	void FinishUnequip();
 
 	void MoveCurrentItemInInventory();
+	
+	UFUNCTION()
+	void DestroyedEquipment();
 };

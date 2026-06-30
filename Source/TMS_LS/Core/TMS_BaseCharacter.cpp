@@ -55,5 +55,6 @@ void ATMS_BaseCharacter::OnDeath()
 		PC->UnPossess();
 		PC->StartSpectatingOnly();
 		SetLifeSpan(5.f);
+		OnEnemyDestroyed.Broadcast();
 	}
 }

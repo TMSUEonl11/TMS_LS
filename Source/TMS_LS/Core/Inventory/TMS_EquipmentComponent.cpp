@@ -7,6 +7,7 @@
 #include "TMS_InventorySubsystem.h"
 #include "GameFramework/Character.h"
 #include "TMS_LS/Components/TMS_WeaponComponent.h"
+#include "TMS_LS/Core/TMS_BaseCharacter.h"
 
 UTMS_EquipmentComponent::UTMS_EquipmentComponent()
 {
@@ -26,6 +27,9 @@ void UTMS_EquipmentComponent::BeginPlay()
 			AddPendingEquipment(EquipmentProcess);
 		}
 	}
+	ATMS_BaseCharacter* OwnerPawn = Cast<ATMS_BaseCharacter>(GetOwner());
+	if (!OwnerPawn) return;
+	OwnerPawn->OnEnemyDestroyed.AddDynamic(this, &UTMS_EquipmentComponent::DestroyedEquipment);
 }
 
 void UTMS_EquipmentComponent::AddPendingEquipment(const FEquipmentProcess& InEP)
@@ -232,4 +236,11 @@ void UTMS_EquipmentComponent::MoveCurrentItemInInventory()
 	}
 }
 
-
+void UTMS_EquipmentComponent::DestroyedEquipment()
+{	
+	for ( auto It = EquipmentActors.CreateIterator(); It; ++It )
+		if (AItemEquipment* ItemEquipment = It.Value())
+		{
+			ItemEquipment->SetLifeSpan(5.0f);
+		}
+}

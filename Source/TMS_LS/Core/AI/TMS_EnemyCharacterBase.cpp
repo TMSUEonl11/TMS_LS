@@ -22,7 +22,15 @@ void ATMS_EnemyCharacterBase::BeginPlay()
 
 void ATMS_EnemyCharacterBase::OnInventoryUpdated()
 {
-	SetLifeSpan(InventoryComponent->IsEmpty() ? 5.f : 0.f);
+	if (InventoryComponent->IsEmpty())
+	{
+		SetLifeSpan(5.f);
+		OnEnemyDestroyed.Broadcast();
+	}
+	else
+	{
+		SetLifeSpan(0.f);
+	}
 }
 
 void ATMS_EnemyCharacterBase::OnDeath()
