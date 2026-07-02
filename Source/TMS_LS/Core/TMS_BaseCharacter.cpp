@@ -56,4 +56,9 @@ void ATMS_BaseCharacter::OnDeath()
 		PC->StartSpectatingOnly();
 		SetLifeSpan(5.f);
 	}
+	if (WeaponComponent->CurrentWeapon)
+	{
+		WeaponComponent->CurrentWeapon->Destroy();
+		WeaponComponent->CurrentWeapon = nullptr;
+	}
 }
