@@ -7,24 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="655b8281-5753-4a03-8620-77c7f245ea64" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Architecture/Floor_400x400.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Architecture/Floor_400x400.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Audio/Collapse01.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Audio/Collapse01.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/BT_EnemyBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/BT_EnemyBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/BT_EnemyMeleeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/BT_EnemyMeleeBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/EQS/EQS_FindCover.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/EQS/EQS_FindCover.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Animation/WeaponAnims/ABP_BaseLayer.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Animation/WeaponAnims/ABP_BaseLayer.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Maps/ThirdPersonMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPerson/Maps/ThirdPersonMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/2/6D/VKQQEA28VM6D1X552BEQ5D.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/2/87/I98BZKKKHEQF23E8G65U9I.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/2/87/I98BZKKKHEQF23E8G65U9I.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/2/KC/496C0AS7YHZ3QWSC0UFPZE.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/7/OU/UA9X7OSNREL5BYIOOV83V0.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/C/3G/UAJRROZU0PJ0RSX6LKJZR5.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/D/DE/SWSI13675DVYIZ0N4NF7Y3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/D/DE/SWSI13675DVYIZ0N4NF7Y3.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Items/Weapons/TMS_FireWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Items/Weapons/TMS_FireWeapon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TMS_LS.uproject.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/TMS_LS.uproject.DotSettings.user" afterDir="false" />
-    </list>
+    <list default="true" id="655b8281-5753-4a03-8620-77c7f245ea64" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -269,7 +252,7 @@
       <workItem from="1782818515214" duration="406000" />
       <workItem from="1782819251463" duration="74000" />
       <workItem from="1782819384085" duration="228000" />
-      <workItem from="1782821693651" duration="1673000" />
+      <workItem from="1782821693651" duration="2962000" />
     </task>
     <servers />
   </component>
