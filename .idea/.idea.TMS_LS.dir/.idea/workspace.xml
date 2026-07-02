@@ -7,7 +7,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="655b8281-5753-4a03-8620-77c7f245ea64" name="Changes" comment="" />
+    <list default="true" id="655b8281-5753-4a03-8620-77c7f245ea64" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Core/BP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Core/BP_Player.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Maps/Big_Map.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Maps/Big_Map.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/5/4S/JRLKPGA6I9Y0QJEK7DUIXX.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/5/4S/JRLKPGA6I9Y0QJEK7DUIXX.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/6/46/CCZZV25PQURGHOOEPN2I10.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/6/46/CCZZV25PQURGHOOEPN2I10.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/6/YU/TX1JPZW1W0WRBXYB49CCOS.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/6/YU/TX1JPZW1W0WRBXYB49CCOS.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/7/T7/M9RTLI7BFFC2UZSAKVKO1H.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/7/T7/M9RTLI7BFFC2UZSAKVKO1H.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/8/Y7/VZH24IN5UIMOO2MCFL36RN.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/8/Y7/VZH24IN5UIMOO2MCFL36RN.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/NJ/SHR2H902H4GHUJ01A9MO7W.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/NJ/SHR2H902H4GHUJ01A9MO7W.uasset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,24 +74,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Uproject.TMS_LS.executor": "Run",
-    "git-widget-placeholder": "Danil-Permaykov",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Uproject.TMS_LS.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Danil-Permaykov&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="TMS_LS" type="Uproject" factoryName="rider.uproject">
       <configuration_1 setup="1">
@@ -253,6 +263,9 @@
       <workItem from="1782819251463" duration="74000" />
       <workItem from="1782819384085" duration="228000" />
       <workItem from="1782821693651" duration="2962000" />
+      <workItem from="1782957909646" duration="156000" />
+      <workItem from="1782958200237" duration="677000" />
+      <workItem from="1783008403653" duration="1423000" />
     </task>
     <servers />
   </component>
