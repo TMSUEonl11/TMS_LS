@@ -114,7 +114,7 @@ void ATMS_FireWeapon::Shoot()
 	GetWorld()->LineTraceSingleByChannel(Hit,
 		GetMuzzleLocation(), EndLocation,
 		ECollisionChannel::ECC_Pawn, CollisionParams);
-	DrawDebugLine(GetWorld(),GetMuzzleLocation(), EndLocation, FColor::Green, false, 0.5f, 0, 1.f);
+	//DrawDebugLine(GetWorld(),GetMuzzleLocation(), EndLocation, FColor::Green, false, 0.5f, 0, 1.f);
 
 	if (Hit.bBlockingHit && Hit.GetActor())
 	{

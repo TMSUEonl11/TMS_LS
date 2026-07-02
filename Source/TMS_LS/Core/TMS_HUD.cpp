@@ -26,8 +26,7 @@ void ATMS_HUD::BeginPlay()
 void ATMS_HUD::SetUIState(EUIState InState)
 {
 	CurrentUIState = InState;
-
-
+	
 	OnUIStateChanged.Broadcast(CurrentUIState);
 }
 

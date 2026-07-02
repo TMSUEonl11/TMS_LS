@@ -20,7 +20,6 @@ ATMS_BaseCharacter::ATMS_BaseCharacter()
 	EquipmentComponent = CreateDefaultSubobject<UTMS_EquipmentComponent>(TEXT("EquipmentComponent"));
 }
 
-// Called when the game starts or when spawned
 void ATMS_BaseCharacter::BeginPlay()
 {
 	Super::BeginPlay();
@@ -32,14 +31,24 @@ void ATMS_BaseCharacter::BeginPlay()
 	
 }
 
-// Called every frame
+float ATMS_BaseCharacter::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent,
+	class AController* EventInstigator, AActor* DamageCauser)
+{
+	if (DamageAmount < 0)
+	{
+		HealthComponent->RestoreHealth(-DamageAmount);
+		return DamageAmount;
+	}
+	return Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
+	
+}
+
 void ATMS_BaseCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
 }
 
-// Called to bind functionality to input
 void ATMS_BaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);

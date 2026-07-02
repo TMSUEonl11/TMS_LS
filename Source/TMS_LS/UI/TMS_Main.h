@@ -19,6 +19,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
 	TObjectPtr<UTMS_AttributePanel> AttributePanel;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "HUD_Setup")
+	TSubclassOf<class UTMS_Pause> PauseWidgetClass;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "HUD_Setup")
+	TObjectPtr<UTMS_Pause> PauseWidget;
+
 	UFUNCTION()
 	virtual void NativeConstruct() override;
 
@@ -27,5 +33,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	EUIState CurrentUIState;
+
+	
 	
 };

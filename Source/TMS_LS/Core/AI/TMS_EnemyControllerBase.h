@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "BehaviorTree/BehaviorTreeTypes.h"
 #include "Runtime/AIModule/Classes/AIController.h"
+#include "TMS_LS/Core/Data/TMS_DataTypes.h"
 #include "TMS_EnemyControllerBase.generated.h"
 
 class UTMS_AIPerception;
@@ -18,6 +19,12 @@ public:
 	// Sets default values for this actor's properties
 	ATMS_EnemyControllerBase();
 
+	virtual FGenericTeamId GetGenericTeamId() const override;
+
+	virtual ETeamAttitude::Type GetTeamAttitudeTowards(const AActor& Other) const override;
+
+	ETeamType CurrentTeamType;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
 	TObjectPtr<UTMS_AIPerception> Perception;
 
