@@ -9,14 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="655b8281-5753-4a03-8620-77c7f245ea64" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Core/BP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Core/BP_Player.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Maps/Big_Map.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Maps/Big_Map.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/5/4S/JRLKPGA6I9Y0QJEK7DUIXX.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/5/4S/JRLKPGA6I9Y0QJEK7DUIXX.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/6/46/CCZZV25PQURGHOOEPN2I10.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/6/46/CCZZV25PQURGHOOEPN2I10.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/6/YU/TX1JPZW1W0WRBXYB49CCOS.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/6/YU/TX1JPZW1W0WRBXYB49CCOS.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/7/T7/M9RTLI7BFFC2UZSAKVKO1H.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/7/T7/M9RTLI7BFFC2UZSAKVKO1H.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/8/Y7/VZH24IN5UIMOO2MCFL36RN.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/8/Y7/VZH24IN5UIMOO2MCFL36RN.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/NJ/SHR2H902H4GHUJ01A9MO7W.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/NJ/SHR2H902H4GHUJ01A9MO7W.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/OF/G8X7LFVTJKLTKBSKA1IK7O.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/OF/G8X7LFVTJKLTKBSKA1IK7O.uasset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,6 +261,8 @@
       <workItem from="1782957909646" duration="156000" />
       <workItem from="1782958200237" duration="677000" />
       <workItem from="1783008403653" duration="1423000" />
+      <workItem from="1783013059051" duration="304000" />
+      <workItem from="1783013461679" duration="676000" />
     </task>
     <servers />
   </component>
