@@ -18,6 +18,8 @@ ATMS_BaseCharacter::ATMS_BaseCharacter()
 	WeaponComponent = CreateDefaultSubobject<UTMS_WeaponComponent>("WeaponComponent");
 	
 	EquipmentComponent = CreateDefaultSubobject<UTMS_EquipmentComponent>(TEXT("EquipmentComponent"));
+	
+	NavInvoker = CreateDefaultSubobject<UNavigationInvokerComponent>(TEXT("NavInvoker"));
 }
 
 void ATMS_BaseCharacter::BeginPlay()

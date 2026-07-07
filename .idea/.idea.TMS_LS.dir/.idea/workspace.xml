@@ -9,9 +9,28 @@
   <component name="ChangeListManager">
     <list default="true" id="655b8281-5753-4a03-8620-77c7f245ea64" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_Enemy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_Enemy.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_EnemyMelee.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_EnemyMelee.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Maps/Big_Map.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Maps/Big_Map.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/1/76/VDXC7PFJY1HKP2CZC7QWIK.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/1/76/VDXC7PFJY1HKP2CZC7QWIK.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/KD/94SLWMZFXQ0ZDLHT4LU6LQ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/KD/94SLWMZFXQ0ZDLHT4LU6LQ.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/NY/0HEPYFR1OXVRKFYR8UVD8V.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/NY/0HEPYFR1OXVRKFYR8UVD8V.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/PM/LGYA9KFZJYC0UWA3Q5EPMN.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/PM/LGYA9KFZJYC0UWA3Q5EPMN.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/3/0U/W2S3ZRAK85CX2TVIZCRNXX.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/3/WM/57E39HU7L4LRJ04BA5PF1R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/3/WM/57E39HU7L4LRJ04BA5PF1R.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/4/HZ/3ITYK0ME4SPZO1O2TQRV0B.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/4/HZ/3ITYK0ME4SPZO1O2TQRV0B.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/5/8L/TZKNI36R2FLIDXBWIPQQST.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/5/8L/TZKNI36R2FLIDXBWIPQQST.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/6/46/CCZZV25PQURGHOOEPN2I10.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/6/46/CCZZV25PQURGHOOEPN2I10.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/7/T7/M9RTLI7BFFC2UZSAKVKO1H.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/7/T7/M9RTLI7BFFC2UZSAKVKO1H.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/8/PQ/DKULD99OE81WR72FUA04ZF.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/8/PQ/DKULD99OE81WR72FUA04ZF.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/8/Y7/VZH24IN5UIMOO2MCFL36RN.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/8/Y7/VZH24IN5UIMOO2MCFL36RN.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/OF/G8X7LFVTJKLTKBSKA1IK7O.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/OF/G8X7LFVTJKLTKBSKA1IK7O.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/KN/1PC75YM25KCX6XTETMRYGM.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/KN/1PC75YM25KCX6XTETMRYGM.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/LH/2W4VMZNQGEPPON5VJ8M4KO.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/LH/2W4VMZNQGEPPON5VJ8M4KO.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_BaseCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_BaseCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_BaseCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_BaseCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS_LS.uproject.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/TMS_LS.uproject.DotSettings.user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,24 +88,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;Uproject.TMS_LS.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Danil-Permaykov&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Uproject.TMS_LS.executor": "Run",
+    "git-widget-placeholder": "Danil-Permaykov",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="TMS_LS" type="Uproject" factoryName="rider.uproject">
       <configuration_1 setup="1">
@@ -263,6 +282,7 @@
       <workItem from="1783008403653" duration="1423000" />
       <workItem from="1783013059051" duration="304000" />
       <workItem from="1783013461679" duration="676000" />
+      <workItem from="1783223222960" duration="1367000" />
     </task>
     <servers />
   </component>
