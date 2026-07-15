@@ -3,6 +3,7 @@
 
 #include "TMS_BaseCharacter.h"
 
+#include "NavigationInvokerComponent.h"
 #include "TMS_LS/Components/TMS_WeaponComponent.h"
 
 // Sets default values
@@ -18,6 +19,8 @@ ATMS_BaseCharacter::ATMS_BaseCharacter()
 	WeaponComponent = CreateDefaultSubobject<UTMS_WeaponComponent>("WeaponComponent");
 	
 	EquipmentComponent = CreateDefaultSubobject<UTMS_EquipmentComponent>(TEXT("EquipmentComponent"));
+
+	NavInvoker = CreateDefaultSubobject<UNavigationInvokerComponent>(TEXT("NavInvoker"));
 }
 
 void ATMS_BaseCharacter::BeginPlay()

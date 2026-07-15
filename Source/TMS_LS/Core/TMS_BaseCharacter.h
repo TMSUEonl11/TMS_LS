@@ -10,6 +10,7 @@
 #include "Inventory/TMS_InventoryComponent.h"
 #include "TMS_BaseCharacter.generated.h"
 
+class UNavigationInvokerComponent;
 class UTMS_WeaponComponent;
 
 UCLASS()
@@ -57,6 +58,9 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
 	TObjectPtr<UTMS_WeaponComponent> WeaponComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
+	TObjectPtr<UNavigationInvokerComponent> NavInvoker;
 	
 	UFUNCTION()
 	virtual void OnDeath();
