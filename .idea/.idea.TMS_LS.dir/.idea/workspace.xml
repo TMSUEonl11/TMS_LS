@@ -9,28 +9,17 @@
   <component name="ChangeListManager">
     <list default="true" id="655b8281-5753-4a03-8620-77c7f245ea64" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_Enemy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_Enemy.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_EnemyMelee.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_EnemyMelee.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Maps/Big_Map.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Maps/Big_Map.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/1/76/VDXC7PFJY1HKP2CZC7QWIK.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/1/76/VDXC7PFJY1HKP2CZC7QWIK.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/KD/94SLWMZFXQ0ZDLHT4LU6LQ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/KD/94SLWMZFXQ0ZDLHT4LU6LQ.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/NY/0HEPYFR1OXVRKFYR8UVD8V.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/NY/0HEPYFR1OXVRKFYR8UVD8V.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/PM/LGYA9KFZJYC0UWA3Q5EPMN.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/PM/LGYA9KFZJYC0UWA3Q5EPMN.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/3/0U/W2S3ZRAK85CX2TVIZCRNXX.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/3/WM/57E39HU7L4LRJ04BA5PF1R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/3/WM/57E39HU7L4LRJ04BA5PF1R.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/4/HZ/3ITYK0ME4SPZO1O2TQRV0B.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/4/HZ/3ITYK0ME4SPZO1O2TQRV0B.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/5/8L/TZKNI36R2FLIDXBWIPQQST.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/5/8L/TZKNI36R2FLIDXBWIPQQST.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/6/46/CCZZV25PQURGHOOEPN2I10.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/6/46/CCZZV25PQURGHOOEPN2I10.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/7/T7/M9RTLI7BFFC2UZSAKVKO1H.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/7/T7/M9RTLI7BFFC2UZSAKVKO1H.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/8/PQ/DKULD99OE81WR72FUA04ZF.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/8/PQ/DKULD99OE81WR72FUA04ZF.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/8/Y7/VZH24IN5UIMOO2MCFL36RN.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/8/Y7/VZH24IN5UIMOO2MCFL36RN.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/OF/G8X7LFVTJKLTKBSKA1IK7O.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/OF/G8X7LFVTJKLTKBSKA1IK7O.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/KN/1PC75YM25KCX6XTETMRYGM.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/KN/1PC75YM25KCX6XTETMRYGM.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/LH/2W4VMZNQGEPPON5VJ8M4KO.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/LH/2W4VMZNQGEPPON5VJ8M4KO.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/BT_EnemyBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/BT_EnemyBase.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/BT_EnemyMeleeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/BT_EnemyMeleeBase.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/EQS/EQS_FindCover.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/EQS/EQS_FindCover.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Core/BP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Core/BP_Player.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Maps/ThirdPersonMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPerson/Maps/ThirdPersonMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/2/87/I98BZKKKHEQF23E8G65U9I.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/2/87/I98BZKKKHEQF23E8G65U9I.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/5/AS/4PG7CNDY5LVFW1Y3DFIYES.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/5/AS/4PG7CNDY5LVFW1Y3DFIYES.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/7/HB/KUS101NY5ATF82ZVAVS0ZI.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/B/LA/6Z8WO1QE07HVHIH0XB1VHX.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/B/LA/6Z8WO1QE07HVHIH0XB1VHX.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/C/N7/ROOE9GKBIJG0C3VU9877D9.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/C/N7/ROOE9GKBIJG0C3VU9877D9.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_BaseCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_BaseCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_BaseCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_BaseCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TMS_LS.uproject.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/TMS_LS.uproject.DotSettings.user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +45,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="cidr-memory-view://0" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Containers/Array.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Delegates/DelegateInstancesImpl.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Logging/LogCategory.h" root0="FORCE_HIGHLIGHTING" />
@@ -95,7 +85,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Uproject.TMS_LS.executor": "Run",
+    "Uproject.TMS_LS.executor": "Debug",
     "git-widget-placeholder": "Danil-Permaykov",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -283,6 +273,8 @@
       <workItem from="1783013059051" duration="304000" />
       <workItem from="1783013461679" duration="676000" />
       <workItem from="1783223222960" duration="1367000" />
+      <workItem from="1783614142702" duration="355000" />
+      <workItem from="1784028632137" duration="2354000" />
     </task>
     <servers />
   </component>
