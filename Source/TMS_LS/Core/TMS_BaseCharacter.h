@@ -11,6 +11,7 @@
 #include "NavigationInvokerComponent.h"
 #include "TMS_BaseCharacter.generated.h"
 
+class UNavigationInvokerComponent;
 class UTMS_WeaponComponent;
 
 
@@ -65,6 +66,9 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
 	TObjectPtr<UTMS_WeaponComponent> WeaponComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
+	TObjectPtr<UNavigationInvokerComponent> NavInvoker;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
 	TObjectPtr<UNavigationInvokerComponent> NavInvoker;
