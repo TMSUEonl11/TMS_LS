@@ -23,7 +23,10 @@ public class TMS_LS : ModuleRules
 			"UMG",
             "DeveloperSettings",
             "AIModule",
-            "NavigationSystem"
+            "NavigationSystem", 
+			"Niagara",
+			"NiagaraCore",
+			"PhysicsCore"
 		});
 	}
 }

@@ -4,6 +4,8 @@
 #include "TMS_BaseCharacter.h"
 
 #include "NavigationInvokerComponent.h"
+#include "NiagaraFunctionLibrary.h"
+#include "Kismet/GameplayStatics.h"
 #include "TMS_LS/Components/TMS_WeaponComponent.h"
 
 // Sets default values
@@ -56,6 +58,22 @@ void ATMS_BaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputC
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+void ATMS_BaseCharacter::PlayFootstepSoundBasedOnMaterial(UPhysicalMaterial* InPM, FVector InLocation)
+{
+	if (!FootstepSounds) return;
+	if (!InPM) return;
+	
+	if (USoundBase* Sound = FootstepSounds->GetPhysicalSoundBasedOnMaterial(InPM))
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, Sound, InLocation);
+	}
+	
+	if (UNiagaraSystem* NS = FootstepSounds->GetPhysicalNiagaraBasedOnMaterial(InPM))
+	{
+		UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, NS, InLocation);
+	}
 }
 
 void ATMS_BaseCharacter::OnDeath()

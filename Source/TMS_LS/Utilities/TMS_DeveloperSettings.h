@@ -27,5 +27,4 @@ public:
 
 	UPROPERTY(Config, EditDefaultsOnly, BlueprintReadOnly)
 	TMap<TEnumAsByte<ETeamType>, FTeamAffiliation> TeamsAttitudes;
-	
 };
