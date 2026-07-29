@@ -26,7 +26,9 @@ public class TMS_LS : ModuleRules
             "NavigationSystem", 
 			"Niagara",
 			"NiagaraCore",
-			"PhysicsCore"
+			"PhysicsCore",
+			"Json",
+			"JsonUtilities"
 		});
 	}
 }

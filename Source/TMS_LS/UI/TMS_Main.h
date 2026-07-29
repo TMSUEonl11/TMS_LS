@@ -25,6 +25,14 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "HUD_Setup")
 	TObjectPtr<UTMS_Pause> PauseWidget;
 
+	UFUNCTION(BlueprintNativeEvent)
+	void OnKilled(AActor* KilledActor);
+	virtual void OnKilled_Implementation(AActor* KilledActor);
+
+	UFUNCTION(BlueprintNativeEvent)
+	void OnDamaged(AActor* DamagedActor, float Damage);
+	virtual void OnDamaged_Implementation(AActor* DamagedActor, float Damage);
+	
 	UFUNCTION()
 	virtual void NativeConstruct() override;
 
