@@ -70,3 +70,4 @@ public:
 	TObjectPtr<UAnimMontage> WAnim;
 	
 };
+

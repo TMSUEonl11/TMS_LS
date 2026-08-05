@@ -59,6 +59,37 @@ struct FItemSlotData
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 Amount = 0;
+	
+	bool Serialize(FArchive& Ar)
+	{
+		Ar << ItemID;
+		Ar << Amount;
+		return !Ar.IsError();
+	}
+	
+	TSharedPtr<FJsonObject> AsJsonObject() const
+	{
+		TSharedPtr<FJsonObject> JsonObject = MakeShareable(new FJsonObject());
+		JsonObject->SetStringField(TEXT("ItemID"), ItemID.ToString());
+		JsonObject->SetNumberField(TEXT("Amount"), Amount);
+		
+		return JsonObject;
+	}
+	
+	bool FromJson(const TSharedPtr<FJsonObject>& JsonObject)
+	{
+		if (!JsonObject.IsValid())
+		{
+			return false;
+		}
+		FString ItemIDString;
+		if (JsonObject->TryGetStringField(TEXT("ItemID"), ItemIDString))
+		{
+			ItemID = FName(*ItemIDString);
+		}
+		JsonObject->TryGetNumberField(TEXT("Amount"), Amount);
+		return true;
+	}
 };
 
 USTRUCT(BlueprintType)

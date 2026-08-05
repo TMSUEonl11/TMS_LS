@@ -5,17 +5,40 @@
 
 #include "TMS_Pause.h"
 #include "Kismet/GameplayStatics.h"
+#include "TMS_LS/Core/TMS_Player.h"
+
+void UTMS_Main::OnKilled_Implementation(AActor* KilledActor)
+{
+	if (ATMS_Player* Player = Cast<ATMS_Player>(GetOwningPlayer()->GetPawn()))
+	{
+		UE_LOG(LogTemp, Display, TEXT("%s killed %s"), *Player->GetName(), *KilledActor->GetName());
+	}
+}
+
+void UTMS_Main::OnDamaged_Implementation(AActor* DamagedActor, float Damage)
+{
+	if (ATMS_Player* Player = Cast<ATMS_Player>(GetOwningPlayer()->GetPawn()))
+	{
+		UE_LOG(LogTemp, Display, TEXT("%s hit %s for %f damage"), *Player->GetName(), *DamagedActor->GetName(), Damage);
+	}
+}
 
 void UTMS_Main::NativeConstruct()
 {
 	Super::NativeConstruct();
 	check(AttributePanel);
 
-	ATMS_HUD* HUD = Cast<ATMS_HUD>(GetOwningPlayer()->GetHUD());
-	if (HUD)
+	if (ATMS_HUD* HUD = Cast<ATMS_HUD>(GetOwningPlayer()->GetHUD()))
 	{
 		HUD->OnUIStateChanged.AddDynamic(this, &UTMS_Main::OnUIStateChanged);
 	}
+	
+	if (ATMS_Player* Player = Cast<ATMS_Player>(GetOwningPlayer()->GetPawn()))
+	{
+		Player->OnKilled.AddDynamic(this, &UTMS_Main::OnKilled);
+		Player->OnDamaged.AddDynamic(this, &UTMS_Main::OnDamaged);
+	}
+	
 }
 
 void UTMS_Main::OnUIStateChanged_Implementation(EUIState InNewState)

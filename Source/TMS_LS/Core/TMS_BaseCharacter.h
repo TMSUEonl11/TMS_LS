@@ -4,12 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "Data/TMS_DataTypes.h"
+#include "Data/TMS_PhysicalSoundData.h"
 #include "GameFramework/Character.h"
 #include "Inventory/TMS_EquipmentComponent.h"
 #include "TMS_LS/Components/TMS_HealthComponent.h"
 #include "Inventory/TMS_InventoryComponent.h"
 #include "TMS_BaseCharacter.generated.h"
 
+class UNavigationInvokerComponent;
 class UTMS_WeaponComponent;
 
 UCLASS()
@@ -43,6 +45,9 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Movement")
 	FTMS_AnimData VaultAnims;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Movement")
+	TObjectPtr<UTMS_PhysicalSoundData> FootstepSounds;
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	bool bIsVaulting = false;
 
@@ -57,6 +62,12 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
 	TObjectPtr<UTMS_WeaponComponent> WeaponComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
+	TObjectPtr<UNavigationInvokerComponent> NavInvoker;
+	
+	UFUNCTION(BlueprintCallable)
+	void PlayFootstepSoundBasedOnMaterial(UPhysicalMaterial* InPM, FVector InLocation);
 	
 	UFUNCTION()
 	virtual void OnDeath();
