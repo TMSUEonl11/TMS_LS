@@ -28,7 +28,10 @@ public class TMS_LS : ModuleRules
 			"NiagaraCore",
 			"PhysicsCore",
 			"Json",
-			"JsonUtilities"
+			"JsonUtilities",
+			"TMS_LoadingScreen",
+			"Slate",
+			"SlateCore",
 		});
 	}
 }

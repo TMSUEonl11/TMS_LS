@@ -13,6 +13,11 @@
 				"GameplayAbilities",
 				"DeveloperSettings"
 			]
+		},
+		{
+			"Name": "TMS_LoadingScreen",
+			"Type": "Runtime",
+			"LoadingPhase": "PreLoadingScreen"
 		}
 	],
 	"Plugins": [

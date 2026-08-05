@@ -133,7 +133,7 @@ public:
 	UFUNCTION()
 	void OnAntiAliasingChanged(bool bNewValue);
 	UFUNCTION()
-	void OnFPSChanged(FString SelectedItem, ESelectInfo::Type SelectionType);
+	void OnFPSSelectorChanged(FString SelectedItem, ESelectInfo::Type SelectionType);
 	
 	UFUNCTION()
 	void OnMasterSoundChanged(float NewValue);
