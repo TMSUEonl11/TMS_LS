@@ -70,8 +70,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
 	TObjectPtr<UNavigationInvokerComponent> NavInvoker;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
-	TObjectPtr<UNavigationInvokerComponent> NavInvoker;
 	
 	UFUNCTION()
 	virtual void OnDeath();
