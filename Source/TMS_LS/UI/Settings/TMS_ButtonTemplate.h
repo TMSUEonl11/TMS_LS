@@ -16,6 +16,6 @@ class TMS_LS_API UTMS_ButtonTemplate : public UUserWidget
 {
 	GENERATED_BODY()
 public:
-	UPROPERTY(BlueprintAssignable)
+	UPROPERTY(BlueprintCallable, BlueprintAssignable)
 	FOnButtonClickedSignature OnButtonClicked;
 };

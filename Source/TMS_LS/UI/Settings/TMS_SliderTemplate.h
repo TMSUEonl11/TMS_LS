@@ -16,14 +16,14 @@ class TMS_LS_API UTMS_SliderTemplate : public UUserWidget
 {
 	GENERATED_BODY()
 public:
-	UPROPERTY(BlueprintAssignable)
+	UPROPERTY(BlueprintCallable, BlueprintAssignable)
 	FOnSliderValueChangedSignature OnSliderValueChanged;
 	
 	UFUNCTION(BlueprintNativeEvent)
 	float GetSliderValue();
 	float GetSliderValue_Implementation() {return 0;};
 	
-	UFUNCTION(BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void SetSliderValue(float NewValue);
 	void SetSliderValue_Implementation(float NewValue) {};
 };

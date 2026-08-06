@@ -6,6 +6,7 @@
 #include "Blueprint/UserWidget.h"
 #include "TMS_SettingsWidget.generated.h"
 
+class UTMS_GameSettings;
 class UWidgetSwitcher;
 class UTMS_ButtonTemplate;
 class UTMS_CheckboxTemplate;
@@ -48,9 +49,6 @@ protected:
 	UComboBoxString* QualityPresetComboBox;
 	
 	UPROPERTY(meta = (BindWidget))
-	UTextBlock* QualityPresetTextBlock;
-	
-	UPROPERTY(meta = (BindWidget))
 	UComboBoxString* ResolutionPresetComboBox;
 	
 	UPROPERTY(meta = (BindWidget))
@@ -89,9 +87,6 @@ protected:
 	
 	UPROPERTY(meta = (BindWidget))
 	UTMS_CheckboxTemplate* EnableSoundsCheckbox;
-	
-	UPROPERTY(meta = (BindWidget))
-	UTextBlock* EnableSoundsTextBlock;
 	
 	
 	UPROPERTY(meta = (BindWidget))
@@ -161,4 +156,33 @@ public:
 	void OnResetButtonClicked();
 	
 private:
+	
+	UPROPERTY()
+	TObjectPtr<UTMS_GameSettings> Settings;
+	
+	UPROPERTY()
+	TObjectPtr<UTMS_GameSettings> PendingSettings;
+	
+	int32 CurTab = 0;
+	
+	void InitWidget();
+	void BindWidgets();
+	void UnbindWidgets();
+
+	void LoadSettingsToUI();
+	
+	void SaveSettings();
+	
+	void ApplyPendingSettings();
+	void ApplyAudioSettings();
+
+	void RevertPendingSettings();
+	
+	void UpdateChangesIndicator();
+	
+	void UpdateSliderLabels();
+	
+	FString GetQualityText(int32 Quality);
+	
+	void InitComboBoxes();
 };

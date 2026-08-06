@@ -16,14 +16,14 @@ class TMS_LS_API UTMS_CheckboxTemplate : public UUserWidget
 {
 	GENERATED_BODY()
 public:
-	UPROPERTY(BlueprintAssignable)
+	UPROPERTY(BlueprintCallable, BlueprintAssignable)
 	FOnCheckboxStateChangedSignature OnCheckboxStateChanged;
 	
 	UFUNCTION(BlueprintNativeEvent)
 	bool GetCheckboxValue();
 	bool GetCheckboxValue_Implementation() {return false;};
 	
-	UFUNCTION(BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void SetCheckboxValue(bool NewValue);
 	void SetCheckboxValue_Implementation(bool NewValue) {};
 	
