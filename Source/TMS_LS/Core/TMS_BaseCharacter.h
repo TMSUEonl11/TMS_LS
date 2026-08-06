@@ -14,6 +14,7 @@
 
 class UNavigationInvokerComponent;
 class UTMS_WeaponComponent;
+class UTMS_PhysicalSoundData;
 
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEnemyDestroyed);
