@@ -20,11 +20,13 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Loot", meta = (UIMin = 0, ClampMin = 0, UIMax = 255, ClampMax = 255))
 	uint8 LootItemsAmount = 0;
-
-protected:
-	virtual void BeginPlay() override;
-
+#if WITH_EDITOR
 	virtual void PostEditChangeProperty(struct FPropertyChangedEvent& PropertyChangedEvent) override;
+#endif
+	
+	virtual void BeginPlay() override;
+protected:
+
 
 public:
 

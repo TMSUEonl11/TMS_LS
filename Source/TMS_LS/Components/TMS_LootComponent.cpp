@@ -17,6 +17,7 @@ void UTMS_LootComponent::BeginPlay()
 	GenerateLoot();
 }
 
+#if  WITH_EDITOR
 void UTMS_LootComponent::PostEditChangeProperty(struct FPropertyChangedEvent& PropertyChangedEvent)
 {
 	Super::PostEditChangeProperty(PropertyChangedEvent);
@@ -25,6 +26,7 @@ void UTMS_LootComponent::PostEditChangeProperty(struct FPropertyChangedEvent& Pr
 		Loot.DataTable = UTMS_DeveloperSettings::Get()->ItemDataTable.Get();
 	}
 }
+#endif
 
 void UTMS_LootComponent::GenerateLoot()
 {

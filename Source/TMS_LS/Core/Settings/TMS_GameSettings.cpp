@@ -379,6 +379,7 @@ void UTMS_GameSettings::ApplyAudioSettings()
 #if !UE_BUILD_SHIPPING
 	
 #endif
+	
 }
 
 void UTMS_GameSettings::SetResolutionFromString(const FString& ResolutionString)
