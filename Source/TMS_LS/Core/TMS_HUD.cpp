@@ -7,7 +7,7 @@
 void ATMS_HUD::DrawHUD()
 {
 	Super::DrawHUD();
-	DrawCrosshair();
+	//DrawCrosshair();
 }
 
 void ATMS_HUD::BeginPlay()

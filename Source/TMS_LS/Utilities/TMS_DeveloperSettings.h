@@ -8,6 +8,17 @@
 #include "TMS_LS/Core/Data/TMS_DataTypes.h"
 #include "TMS_DeveloperSettings.generated.h"
 
+USTRUCT(BlueprintType)
+struct FTMS_AudioPair
+{
+	GENERATED_BODY()
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSoftObjectPtr<USoundMix> SoundMix;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSoftObjectPtr<USoundClass> SoundClass;
+};
+
 /**
  * 
  */
@@ -28,4 +39,19 @@ public:
 	UPROPERTY(Config, EditDefaultsOnly, BlueprintReadOnly)
 	TMap<TEnumAsByte<ETeamType>, FTeamAffiliation> TeamsAttitudes;
 	
+	UPROPERTY(Config, EditAnywhere, BlueprintReadWrite, Category = "Settings")
+	TMap<TSoftObjectPtr<UPhysicalMaterial>, TSoftObjectPtr<USoundCue>> PhysicsSoundCues;
+	
+	UPROPERTY(Config, EditAnywhere, BlueprintReadWrite, Category = "Settings | Audio")
+	FTMS_AudioPair MasterSound;
+	
+	UPROPERTY(Config, EditAnywhere, BlueprintReadWrite, Category = "Settings | Audio")
+	FTMS_AudioPair MusicSound;
+	
+	UPROPERTY(Config, EditAnywhere, BlueprintReadWrite, Category = "Settings | Audio")
+	FTMS_AudioPair SFXSound;
+	
+	UPROPERTY(Config, EditAnywhere, BlueprintReadWrite, Category = "Settings | Audio")
+	FTMS_AudioPair UISound;
+
 };

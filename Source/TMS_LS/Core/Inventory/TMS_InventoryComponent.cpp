@@ -2,6 +2,9 @@
 
 
 #include "TMS_InventoryComponent.h"
+
+#include <rapidjson/reader.h>
+
 #include "TMS_LS/Utilities/TMS_DeveloperSettings.h"
 
 //#include "TMS_LS/Core/TMS_DataSettings.h"
@@ -119,6 +122,68 @@ bool UTMS_InventoryComponent::IsEmpty()
 	return true;
 }
 
+bool UTMS_InventoryComponent::SaveInventoryToFile(const FString& FilePath) const
+{
+	FString Directory = FPaths::GetPath(FilePath);
+	IFileManager::Get().MakeDirectory(*Directory, true);
+	
+	FString JsonString = SerializeToJson();
+	
+	if (JsonString.IsEmpty())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Failed to serialize data to Json"));
+		return false;
+	}
+	
+	bool bSaved = FFileHelper::SaveStringToFile(JsonString, *FilePath);
+	
+	if (bSaved)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Successfully saved data to %s"), *FilePath);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Failed to save data to %s"), *FilePath);
+	}
+	
+	return bSaved;
+}
+
+bool UTMS_InventoryComponent::LoadInventoryFromFile(const FString& FilePath)
+{
+	if (!FPaths::FileExists(FilePath))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("No save file on path %s"), *FilePath);
+		return false;
+	}
+	
+	FString JsonString;
+	if (!FFileHelper::LoadFileToString(JsonString, *FilePath))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Failed to load save file on path %s"), *FilePath);
+		return false;
+	}
+	
+	bool bLoaded = DeserializeFromJson(JsonString);
+	
+	if (bLoaded)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Successfully loaded save file on path %s"), *FilePath);
+		
+		if (Slots.Num() != ContainerSize)
+		{
+			Slots.SetNum(ContainerSize);
+		}
+		OnInventoryUpdated.Broadcast();
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Failed to deserialize inventory from %s"), *FilePath);
+	}
+	
+	return bLoaded;
+}
+
 bool UTMS_InventoryComponent::HasNotFullSlotOfItem(const FName& ItemID, int32& OutIndex)
 {
 	for (int32 i = 0; i < Slots.Num(); i++)
@@ -187,4 +252,76 @@ int32 UTMS_InventoryComponent::GetMaxAmount(FName ItemID)
 	if (!Item) return 0;
 	
 	return Item->MaxAmount;
+}
+
+FString UTMS_InventoryComponent::SerializeToJson() const
+{
+	TSharedPtr<FJsonObject> JObject = MakeShareable(new FJsonObject);
+	
+	JObject->SetStringField(TEXT("ContainerName"), ContainerName.ToString());
+	JObject->SetNumberField(TEXT("ContainerSize"), ContainerSize);
+	
+	TArray<TSharedPtr<FJsonValue>> JSlotsArray;
+	
+	for (const FItemSlotData& Slot : Slots)
+	{
+		JSlotsArray.Add(MakeShareable(new FJsonValueObject(Slot.AsJsonObject())));
+	}
+	
+	JObject->SetArrayField(TEXT("Slots"), JSlotsArray);
+	
+	FString OutString;
+	TSharedRef<TJsonWriter<>> Writer = TJsonWriterFactory<>::Create(&OutString);
+	FJsonSerializer::Serialize(JObject.ToSharedRef(), Writer);
+	
+	return OutString;
+}
+
+bool UTMS_InventoryComponent::DeserializeFromJson(const FString& InJsonString)
+{
+	TSharedPtr<FJsonObject> JObject;
+	
+	TSharedRef<TJsonReader<>> JsonReader = TJsonReaderFactory<>::Create(InJsonString);
+	if (!FJsonSerializer::Deserialize(JsonReader, JObject) || !JObject.IsValid())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Failed to parse JSON"));	 
+		return false;
+	}
+	
+	FString ContName;
+	if (JObject->TryGetStringField(TEXT("ContainerName"), ContName))
+	{
+		ContainerName = FText::FromString(ContName);
+	}
+	
+	int32 ContSize;
+	if (JObject->TryGetNumberField(TEXT("ContainerSize"), ContSize))
+	{
+		ContainerSize = ContSize;
+	}
+	
+	const TArray<TSharedPtr<FJsonValue>>* SlotsArray;
+	if (JObject->TryGetArrayField(TEXT("Slots"), SlotsArray))
+	{
+		Slots.Empty();
+		Slots.Reserve(SlotsArray->Num());
+		
+		for (const TSharedPtr<FJsonValue>& Slot : *SlotsArray)
+		{
+			TSharedPtr<FJsonObject> SlotObject = Slot->AsObject();
+			if (SlotObject.IsValid())
+			{
+				FItemSlotData NewSlot;
+				NewSlot.FromJson(SlotObject);
+				Slots.Add(NewSlot);
+			}
+		}
+	}
+	
+	if (Slots.Num() != ContainerSize)
+	{
+		Slots.SetNum(ContainerSize);
+	}
+	
+	return true;
 }

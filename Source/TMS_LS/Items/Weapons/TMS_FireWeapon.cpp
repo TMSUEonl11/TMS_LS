@@ -10,6 +10,9 @@ ATMS_FireWeapon::ATMS_FireWeapon()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	FXComponent = CreateDefaultSubobject<UNiagaraComponent>(TEXT("FXComponent"));
+	FXComponent->SetupAttachment(WeaponMesh);
 }
 
 // Called when the game starts or when spawned
@@ -45,6 +48,17 @@ void ATMS_FireWeapon::OnAnimNotify(EWeaponActionType WeaponAction)
 
 void ATMS_FireWeapon::Main_Input(bool bInActive)
 {
+	if (bIsActive != bInActive)
+	{
+		if (bInActive)
+		{
+			FXComponent->Activate(true);
+		}
+		else
+		{
+			FXComponent->Deactivate();
+		}
+	}
 	bIsActive = bInActive;
 	if (bInActive && !GetWorldTimerManager().IsTimerActive(CooldownHandle))
 	{
@@ -118,6 +132,7 @@ void ATMS_FireWeapon::Shoot()
 
 	if (Hit.bBlockingHit && Hit.GetActor())
 	{
+		
 		Hit.GetActor()->TakeDamage(Damage, FDamageEvent{}, Char->GetController(), Char);
 	}
 	

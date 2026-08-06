@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "TMS_BaseWeapon.h"
+#include "NiagaraComponent.h"
 #include "TMS_FireWeapon.generated.h"
 
 UCLASS()
@@ -14,6 +15,9 @@ class TMS_LS_API ATMS_FireWeapon : public ATMS_BaseWeapon
 public:
 	// Sets default values for this actor's properties
 	ATMS_FireWeapon();
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "VFX")
+	TObjectPtr<UNiagaraComponent> FXComponent;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Weapon|State")
 	bool bIsActive = false;

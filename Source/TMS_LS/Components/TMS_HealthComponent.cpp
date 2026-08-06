@@ -42,6 +42,28 @@ void UTMS_HealthComponent::OnTakeDamage(AActor* DamagedActor, float Damage, cons
 	
 	UE_LOG(LogTemp, Display, TEXT("ResultDamage: %f"), Damage);
 	SetHealth(GetHealth() - Damage);
+	
+	ATMS_Player* Player = Cast<ATMS_Player>(InstigatedBy->GetPawn());
+	
+	if (Health <= 0.f)
+	{
+		bDead = true;
+		if (!InstigatedBy) return;
+		
+        if (Player)
+		{
+			Player->OnKill(DamagedActor);
+		}
+		
+		OnDeath.Broadcast();
+	}
+	else
+	{
+		if (Player)
+		{
+			Player->OnHit(DamagedActor, Damage);
+		}
+	}
 }
 
 
@@ -77,11 +99,6 @@ void UTMS_HealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 void UTMS_HealthComponent::SetHealth(float NewValue)
 {
 	Health = FMath::Clamp(NewValue, 0, MaxHealth);
-	if (Health <= 0.f)
-	{
-		bDead = true;
-		OnDeath.Broadcast();
-	}
 }
 
 void UTMS_HealthComponent::SetStamina(float NewValue)

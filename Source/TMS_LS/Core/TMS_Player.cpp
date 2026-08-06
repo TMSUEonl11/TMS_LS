@@ -26,6 +26,15 @@ ATMS_Player::ATMS_Player()
 	TargetFOV = Camera->FieldOfView;
 }
 
+void ATMS_Player::OnInventoryUpdated()
+{
+	if (InventoryComponent)
+	{
+		FString InventorySavePath = FPaths::ProjectSavedDir() + TEXT("PlayerData/Inventory.json");
+		InventoryComponent->SaveInventoryToFile(InventorySavePath);
+	}
+}
+
 void ATMS_Player::BeginPlay()
 {
 	Super::BeginPlay();
@@ -35,6 +44,15 @@ void ATMS_Player::BeginPlay()
 	{
 		WeaponComponent->OnAim.AddDynamic(this, &ATMS_Player::OnAimUpdate);
 	}
+	
+	if (InventoryComponent)
+	{
+		FString InventoryLoadPath = FPaths::ProjectSavedDir() + TEXT("PlayerData/Inventory.json");
+		InventoryComponent->LoadInventoryFromFile(InventoryLoadPath);
+		
+		InventoryComponent->OnInventoryUpdated.AddDynamic(this, &ATMS_Player::OnInventoryUpdated);
+	}
+	
 	PPC = Cast<APlayerController>(GetController());
 	if (!PPC) return;
 
@@ -101,6 +119,16 @@ void ATMS_Player::CheckInteractable()
 			InteractActor = Hit.GetActor();
 		}
 	}
+}
+
+void ATMS_Player::OnKill(AActor* DamagedActor)
+{
+	OnKilled.Broadcast(DamagedActor);
+}
+
+void ATMS_Player::OnHit(AActor* DamagedActor, float Damage)
+{
+	OnDamaged.Broadcast(DamagedActor, Damage);
 }
 
 void ATMS_Player::OnAimUpdate(bool bNewActive)

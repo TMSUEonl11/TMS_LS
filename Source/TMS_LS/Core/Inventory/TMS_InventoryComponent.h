@@ -56,6 +56,12 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	bool IsEmpty();
+	
+	UFUNCTION(BlueprintCallable)
+	bool SaveInventoryToFile(const FString& FilePath) const;
+	
+	UFUNCTION(BlueprintCallable)
+	bool LoadInventoryFromFile(const FString& FilePath);
 
 private:
 	UFUNCTION()
@@ -70,4 +76,8 @@ private:
 	bool TryToFill(int32 InID, const FItemSlotData& InItem, int32& Overflow);
 
 	int32 GetMaxAmount(FName ItemID);
+	
+	FString SerializeToJson() const;
+	
+	bool DeserializeFromJson(const FString& InJsonString);
 };

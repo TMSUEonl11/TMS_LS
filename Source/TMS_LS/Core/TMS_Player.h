@@ -13,6 +13,9 @@
 #include "TMS_Player.generated.h"
 
 class UTMS_WeaponComponent;
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnKilledSignature, AActor*, KilledActor);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnDealtDamageSignature, AActor*, DamagedActor, float, Damage);
 /**
  * 
  */
@@ -41,6 +44,12 @@ public:
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TObjectPtr<AActor> InteractActor;
+	
+	UPROPERTY(BlueprintAssignable)
+	FOnKilledSignature OnKilled;
+	
+	UPROPERTY(BlueprintAssignable)
+	FOnDealtDamageSignature OnDamaged;
 
 private:
 	FVector2D MoveInput;
@@ -56,6 +65,8 @@ private:
 	TObjectPtr<ATMS_HUD> PHUD;
 	
 protected:
+	UFUNCTION()
+	void OnInventoryUpdated();
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
@@ -68,6 +79,10 @@ public:
 	void ReloadInput(const FInputActionValue& InputActionValue);
 
 	void CheckInteractable();
+	
+	void OnKill(AActor* DamagedActor);
+
+	void OnHit(AActor* DamagedActor, float Damage);
 
 	UFUNCTION()
 	void OnAimUpdate(bool bNewActive);

@@ -13,16 +13,14 @@
 				"GameplayAbilities",
 				"DeveloperSettings"
 			]
+		},
+		{
+			"Name": "TMS_LoadingScreen",
+			"Type": "Runtime",
+			"LoadingPhase": "PreLoadingScreen"
 		}
 	],
 	"Plugins": [
-		{
-			"Name": "ModelingToolsEditorMode",
-			"Enabled": true,
-			"TargetAllowList": [
-				"Editor"
-			]
-		},
 		{
 			"Name": "GameplayAbilities",
 			"Enabled": true
