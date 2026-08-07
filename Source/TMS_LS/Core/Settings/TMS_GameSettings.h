@@ -19,7 +19,7 @@ class TMS_LS_API UTMS_GameSettings : public UGameUserSettings
 	
 public:
 	UFUNCTION(BlueprintCallable, Category = Settings)
-	static UTMS_GameSettings *GetTMSSettings();
+	static UTMS_GameSettings* GetTMSSettings();
 	
 	UTMS_GameSettings* CreateCopy() const;
 	
@@ -103,6 +103,8 @@ public:
 	virtual void SaveSettings() override;
 	virtual void ValidateSettings() override;
 	
+	void SetResolutionFromString(const FString& ResolutionString);
+	
 protected:
 	
 	UPROPERTY(Transient)
@@ -113,7 +115,7 @@ protected:
 	void ApplyGraphicsSettings();
 	
 	void ApplyAudioSettings();
-	
+
 	void ApplyGameplaySettings() const;
 	
 private:

@@ -53,11 +53,13 @@ void ATMS_Chest::GetLifetimeReplicatedProps(TArray<class FLifetimeProperty>& Out
 	DOREPLIFETIME(ATMS_Chest, bLooted);
 }
 
+#if WITH_EDITOR
 void ATMS_Chest::PostEditChangeProperty(struct FPropertyChangedEvent& PropertyChangedEvent)
 {
 	Super::PostEditChangeProperty(PropertyChangedEvent);
 	InitVisuals();
 }
+#endif
 
 // Called every frame
 void ATMS_Chest::Tick(float DeltaTime)

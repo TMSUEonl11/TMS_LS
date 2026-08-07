@@ -18,8 +18,11 @@ protected:
 private:
 	bool Direction=true;
 public:
+	
+#if WITH_EDITOR
 	virtual void PostEditChangeProperty(struct FPropertyChangedEvent& PropertyChangedEvent) override;
-
+#endif
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TObjectPtr<USplineComponent> SplineComponent;
 

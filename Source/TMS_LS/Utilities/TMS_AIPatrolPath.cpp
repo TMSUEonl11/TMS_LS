@@ -13,10 +13,12 @@ void ATMS_AIPatrolPath::BeginPlay()
 	Super::BeginPlay();
 }
 
+#if WITH_EDITOR
 void ATMS_AIPatrolPath::PostEditChangeProperty(struct FPropertyChangedEvent& PropertyChangedEvent)
 {
 	Super::PostEditChangeProperty(PropertyChangedEvent);
 }
+#endif
 
 void ATMS_AIPatrolPath::InitWaitArray()
 {

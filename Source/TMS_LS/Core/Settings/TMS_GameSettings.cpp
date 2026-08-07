@@ -379,6 +379,21 @@ void UTMS_GameSettings::ApplyAudioSettings()
 #if !UE_BUILD_SHIPPING
 	
 #endif
+	
+}
+
+void UTMS_GameSettings::SetResolutionFromString(const FString& ResolutionString)
+{
+	FString Left, Right;
+	if (ResolutionString.Split(TEXT("x"), &Left, &Right))
+	{
+		int32 Width = FCString::Atoi(*Left);
+		int32 Height = FCString::Atoi(*Right);
+		if (Width > 0 && Height > 0)
+		{
+			SetScreenResolution(FInt32Point(Width, Height));
+		}
+	}
 }
 
 void UTMS_GameSettings::ApplyGameplaySettings() const

@@ -4,7 +4,6 @@
 #include "TMS_FindRandomLocationTask.h"
 
 #include "AIController.h"
-#include "HeadMountedDisplayTypes.h"
 #include "NavigationSystem.h"
 #include "BehaviorTree/BlackboardComponent.h"
 
