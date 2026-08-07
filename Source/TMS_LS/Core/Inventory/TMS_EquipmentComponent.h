@@ -41,7 +41,7 @@ struct FEquipmentProcess
 		return Slot != EEquipmentType::EET_MAX;
 	}
 };
-
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEquipmentUpdatedSignature);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnBeginEquipSignature, EEquipmentType, Slot);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnBeginUnEquipSignature, EEquipmentType, Slot);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnFinishEquipSignature, EEquipmentType, Slot);
@@ -76,7 +76,8 @@ public:
 	FOnFinishEquipSignature OnFinishEquip;
 	UPROPERTY(BlueprintAssignable)
 	FOnFinishUnequipSignature OnFinishUnequip;
-
+	UPROPERTY(BlueprintAssignable)
+	FOnEquipmentUpdatedSignature OnEquipmentUpdated;
 	UPROPERTY(BlueprintAssignable)
 	FOnSlotUpdateSignature OnSlotUpdate;
 private:
@@ -95,6 +96,12 @@ public:
 	void GetEquipmentBySlot(EEquipmentType InSlot,
 		FItemSlotData& OutItemData,
 		AItemEquipment*& OutEquipmentActor);
+	
+	UFUNCTION(BlueprintCallable)
+	bool SaveEquipmentToFile(const FString& FilePath) const;
+	
+	UFUNCTION(BlueprintCallable)
+	bool LoadEquipmentFromFile(const FString& FilePath);
 
 private:
 	void NextPendingEquipment();
@@ -115,4 +122,7 @@ private:
 	void FinishUnequip();
 
 	void MoveCurrentItemInInventory();
+	
+	FString SerializeToJson() const;
+	bool DeserializeFromJson(const FString& InJsonString);
 };

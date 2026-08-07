@@ -67,6 +67,8 @@ private:
 protected:
 	UFUNCTION()
 	void OnInventoryUpdated();
+	UFUNCTION()
+	void OnEquipmentUpdated();
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 

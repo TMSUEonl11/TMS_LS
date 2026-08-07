@@ -45,6 +45,55 @@ void UTMS_EquipmentComponent::GetEquipmentBySlot(EEquipmentType InSlot, FItemSlo
 	OutEquipmentActor = EquipmentActors[InSlot];
 }
 
+bool UTMS_EquipmentComponent::SaveEquipmentToFile(const FString& FilePath) const
+{
+	FString Directory = FPaths::GetPath(FilePath);
+	IFileManager::Get().MakeDirectory(*Directory, true);
+	
+	FString JsonString = SerializeToJson();
+	
+	if (JsonString.IsEmpty())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Failed to serialize data to Json"));
+		return false;
+	}
+	
+	bool bSaved = FFileHelper::SaveStringToFile(JsonString, *FilePath);
+	
+	if (bSaved)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Successfully saved data to %s"), *FilePath);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Failed to save data to %s"), *FilePath);
+	}
+	
+	return bSaved;
+}
+
+bool UTMS_EquipmentComponent::LoadEquipmentFromFile(const FString& FilePath)
+{
+	if (!FPaths::FileExists(FilePath))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("No save file on path %s"), *FilePath);
+		return false;
+	}
+	
+	FString JsonString;
+	if (!FFileHelper::LoadFileToString(JsonString, *FilePath))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Failed to load save file on path %s"), *FilePath);
+		return false;
+	}
+	
+	bool bLoaded =DeserializeFromJson(JsonString);
+	if (bLoaded)
+	{
+	}
+	return false;
+}
+
 void UTMS_EquipmentComponent::NextPendingEquipment()
 {
 	OnSlotUpdate.Broadcast(CurrentEquipmentProcess.Slot);
@@ -104,6 +153,7 @@ void UTMS_EquipmentComponent::EquipSlot(EEquipmentType InSlot, const FItemSlotDa
 	MoveCurrentItemInInventory();
 
 	ProcessEquip(InSlot);
+	OnEquipmentUpdated.Broadcast();
 }
 
 void UTMS_EquipmentComponent::UnequipSlot(EEquipmentType InSlot)
@@ -203,6 +253,7 @@ void UTMS_EquipmentComponent::FinishUnequip()
 	
 	OnFinishUnequip.Broadcast(CurrentEquipmentProcess.Slot);
 	NextPendingEquipment();
+	OnEquipmentUpdated.Broadcast();
 }
 
 void UTMS_EquipmentComponent::MoveCurrentItemInInventory()
@@ -230,6 +281,76 @@ void UTMS_EquipmentComponent::MoveCurrentItemInInventory()
 			}
 		}
 	}
+}
+
+FString UTMS_EquipmentComponent::SerializeToJson() const
+{
+	TSharedPtr<FJsonObject> JObject = MakeShareable(new FJsonObject);
+	TArray<TSharedPtr<FJsonValue>> JTypeArray;
+	
+	for (EEquipmentType Type : TEnumRange<EEquipmentType>())
+	{
+		const FItemSlotData& SlotData = EquipmentObjects[Type];
+		JTypeArray.Add(MakeShareable(new FJsonValueObject(SlotData.AsJsonObject())));
+	}
+	JObject->SetArrayField(TEXT("Equipment"), JTypeArray);
+	
+	FString OutString;
+	TSharedRef<TJsonWriter<>> Writer = TJsonWriterFactory<>::Create(&OutString);
+	FJsonSerializer::Serialize(JObject.ToSharedRef(), Writer);
+	
+	return OutString;
+}
+
+bool UTMS_EquipmentComponent::DeserializeFromJson(const FString& InJsonString)
+{
+	TSharedPtr<FJsonObject> JObject;
+	int32 Index = 0;
+	
+	TSharedRef<TJsonReader<>> JsonReader = TJsonReaderFactory<>::Create(InJsonString);
+	if (!FJsonSerializer::Deserialize(JsonReader, JObject) || !JObject.IsValid())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Failed to parse JSON"));	 
+		return false;
+	}
+	const TArray<TSharedPtr<FJsonValue>>* EquipArray;
+	if (JObject->TryGetArrayField(TEXT("Equipment"), EquipArray))
+	{
+		// for (EEquipmentType Type : TEnumRange<EEquipmentType>())
+		// {
+		// 	if (Index >= EquipArray->Num())
+		// 		break;
+		//
+		// 	TSharedPtr<FJsonValue> Equip = (*EquipArray)[Index];
+		// 	TSharedPtr<FJsonObject> EquipObject = Equip->AsObject();
+		// 	if (EquipObject.IsValid())
+		// 	{
+		// 		FItemSlotData NewEquip;
+		// 		NewEquip.FromJson(EquipObject);
+		// 		EquipSlot(Type,NewEquip);
+		// 	}
+		// 	++Index;
+		// }
+		
+		for (EEquipmentType Type : TEnumRange<EEquipmentType>())
+		{
+			if (Index >= EquipArray->Num())
+				break;
+		
+			TSharedPtr<FJsonValue> Equip = (*EquipArray)[Index];
+			TSharedPtr<FJsonObject> EquipObject = Equip->AsObject();
+			if (EquipObject.IsValid())
+			{
+				FItemSlotData NewEquip;
+				NewEquip.FromJson(EquipObject);
+				FEquipmentProcess EquipmentProcess(NewEquip, Type, true);
+				AddPendingEquipment(EquipmentProcess);
+			}
+			++Index;
+		}
+	}
+	
+	return true;
 }
 
 
