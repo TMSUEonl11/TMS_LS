@@ -16,7 +16,7 @@ void SLoadingScreen::Construct(const FArguments& InArgs)
 	BGBrush = MakeShareable(new FSlateBrush());
 	BGBrush->SetResourceObject(BGTexture);
 	
-	FontData = MakeShareable(new FSlateFontInfo());
+	FontData = MakeShared<FSlateFontInfo>(FCoreStyle::GetDefaultFontStyle(FName("Regular"), 24.f));
 	FontData->Size = 24.f;
 	FontData->OutlineSettings.OutlineSize = 2.f;
 	FontData->OutlineSettings.OutlineColor = FLinearColor::Black;
