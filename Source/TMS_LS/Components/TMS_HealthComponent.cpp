@@ -43,6 +43,7 @@ void UTMS_HealthComponent::OnTakeDamage(AActor* DamagedActor, float Damage, cons
 	UE_LOG(LogTemp, Display, TEXT("ResultDamage: %f"), Damage);
 	SetHealth(GetHealth() - Damage);
 	
+	if (!IsValid(InstigatedBy)) return;
 	ATMS_Player* InstigatorPlayer = Cast<ATMS_Player>(InstigatedBy->GetPawn());
 	
 	if (Health <= 0.f)
@@ -184,7 +185,7 @@ void UTMS_HealthComponent::SetStartFallLocation()
 
 void UTMS_HealthComponent::CheckFallDamage()
 {
-	if (!Player) return;
+	if (!IsValid(Player)) return;
 	if (StartFallLocation != FVector::ZeroVector)
 	{
 		FVector FinishFallLocation = Player->GetActorLocation();
@@ -201,7 +202,7 @@ void UTMS_HealthComponent::CheckFallDamage()
 				GetOwner(),
 				FallDamage,
 				nullptr,
-				nullptr,
+				Player->GetController(),
 				nullptr
 			);
 			
