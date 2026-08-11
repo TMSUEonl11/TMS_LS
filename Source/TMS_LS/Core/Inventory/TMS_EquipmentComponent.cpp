@@ -49,6 +49,65 @@ void UTMS_EquipmentComponent::GetEquipmentBySlot(EEquipmentType InSlot, FItemSlo
 	OutEquipmentActor = EquipmentActors[InSlot];
 }
 
+bool UTMS_EquipmentComponent::SaveEquipmentToFile(const FString& FilePath) const
+{
+	FString Directory = FPaths::GetPath(FilePath);
+	IFileManager::Get().MakeDirectory(*Directory, true);
+	
+	FString JsonString = SerializeToJson();
+	
+	if (JsonString.IsEmpty())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Failed to serialize data to Json"));
+		return false;
+	}
+	
+	bool bSaved = FFileHelper::SaveStringToFile(JsonString, *FilePath);
+	
+	if (bSaved)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Successfully saved data to %s"), *FilePath);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Failed to save data to %s"), *FilePath);
+	}
+	
+	return bSaved;
+}
+
+bool UTMS_EquipmentComponent::LoadEquipmentFromFile(const FString& FilePath)
+{
+	if (!FPaths::FileExists(FilePath))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("No save file on path %s"), *FilePath);
+		return false;
+	}
+	
+	FString JsonString;
+	if (!FFileHelper::LoadFileToString(JsonString, *FilePath))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Failed to load save file on path %s"), *FilePath);
+		return false;
+	}
+	
+	bool bLoaded = DeserializeFromJson(JsonString);
+	
+	if (bLoaded)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Successfully loaded save file on path %s"), *FilePath);
+		
+
+		OnEquipmentUpdated.Broadcast();
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Failed to deserialize inventory from %s"), *FilePath);
+	}
+	
+	return bLoaded;
+}
+
 void UTMS_EquipmentComponent::NextPendingEquipment()
 {
 	OnSlotUpdate.Broadcast(CurrentEquipmentProcess.Slot);
@@ -181,6 +240,7 @@ void UTMS_EquipmentComponent::FinishEquip()
 		}
 	}
 	OnFinishEquip.Broadcast(CurrentEquipmentProcess.Slot);
+	OnEquipmentUpdated.Broadcast();
 	NextPendingEquipment();
 }
 
@@ -206,6 +266,7 @@ void UTMS_EquipmentComponent::FinishUnequip()
 	EquipmentObjects.Emplace(CurrentEquipmentProcess.Slot, FItemSlotData());
 	
 	OnFinishUnequip.Broadcast(CurrentEquipmentProcess.Slot);
+	OnEquipmentUpdated.Broadcast();
 	NextPendingEquipment();
 }
 
@@ -243,4 +304,79 @@ void UTMS_EquipmentComponent::DestroyedEquipment()
 		{
 			ItemEquipment->SetLifeSpan(5.0f);
 		}
+}
+
+FString UTMS_EquipmentComponent::SerializeToJson() const
+{
+	
+	TSharedPtr<FJsonObject> JObject = MakeShareable(new FJsonObject);
+
+	for (const auto& Pair : EquipmentObjects)
+	{
+		FString KeyString = UEnum::GetValueAsString(Pair.Key);
+		
+		TSharedPtr<FJsonObject> SlotJson = Pair.Value.AsJsonObject();
+		
+		if (SlotJson.IsValid())
+		{
+			JObject->SetObjectField(KeyString, SlotJson);
+		}
+	}
+	
+	FString OutString;
+	TSharedRef<TJsonWriter<>> Writer = TJsonWriterFactory<>::Create(&OutString);
+	if (!FJsonSerializer::Serialize(JObject.ToSharedRef(), Writer))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Failed to serialize equipment to JSON"));
+		return FString();
+	}
+	return OutString;
+}
+
+bool UTMS_EquipmentComponent::DeserializeFromJson(const FString& InJsonString)
+{
+	TSharedPtr<FJsonObject> JObject;
+	
+	TSharedRef<TJsonReader<>> JsonReader = TJsonReaderFactory<>::Create(InJsonString);
+	if (!FJsonSerializer::Deserialize(JsonReader, JObject) || !JObject.IsValid())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Failed to parse JSON"));	 
+		return false;
+	}
+	
+	EquipmentObjects.Empty();
+	UEnum* EnumPtr = StaticEnum<EEquipmentType>();
+	
+	for (const auto& Pair : JObject->Values)
+	{
+		const FString& KeyString = Pair.Key;
+		const TSharedPtr<FJsonValue>& JsonValue = Pair.Value;
+
+		int64 EnumValue = EnumPtr->GetValueByNameString(KeyString);
+		if (EnumValue == INDEX_NONE)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Unknown equipment type in JSON: %s"), *KeyString);
+			continue;
+		}
+		EEquipmentType Type = static_cast<EEquipmentType>(EnumValue);
+		
+		const TSharedPtr<FJsonObject>* SlotObjectPtr;
+		if (!JsonValue->TryGetObject(SlotObjectPtr) || !SlotObjectPtr->IsValid())
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Invalid slot object for key: %s"), *KeyString);
+			continue;
+		}
+
+		FItemSlotData Slot;
+		Slot.FromJson(*SlotObjectPtr);
+
+		EquipmentObjects.Add(Type, Slot);
+		if (Slot.ItemID != NAME_None && Slot.Amount > 0)
+		{
+			FEquipmentProcess EquipmentProcess(Slot, Type, true);
+			AddPendingEquipment(EquipmentProcess);
+		}
+	}
+
+	return true;
 }

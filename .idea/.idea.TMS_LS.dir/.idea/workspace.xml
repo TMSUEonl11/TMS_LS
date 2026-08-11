@@ -9,45 +9,11 @@
   <component name="ChangeListManager">
     <list default="true" id="655b8281-5753-4a03-8620-77c7f245ea64" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Buttons/button_press_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Buttons/button_press_1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Buttons/button_press_199.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Buttons/button_press_199.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Buttons/button_press_299.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Buttons/button_press_299.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Buttons/button_press_399.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Buttons/button_press_399.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Buttons/button_press_499.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Buttons/button_press_499.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Buttons/button_press_599.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Buttons/button_press_599.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Buttons/button_press_699.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Buttons/button_press_699.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Buttons/button_press_799.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Buttons/button_press_799.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Buttons/button_press_99.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Buttons/button_press_99.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Cancel/cancel_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Cancel/cancel_1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Cancel/cancel_100.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Cancel/cancel_100.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Cancel/cancel_200.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Cancel/cancel_200.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/High_Pitched/highpitched_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/High_Pitched/highpitched_1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/High_Pitched/highpitched_180.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/High_Pitched/highpitched_180.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/High_Pitched/highpitched_280.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/High_Pitched/highpitched_280.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/High_Pitched/highpitched_380.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/High_Pitched/highpitched_380.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/High_Pitched/highpitched_480.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/High_Pitched/highpitched_480.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/High_Pitched/highpitched_580.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/High_Pitched/highpitched_580.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/High_Pitched/highpitched_680.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/High_Pitched/highpitched_680.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/High_Pitched/highpitched_780.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/High_Pitched/highpitched_780.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/High_Pitched/highpitched_80.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/High_Pitched/highpitched_80.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Ok/ok_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Ok/ok_1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Ok/ok_100.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Ok/ok_100.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Ok/ok_150.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Ok/ok_150.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Ok/ok_50.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Ok/ok_50.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Purchase/coins_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Purchase/coins_1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Purchase/coins_170.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Purchase/coins_170.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Purchase/coins_270.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Purchase/coins_270.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Purchase/coins_70.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Purchase/coins_70.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Repair/repair_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Repair/repair_1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Repair/repair_100.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Repair/repair_100.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Repair/repair_200.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Repair/repair_200.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Sliders/slide_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Sliders/slide_1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Sliders/slide_loop_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Sliders/slide_loop_1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Warning_Popup/warning_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Warning_Popup/warning_1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Warning_Popup/warning_105.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Warning_Popup/warning_105.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Warning_Popup/warning_155.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Warning_Popup/warning_155.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Warning_Popup/warning_55.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI_SFX_Free_Pack/Wavs/Warning_Popup/warning_55.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Components/TMS_HealthComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Components/TMS_HealthComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/4/YR/N974IS3133F5YE806BPJVA.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_EquipmentComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_EquipmentComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_EquipmentComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_EquipmentComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_Player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_Player.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_Player.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_Player.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TMS_LS.uproject.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/TMS_LS.uproject.DotSettings.user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,10 +40,13 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="cidr-memory-view://2" root0="FORCE_HIGHLIGHTING" />
-    <setting file="cidr-memory-view://3" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Containers/Array.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Delegates/DelegateInstancesImpl.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Delegates/DelegateSignatureImpl.inl" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Logging/LogCategory.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Math/Vector.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Math/Vector2D.h" root0="FORCE_HIGHLIGHTING" />
@@ -91,6 +60,8 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/CoreUObject/Public/UObject/UObjectGlobals.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Engine/Classes/Components/ActorComponent.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Engine/Classes/GameFramework/Character.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Json/Public/Dom/JsonValue.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Json/Public/Serialization/JsonSerializer.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TMS_LS/Items/Weapons/TMS_ShotgunWeapon.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TMS_LS/Items/Weapons/TMS_ShotgunWeapon.h" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -309,6 +280,9 @@
       <workItem from="1785999858465" duration="1801000" />
       <workItem from="1786033812199" duration="1433000" />
       <workItem from="1786358646881" duration="1152000" />
+      <workItem from="1786359886682" duration="1514000" />
+      <workItem from="1786413858795" duration="4969000" />
+      <workItem from="1786443211826" duration="4142000" />
     </task>
     <servers />
   </component>

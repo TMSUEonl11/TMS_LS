@@ -49,6 +49,9 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnFinishUnequipSignature, EEquipmen
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnSlotUpdateSignature, EEquipmentType, Slot);
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEquipmentUpdatedSignature);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEquipmentInitializedSignature);
+
 UCLASS(BlueprintType, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
 class TMS_LS_API UTMS_EquipmentComponent : public UActorComponent
 {
@@ -62,6 +65,11 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
+	UPROPERTY(BlueprintAssignable)
+	FOnEquipmentUpdatedSignature OnEquipmentUpdated;
+	UPROPERTY(BlueprintAssignable)
+	FOnEquipmentInitializedSignature OnEquipmentInitialized;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TMap<EEquipmentType, FItemSlotData> EquipmentObjects;
 	
@@ -95,6 +103,12 @@ public:
 	void GetEquipmentBySlot(EEquipmentType InSlot,
 		FItemSlotData& OutItemData,
 		AItemEquipment*& OutEquipmentActor);
+	
+	UFUNCTION(BlueprintCallable)
+	bool SaveEquipmentToFile(const FString& FilePath) const;
+	
+	UFUNCTION(BlueprintCallable)
+	bool LoadEquipmentFromFile(const FString& FilePath);
 
 private:
 	void NextPendingEquipment();
@@ -118,4 +132,8 @@ private:
 	
 	UFUNCTION()
 	void DestroyedEquipment();
+	
+	FString SerializeToJson() const;
+	
+	bool DeserializeFromJson(const FString& InJsonString);
 };
