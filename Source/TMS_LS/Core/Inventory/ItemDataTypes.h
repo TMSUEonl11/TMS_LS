@@ -18,6 +18,8 @@ UENUM(BlueprintType)
 enum class EEquipmentType : uint8
 {
 	EET_Armor,
+	EET_Body,
+	EET_Legs,
 	EET_Main,
 	EET_Secondary,
 	EET_Amulet,
@@ -27,6 +29,15 @@ enum class EEquipmentType : uint8
 ENUM_RANGE_BY_COUNT(EEquipmentType, EEquipmentType::EET_MAX);
 
 UENUM(BlueprintType)
+enum class EItemRarity : uint8
+{
+	EIR_Common,
+	EIR_Rare,
+	EIR_Legendary,
+	EIR_MAX UMETA(Hidden),
+};
+
+UENUM(BlueprintType)
 enum class EEquipmentAction : uint8
 {
 	EEA_Equip,
@@ -34,62 +45,6 @@ enum class EEquipmentAction : uint8
 	EEA_Look,
 	EEA_Idle,
 	EEA_MAX UMETA(Hidden),
-};
-
-
-USTRUCT(BlueprintType)
-struct FItemSlotData
-{
-	GENERATED_BODY()
-
-	FItemSlotData()
-	{
-		ItemID = FName();
-		Amount = 0;
-	}
-	
-	FItemSlotData(FName InName, int32 InAmount)
-	{
-		ItemID = InName;
-		Amount = InAmount;
-	}
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FName ItemID = FName();
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 Amount = 0;
-	
-	bool Serialize(FArchive& Ar)
-	{
-		Ar << ItemID;
-		Ar << Amount;
-		return !Ar.IsError();
-	}
-	
-	TSharedPtr<FJsonObject> AsJsonObject() const
-	{
-		TSharedPtr<FJsonObject> JsonObject = MakeShareable(new FJsonObject());
-		JsonObject->SetStringField(TEXT("ItemID"), ItemID.ToString());
-		JsonObject->SetNumberField(TEXT("Amount"), Amount);
-		
-		return JsonObject;
-	}
-	
-	bool FromJson(const TSharedPtr<FJsonObject>& JsonObject)
-	{
-		if (!JsonObject.IsValid())
-		{
-			return false;
-		}
-		FString ItemIDString;
-		if (JsonObject->TryGetStringField(TEXT("ItemID"), ItemIDString))
-		{
-			ItemID = FName(*ItemIDString);
-		}
-		JsonObject->TryGetNumberField(TEXT("Amount"), Amount);
-		return true;
-	}
 };
 
 USTRUCT(BlueprintType)

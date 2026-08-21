@@ -3,8 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "ItemObject.h"
 #include "GameFramework/Actor.h"
+#include "ItemObjects/ItemObject.h"
 #include "TMS_LS/Core/TMS_InteractInterface.h"
 #include "ALootItem.generated.h"
 

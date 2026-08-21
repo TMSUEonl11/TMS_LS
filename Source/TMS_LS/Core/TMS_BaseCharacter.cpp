@@ -6,6 +6,7 @@
 #include "NavigationInvokerComponent.h"
 #include "NiagaraFunctionLibrary.h"
 #include "Kismet/GameplayStatics.h"
+#include "TMS_LS/Components/TMS_ArmorComponent.h"
 #include "TMS_LS/Components/TMS_WeaponComponent.h"
 
 // Sets default values
@@ -20,9 +21,19 @@ ATMS_BaseCharacter::ATMS_BaseCharacter()
 
 	WeaponComponent = CreateDefaultSubobject<UTMS_WeaponComponent>("WeaponComponent");
 	
+	ArmorComponent = CreateDefaultSubobject<UTMS_ArmorComponent>("ArmorComponent");
+	
 	EquipmentComponent = CreateDefaultSubobject<UTMS_EquipmentComponent>(TEXT("EquipmentComponent"));
 
 	NavInvoker = CreateDefaultSubobject<UNavigationInvokerComponent>(TEXT("NavInvoker"));
+}
+
+void ATMS_BaseCharacter::OnEquipmentChanged()
+{
+	if (!ArmorComponent->GetCurrentEquipment() && IsValid(DefaultEquipmentData))
+	{
+		ArmorComponent->SetEquipment(DefaultEquipmentData);
+	}
 }
 
 void ATMS_BaseCharacter::BeginPlay()
@@ -33,7 +44,11 @@ void ATMS_BaseCharacter::BeginPlay()
 		HealthComponent->OnDeath.AddDynamic(this, &ATMS_BaseCharacter::OnDeath);
 	}
 
-	
+	if (IsValid(ArmorComponent))
+	{
+		ArmorComponent->OnEquipmentChanged.BindUObject(this, &ATMS_BaseCharacter::OnEquipmentChanged);
+	}
+	OnEquipmentChanged();
 }
 
 float ATMS_BaseCharacter::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent,

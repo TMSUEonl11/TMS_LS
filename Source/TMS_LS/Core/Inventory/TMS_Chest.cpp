@@ -6,6 +6,7 @@
 #include "TMS_InventoryComponent.h"
 #include "Engine/AssetManager.h"
 #include "Engine/StreamableManager.h"
+#include "ItemObjects/ItemObject.h"
 #include "Net/UnrealNetwork.h"
 #include "TMS_LS/Core/TMS_HUD.h"
 
@@ -77,15 +78,11 @@ void ATMS_Chest::GenerateLoot()
 	for (int32 i = 0; i < LootItemsAmount; ++i)
 	{
 		int32 RandID = FMath::RandRange(0, PossibleLoot.Num()-1);
-		TSubclassOf<UItemObject> RandItem = PossibleLoot[RandID];
-		if (RandItem)
+		if (TSubclassOf<UItemObject> RandItem = PossibleLoot[RandID])
 		{
-			UItemObject* LootItem = NewObject<UItemObject>(this, RandItem);
-
 			bool bSuccess = false;
-			FItemSlotData ItemData(LootItem->ItemData.ItemID, LootItem->Amount);
 
-			InventoryComponent->AddItem(ItemData, bSuccess);
+			InventoryComponent->AddItem(PossibleLoot[RandID], 1, bSuccess);
 		}
 	}
 	

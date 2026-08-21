@@ -5,6 +5,8 @@
 
 #include <rapidjson/reader.h>
 
+#include "ItemObjects/ItemEquipmentObject.h"
+#include "ItemObjects/ItemObject.h"
 #include "TMS_LS/Utilities/TMS_DeveloperSettings.h"
 
 //#include "TMS_LS/Core/TMS_DataSettings.h"
@@ -24,167 +26,304 @@ UTMS_InventoryComponent::UTMS_InventoryComponent()
 void UTMS_InventoryComponent::BeginPlay()
 {
 	Super::BeginPlay();
-	Slots.Init(FItemSlotData(), ContainerSize);
+	Slots.Init(NewObject<UItemObject>(), ContainerSize);
 	OnInventoryInitialized.Broadcast();
 }
 
-void UTMS_InventoryComponent::AddItem(const FItemSlotData& InItem, bool& OutSuccess)
+void UTMS_InventoryComponent::AddItem(TSubclassOf<UItemObject> InItemClass, int32 Amount, bool& OutSuccess,
+	EItemRarity Rarity)
 {
-	int32 FoundId = 0;
-	if (InItem.ItemID == NAME_None || InItem.Amount == 0)
+	OutSuccess = false;
+	if (!InItemClass || Amount <=0) return;
+	
+	const UItemObject* CDO = InItemClass.GetDefaultObject();
+	
+	if (!CDO || CDO->ItemData.ItemID == NAME_None) return;
+
+	const FName ItemID = CDO->ItemData.ItemID;
+	int32 Remaining = Amount;
+	
+	while (Remaining > 0)
 	{
-		OutSuccess = true;
-		return;
-	}
-	if (HasNotFullSlotOfItem(InItem.ItemID, FoundId))
-	{
-		int32 Overflow = 0;
-		if (TryToFill(FoundId, InItem, Overflow))
+		int32 SlotIndex = -1;
+		if (HasNotFullSlotOfItem(ItemID, SlotIndex))
 		{
-			OutSuccess = true;
-			OnInventoryUpdated.Broadcast();
-			return;
-		}
-		AddItem(FItemSlotData(InItem.ItemID, Overflow), OutSuccess);
-	}
-	else
-	{
-		if (CreateNewEmptySlotOfType(InItem.ItemID))
-		{
-			AddItem(InItem, OutSuccess);
+			int32 Overflow = 0;
+			if (bool bFilled = TryToFill(SlotIndex, Remaining, Overflow))
+			{
+				Remaining = 0;
+				OutSuccess = true;
+				OnInventoryUpdated.Broadcast();
+				return;
+			}
+			else
+			{
+				Remaining = Overflow;
+			}
 		}
 		else
 		{
-			OutSuccess = false;
+			UItemObject* NewItem = CreateItemObject(InItemClass, Remaining, Rarity);
+			if (NewItem && AddItemToEmptySlot(NewItem))
+			{
+				Remaining = 0;
+				OutSuccess = true;
+				OnInventoryUpdated.Broadcast();
+				return;
+			}
+			{
+				OutSuccess = false;
+				return;
+			}
 		}
 	}
+	 OutSuccess = true;
 }
 
-void UTMS_InventoryComponent::RemoveItem(FItemSlotData InItem)
+void UTMS_InventoryComponent::AddItemAsObject(UItemObject* InItem)
 {
-	int32 OutId = 0;
-	if (!FindFirstSlotOfType(OutId, InItem.ItemID)) return;
-
-	FItemSlotData* FoundItem = &Slots[OutId];
-
-	if (InItem.Amount >= FoundItem->Amount)
-	{
-		InItem.Amount-=FoundItem->Amount;
-		FoundItem->ItemID = FName();
-		FoundItem->Amount = 0;
-		if (InItem.Amount == 0)
-		{
-			OnInventoryUpdated.Broadcast();
-			return;
-		};
-		
-		RemoveItem(InItem);
-	}
-	else
-	{
-		FoundItem->Amount-=InItem.Amount;
-	}
+	AddItemToEmptySlot(InItem);
 	OnInventoryUpdated.Broadcast();
+}
+
+void UTMS_InventoryComponent::RemoveItem(TSubclassOf<UItemObject> InItemClass, int32 Amount)
+{
+	if (!InItemClass || Amount <=0 ) return;
+	
+	const UItemObject* CDO = InItemClass.GetDefaultObject();
+	if (!CDO || CDO->ItemData.ItemID == NAME_None) return;
+	
+	const FName ItemID = CDO->ItemData.ItemID;
+	int32 Remaining = Amount;
+	
+	while (Remaining > 0)
+	{
+		int32 SlotIndex = -1;
+		if (!FindFirstSlotOfType(SlotIndex, ItemID))
+		{
+			return;
+		}
+		
+		UItemObject* Item = Slots[SlotIndex];
+		if (!Item || Item->ItemData.ItemID != ItemID) return;
+		
+		if (Remaining >= Item->Amount)
+		{
+			Remaining -=Item->Amount;
+			
+			Slots[SlotIndex] = NewObject<UItemObject>(this);
+		}
+		else
+		{
+			Item->Amount -= Remaining;
+			Remaining = 0;
+		}
+	}
+	
+	OnInventoryUpdated.Broadcast();
+}
+
+void UTMS_InventoryComponent::RemoveItemAsObject(UItemObject* InItem)
+{
+	for (int32 i = 0; i < Slots.Num(); i++)
+	{
+		if (Slots[i] == InItem)
+		{
+			Slots[i] = NewObject<UItemObject>();
+			OnInventoryUpdated.Broadcast();
+		}
+	}
 }
 
 void UTMS_InventoryComponent::SwapItems(int32 InSlot, int32 OutSlot)
 {
-	if (Slots.Num()-1 < FMath::Max(OutSlot, InSlot)) return;	
-	FItemSlotData Temp = Slots[OutSlot];
-	Slots[OutSlot] = Slots[InSlot];
-	Slots[InSlot] = Temp;
+	UItemObject* TempItem = Slots[InSlot];
+	Slots[InSlot] = Slots[OutSlot];
+	Slots[OutSlot] = TempItem;
 	OnInventoryUpdated.Broadcast();
 }
 
-
 void UTMS_InventoryComponent::DEBUG_PrintSlots()
 {
-	FString Result = "Slots are:\n";
-	for (auto Slot : Slots)
-	{
-		Result.Append(FString::Printf(TEXT("----%s : %i \n"), *Slot.ItemID.ToString(), Slot.Amount));
-	}
-	Result.Append(TEXT("----\n\n"));
-	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Green, Result);
 }
 
 bool UTMS_InventoryComponent::IsEmpty()
 {
 	for (const auto& Item : Slots)
 	{
-		if (Item.ItemID != NAME_None) return false;
+		if (Item->ItemData.ItemID != NAME_None) return false;
 	}
 	return true;
 }
 
 bool UTMS_InventoryComponent::SaveInventoryToFile(const FString& FilePath) const
 {
-	FString Directory = FPaths::GetPath(FilePath);
-	IFileManager::Get().MakeDirectory(*Directory, true);
-	
-	FString JsonString = SerializeToJson();
-	
-	if (JsonString.IsEmpty())
+	// Создаём корневой JSON-объект
+	TSharedPtr<FJsonObject> RootObject = MakeShareable(new FJsonObject);
+	TArray<TSharedPtr<FJsonValue>> SlotsArray;
+
+	for (const UItemObject* Item : Slots)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Failed to serialize data to Json"));
+		TSharedPtr<FJsonObject> ItemJson;
+		if (Item && Item->ItemData.ItemID != NAME_None)
+		{
+			ItemJson = Item->SerializeToJson();
+		}
+		else
+		{
+			// Пустой слот – сохраняем null или объект с пустым ItemID
+			ItemJson = MakeShareable(new FJsonObject);
+			ItemJson->SetStringField(UItemObject::JsonKey_ClassName, TEXT(""));
+			ItemJson->SetStringField(UItemObject::JsonKey_ItemID, TEXT(""));
+			ItemJson->SetNumberField(UItemObject::JsonKey_Amount, 0);
+		}
+		SlotsArray.Add(MakeShareable(new FJsonValueObject(ItemJson)));
+	}
+
+	RootObject->SetArrayField(TEXT("Slots"), SlotsArray);
+	RootObject->SetNumberField(TEXT("ContainerSize"), ContainerSize);
+	RootObject->SetStringField(TEXT("ContainerName"), ContainerName.ToString());
+
+	// Сериализуем в строку
+	FString OutputString;
+	TSharedRef<TJsonWriter<>> Writer = TJsonWriterFactory<>::Create(&OutputString);
+	if (!FJsonSerializer::Serialize(RootObject.ToSharedRef(), Writer))
+	{
+		UE_LOG(LogTemp, Error, TEXT("Failed to serialize inventory to JSON"));
 		return false;
 	}
-	
-	bool bSaved = FFileHelper::SaveStringToFile(JsonString, *FilePath);
-	
-	if (bSaved)
+
+	// Сохраняем в файл
+	if (!FFileHelper::SaveStringToFile(OutputString, *FilePath))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Successfully saved data to %s"), *FilePath);
+		UE_LOG(LogTemp, Error, TEXT("Failed to save inventory to file: %s"), *FilePath);
+		return false;
 	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Failed to save data to %s"), *FilePath);
-	}
-	
-	return bSaved;
+
+	UE_LOG(LogTemp, Log, TEXT("Inventory saved to %s"), *FilePath);
+	return true;
 }
 
 bool UTMS_InventoryComponent::LoadInventoryFromFile(const FString& FilePath)
 {
 	if (!FPaths::FileExists(FilePath))
-	{
-		UE_LOG(LogTemp, Warning, TEXT("No save file on path %s"), *FilePath);
-		return false;
-	}
-	
-	FString JsonString;
-	if (!FFileHelper::LoadFileToString(JsonString, *FilePath))
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Failed to load save file on path %s"), *FilePath);
-		return false;
-	}
-	
-	bool bLoaded = DeserializeFromJson(JsonString);
-	
-	if (bLoaded)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Successfully loaded save file on path %s"), *FilePath);
-		
-		if (Slots.Num() != ContainerSize)
-		{
-			Slots.SetNum(ContainerSize);
-		}
-		OnInventoryUpdated.Broadcast();
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Failed to deserialize inventory from %s"), *FilePath);
-	}
-	
-	return bLoaded;
+    {
+        UE_LOG(LogTemp, Warning, TEXT("Save file does not exist: %s"), *FilePath);
+        return false;
+    }
+
+    FString JsonString;
+    if (!FFileHelper::LoadFileToString(JsonString, *FilePath))
+    {
+        UE_LOG(LogTemp, Error, TEXT("Failed to load inventory file: %s"), *FilePath);
+        return false;
+    }
+
+    TSharedPtr<FJsonObject> RootObject;
+    TSharedRef<TJsonReader<>> Reader = TJsonReaderFactory<>::Create(JsonString);
+    if (!FJsonSerializer::Deserialize(Reader, RootObject) || !RootObject.IsValid())
+    {
+        UE_LOG(LogTemp, Error, TEXT("Failed to parse JSON"));
+        return false;
+    }
+
+    // Читаем размер контейнера и имя (опционально)
+    int32 LoadedSize;
+    if (RootObject->TryGetNumberField(TEXT("ContainerSize"), LoadedSize))
+    {
+        ContainerSize = LoadedSize;
+    }
+
+    FString ContainerNameString;
+    if (RootObject->TryGetStringField(TEXT("ContainerName"), ContainerNameString))
+    {
+        ContainerName = FText::FromString(ContainerNameString);
+    }
+
+    // Читаем слоты
+    const TArray<TSharedPtr<FJsonValue>>* SlotsArray;
+    if (!RootObject->TryGetArrayField(TEXT("Slots"), SlotsArray))
+    {
+        UE_LOG(LogTemp, Error, TEXT("Missing 'Slots' array in JSON"));
+        return false;
+    }
+
+    // Очищаем инвентарь и инициализируем заново
+    Slots.Empty();
+    Slots.Reserve(ContainerSize);
+
+    for (const TSharedPtr<FJsonValue>& SlotValue : *SlotsArray)
+    {
+        TSharedPtr<FJsonObject> SlotObject = SlotValue->AsObject();
+        if (!SlotObject.IsValid())
+        {
+            // Если невалидный объект, добавляем пустой слот
+            Slots.Add(NewObject<UItemObject>(this));
+            continue;
+        }
+
+        // Проверяем, есть ли класс
+        FString ClassName;
+        if (!SlotObject->TryGetStringField(UItemObject::JsonKey_ClassName, ClassName) || ClassName.IsEmpty())
+        {
+            // Пустой слот
+            Slots.Add(NewObject<UItemObject>(this));
+            continue;
+        }
+
+        // Создаём объект нужного класса
+        UClass* FoundClass = FindObject<UClass>(this, *ClassName);
+        if (!FoundClass)
+        {
+            // Если класс не найден, пробуем загрузить по пути
+            FoundClass = LoadClass<UItemObject>(nullptr, *ClassName);
+        }
+
+        if (!FoundClass || !FoundClass->IsChildOf(UItemObject::StaticClass()))
+        {
+            UE_LOG(LogTemp, Warning, TEXT("Unknown class or not UItemObject: %s"), *ClassName);
+            Slots.Add(NewObject<UItemObject>(this));
+            continue;
+        }
+
+        UItemObject* NewItem = NewObject<UItemObject>(this, FoundClass);
+        if (!NewItem)
+        {
+            Slots.Add(NewObject<UItemObject>(this));
+            continue;
+        }
+
+        if (!NewItem->DeserializeFromJson(SlotObject))
+        {
+            // Если десериализация не удалась, заменяем пустым
+            Slots.Add(NewObject<UItemObject>(this));
+        }
+        else
+        {
+            Slots.Add(NewItem);
+        }
+    }
+
+    // Если количество слотов не совпадает с ContainerSize, добиваем или обрезаем
+    while (Slots.Num() < ContainerSize)
+    {
+        Slots.Add(NewObject<UItemObject>(this));
+    }
+    if (Slots.Num() > ContainerSize)
+    {
+        Slots.SetNum(ContainerSize);
+    }
+
+    OnInventoryUpdated.Broadcast();
+    UE_LOG(LogTemp, Log, TEXT("Inventory loaded from %s"), *FilePath);
+    return true;
 }
 
 bool UTMS_InventoryComponent::HasNotFullSlotOfItem(const FName& ItemID, int32& OutIndex)
 {
 	for (int32 i = 0; i < Slots.Num(); i++)
 	{
-		int32 MaxSlot = GetMaxAmount(ItemID);
-		if (Slots[i].ItemID == ItemID && Slots[i].Amount < MaxSlot)
+		if (Slots[i]->ItemData.ItemID == ItemID && Slots[i]->Amount < Slots[i]->ItemData.MaxAmount)
 		{
 			OutIndex = i;
 			return true;
@@ -198,7 +337,7 @@ bool UTMS_InventoryComponent::FindFirstSlotOfType(int32& OutIndex, const FName I
 {
 	for (int32 i = 0; i < Slots.Num(); i++)
 	{
-		if (Slots[i].ItemID == InName)
+		if (Slots[i]->ItemData.ItemID == InName)
 		{
 			OutIndex = i;
 			return true;
@@ -208,115 +347,73 @@ bool UTMS_InventoryComponent::FindFirstSlotOfType(int32& OutIndex, const FName I
 	return false;
 }
 
-bool UTMS_InventoryComponent::CreateNewEmptySlotOfType(const FName& ItemID)
+bool UTMS_InventoryComponent::CreateNewEmptySlotOfType(TSubclassOf<UItemObject> InItemClass)
 {
 	int32 EmptySlot = -1;
 	if (FindFirstSlotOfType(EmptySlot))
 	{
-		Slots[EmptySlot].ItemID = ItemID;
+		Slots[EmptySlot] = NewObject<UItemObject>(this, InItemClass);
+		Slots[EmptySlot]->Amount = 0;
+		return true;
 	}
 	else
 	{
+		return false;	
+	}
+}
+
+bool UTMS_InventoryComponent::TryToFill(int32 InID, int32& AmountToAdd, int32& Overflow)
+{
+	if (!Slots.IsValidIndex(InID)) return false;
+	
+	UItemObject* Item = Slots[InID];
+	if (!Item || Item->ItemData.ItemID == NAME_None) return false;
+	
+	const int32 MaxAmount = Item->ItemData.MaxAmount;
+	const int32 NewAmount = Slots[InID]->Amount + AmountToAdd;
+	
+	if (NewAmount <= MaxAmount)
+	{
+		Item->Amount = NewAmount;
+		Overflow = 0;
+		return true;
+	}
+	else
+	{
+		Overflow = NewAmount - MaxAmount;
+		Item->Amount = MaxAmount;
 		return false;
 	}
-	return true;
 }
 
-bool UTMS_InventoryComponent::TryToFill(int32 InID, const FItemSlotData& InItem, int32& Overflow)
+UItemObject* UTMS_InventoryComponent::CreateItemObject(TSubclassOf<UItemObject> InItemClass, int32 Amount,
+	EItemRarity Rarity)
 {
-	if (!Slots.IsValidIndex(InID)) return true;
-	FItemSlotData* Item = &Slots[InID];
-	int32 MaxSlot = GetMaxAmount(InItem.ItemID);
-
-	if (Item->Amount + InItem.Amount > MaxSlot)
+	if (!InItemClass) return nullptr;
+	
+	UItemObject* Item = NewObject<UItemObject>(this, InItemClass);
+	if (!Item) return nullptr;
+	
+	Item->Amount = Amount;
+	
+	if (UItemEquipmentObject* EquipmentItem = Cast<UItemEquipmentObject>(Item))
 	{
-		Overflow = (Item->Amount + InItem.Amount) - MaxSlot;
-		Item->Amount = MaxSlot;
-		return false;
+		EquipmentItem->InitializeEquipment(Rarity);
 	}
-	Item->Amount += InItem.Amount;
-	return true;
+	
+	return Item;
 }
 
-int32 UTMS_InventoryComponent::GetMaxAmount(FName ItemID)
+bool UTMS_InventoryComponent::AddItemToEmptySlot(UItemObject* InItem)
 {
-	const UTMS_DeveloperSettings* Settings = GetDefault<UTMS_DeveloperSettings>();
-	if (!IsValid(Settings) || !IsValid(Settings->ItemDataTable.LoadSynchronous())) return 0;
+	int32 EmptySlot = -1;
 	
-	FItemData* Item = Settings->ItemDataTable->FindRow<FItemData>(ItemID, "");
-	if (!Item) return 0;
-	
-	return Item->MaxAmount;
+	if (FindFirstSlotOfType(EmptySlot))
+	{
+		Slots[EmptySlot] = InItem;
+		return true;
+	}
+	return false;
 }
 
-FString UTMS_InventoryComponent::SerializeToJson() const
-{
-	TSharedPtr<FJsonObject> JObject = MakeShareable(new FJsonObject);
-	
-	JObject->SetStringField(TEXT("ContainerName"), ContainerName.ToString());
-	JObject->SetNumberField(TEXT("ContainerSize"), ContainerSize);
-	
-	TArray<TSharedPtr<FJsonValue>> JSlotsArray;
-	
-	for (const FItemSlotData& Slot : Slots)
-	{
-		JSlotsArray.Add(MakeShareable(new FJsonValueObject(Slot.AsJsonObject())));
-	}
-	
-	JObject->SetArrayField(TEXT("Slots"), JSlotsArray);
-	
-	FString OutString;
-	TSharedRef<TJsonWriter<>> Writer = TJsonWriterFactory<>::Create(&OutString);
-	FJsonSerializer::Serialize(JObject.ToSharedRef(), Writer);
-	
-	return OutString;
-}
 
-bool UTMS_InventoryComponent::DeserializeFromJson(const FString& InJsonString)
-{
-	TSharedPtr<FJsonObject> JObject;
-	
-	TSharedRef<TJsonReader<>> JsonReader = TJsonReaderFactory<>::Create(InJsonString);
-	if (!FJsonSerializer::Deserialize(JsonReader, JObject) || !JObject.IsValid())
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Failed to parse JSON"));	 
-		return false;
-	}
-	
-	FString ContName;
-	if (JObject->TryGetStringField(TEXT("ContainerName"), ContName))
-	{
-		ContainerName = FText::FromString(ContName);
-	}
-	
-	int32 ContSize;
-	if (JObject->TryGetNumberField(TEXT("ContainerSize"), ContSize))
-	{
-		ContainerSize = ContSize;
-	}
-	
-	const TArray<TSharedPtr<FJsonValue>>* SlotsArray;
-	if (JObject->TryGetArrayField(TEXT("Slots"), SlotsArray))
-	{
-		Slots.Empty();
-		Slots.Reserve(SlotsArray->Num());
-		
-		for (const TSharedPtr<FJsonValue>& Slot : *SlotsArray)
-		{
-			TSharedPtr<FJsonObject> SlotObject = Slot->AsObject();
-			if (SlotObject.IsValid())
-			{
-				FItemSlotData NewSlot;
-				NewSlot.FromJson(SlotObject);
-				Slots.Add(NewSlot);
-			}
-		}
-	}
-	
-	if (Slots.Num() != ContainerSize)
-	{
-		Slots.SetNum(ContainerSize);
-	}
-	
-	return true;
-}

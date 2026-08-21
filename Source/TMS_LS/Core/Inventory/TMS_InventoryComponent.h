@@ -7,6 +7,7 @@
 #include "Components/ActorComponent.h"
 #include "TMS_InventoryComponent.generated.h"
 
+class UItemObject;
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnInventoryUpdatedSignature);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnInventoryInitializedSignature);
 
@@ -22,7 +23,6 @@ public:
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
-
 	
 public:
 	UPROPERTY(BlueprintAssignable)
@@ -33,7 +33,7 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	FText ContainerName;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory")
-	TArray<FItemSlotData> Slots;
+	TArray<TObjectPtr<UItemObject>> Slots;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Inventory")
 	int32 ContainerSize = 10;
 
@@ -42,15 +42,23 @@ public:
 	
 public:
 	UFUNCTION(BlueprintCallable)
-	void AddItem(const FItemSlotData& InItem, bool& OutSuccess);
+	void AddItem(TSubclassOf<UItemObject> InItemClass, int32 Amount , bool& OutSuccess, EItemRarity Rarity = EItemRarity::EIR_Common);
+	
 	UFUNCTION(BlueprintCallable)
-	void RemoveItem(FItemSlotData InItem);
+	void AddItemAsObject(UItemObject* InItem);
+	
+	UFUNCTION(BlueprintCallable)
+	void RemoveItem(TSubclassOf<UItemObject> InItemClass, int32 Amount);
+	
+	UFUNCTION(BlueprintCallable)
+	void RemoveItemAsObject(UItemObject* InItem);
+	
 	UFUNCTION(BlueprintCallable)
 	void SwapItems(int32 InSlot, int32 OutSlot);
 
 	UFUNCTION(BlueprintCallable)
 	void DEBUG_PrintSlots();
-
+	
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	bool IsEmpty();
 	
@@ -61,20 +69,19 @@ public:
 	bool LoadInventoryFromFile(const FString& FilePath);
 
 private:
+	
 	UFUNCTION()
 	bool HasNotFullSlotOfItem(const FName& ItemID, int32& OutIndex);
 	UFUNCTION()
 	bool FindFirstSlotOfType(int32& OutIndex, const FName InName = FName());
 
 	UFUNCTION()
-	bool CreateNewEmptySlotOfType(const FName& ItemID);
+	bool CreateNewEmptySlotOfType(TSubclassOf<UItemObject> InItemClass);
 
 	UFUNCTION()
-	bool TryToFill(int32 InID, const FItemSlotData& InItem, int32& Overflow);
-
-	int32 GetMaxAmount(FName ItemID);
+	bool TryToFill(int32 InID, int32& AmountToAdd, int32& Overflow);
 	
-	FString SerializeToJson() const;
+	UItemObject* CreateItemObject(TSubclassOf<UItemObject> InItemClass, int32 Amount, EItemRarity Rarity = EItemRarity::EIR_Common);
 	
-	bool DeserializeFromJson(const FString& InJsonString);
+	bool AddItemToEmptySlot(UItemObject* InItem);
 };

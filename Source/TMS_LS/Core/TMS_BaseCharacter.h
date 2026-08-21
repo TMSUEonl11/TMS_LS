@@ -11,6 +11,8 @@
 #include "Inventory/TMS_InventoryComponent.h"
 #include "TMS_BaseCharacter.generated.h"
 
+class UTMS_ArmorComponent;
+class UEquipmentConstuctor;
 class UNavigationInvokerComponent;
 class UTMS_WeaponComponent;
 
@@ -24,6 +26,8 @@ public:
 	ATMS_BaseCharacter();
 	
 protected:
+	virtual void OnEquipmentChanged();
+	
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
@@ -41,6 +45,12 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	bool bSprinting = false;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "CharSetup")
+	TSubclassOf<UAnimInstance> BaseAnimLayer;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "CharSetup")
+	TObjectPtr<UEquipmentConstuctor> DefaultEquipmentData;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Movement")
 	FTMS_AnimData VaultAnims;
@@ -59,6 +69,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Components)
 	TObjectPtr<UTMS_EquipmentComponent> EquipmentComponent;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Components)
+	TObjectPtr<UTMS_ArmorComponent> ArmorComponent;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
 	TObjectPtr<UTMS_WeaponComponent> WeaponComponent;

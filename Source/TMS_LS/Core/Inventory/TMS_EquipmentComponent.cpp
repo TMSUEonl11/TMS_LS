@@ -6,12 +6,20 @@
 #include "TMS_InventoryComponent.h"
 #include "TMS_InventorySubsystem.h"
 #include "GameFramework/Character.h"
+#include "ItemObjects/ItemObject.h"
+#include "TMS_LS/Components/TMS_ArmorComponent.h"
 #include "TMS_LS/Components/TMS_WeaponComponent.h"
+#include "TMS_LS/Items/Equipment/TMS_BaseArmor.h"
 
 UTMS_EquipmentComponent::UTMS_EquipmentComponent()
 {
 	PrimaryComponentTick.bCanEverTick = false;
 
+	for (EEquipmentType ET : TEnumRange<EEquipmentType>())
+	{
+		EquipmentObjects.FindOrAdd(ET);
+		EquipmentActors.FindOrAdd(ET);
+	}
 }
 
 void UTMS_EquipmentComponent::BeginPlay()
@@ -19,11 +27,13 @@ void UTMS_EquipmentComponent::BeginPlay()
 	Super::BeginPlay();
 	for (EEquipmentType Type : TEnumRange<EEquipmentType>())
 	{
-		FItemSlotData* ItemData = EquipmentObjects.Find(Type);
-		if (ItemData && ItemData->ItemID != NAME_None)
+		if (UItemObject* Item = *EquipmentObjects.Find(Type))
 		{
-			FEquipmentProcess EquipmentProcess(*ItemData, Type, true);
-			AddPendingEquipment(EquipmentProcess);
+			if (Item->ItemData.ItemID != NAME_None)
+			{
+				FEquipmentProcess EquipmentProcess(Item, Type, true);
+				AddPendingEquipment(EquipmentProcess);
+			}
 		}
 	}
 }
@@ -37,11 +47,11 @@ void UTMS_EquipmentComponent::AddPendingEquipment(const FEquipmentProcess& InEP)
 	}
 }
 
-void UTMS_EquipmentComponent::GetEquipmentBySlot(EEquipmentType InSlot, FItemSlotData& OutItemData,
+void UTMS_EquipmentComponent::GetEquipmentBySlot(EEquipmentType InSlot, UItemObject*& OutItem,
 	AItemEquipment*& OutEquipmentActor)
 {
 	if (!EquipmentObjects.Contains(InSlot) || !EquipmentActors.Contains(InSlot)) return;
-	OutItemData = EquipmentObjects[InSlot];
+	OutItem = EquipmentObjects[InSlot];
 	OutEquipmentActor = EquipmentActors[InSlot];
 }
 
@@ -65,7 +75,7 @@ void UTMS_EquipmentComponent::NextPendingEquipment()
 	}
 }
 
-void UTMS_EquipmentComponent::EquipSlot(EEquipmentType InSlot, const FItemSlotData& InItemData)
+void UTMS_EquipmentComponent::EquipSlot(EEquipmentType InSlot, UItemObject* InItem)
 {
 	if (!GetWorld()) return;
 	OnBeginEquip.Broadcast(InSlot);
@@ -73,7 +83,7 @@ void UTMS_EquipmentComponent::EquipSlot(EEquipmentType InSlot, const FItemSlotDa
 	FActorSpawnParameters SpawnParams;
 	SpawnParams.Owner = GetOwner();
 
-	if (InItemData.ItemID == NAME_None)
+	if (InItem->ItemData.ItemID == NAME_None)
 	{
 		FinishEquip();
 		return;
@@ -82,7 +92,7 @@ void UTMS_EquipmentComponent::EquipSlot(EEquipmentType InSlot, const FItemSlotDa
 	FItemData ItemData;
 	if (UTMS_InventorySubsystem* IS = GetWorld()->GetGameInstance()->GetSubsystem<UTMS_InventorySubsystem>())
 	{
-		IS->GetItemData(InItemData.ItemID, ItemData);
+		IS->GetItemData(InItem->ItemData.ItemID, ItemData);
 	}
 	if (ItemData.ItemID == NAME_None)
 	{
@@ -98,7 +108,7 @@ void UTMS_EquipmentComponent::EquipSlot(EEquipmentType InSlot, const FItemSlotDa
 		return;
 	}
 
-	EquipmentObjects.Emplace(InSlot, InItemData);
+	EquipmentObjects.Emplace(InSlot, InItem);
 	EquipmentActors.Emplace(InSlot, EquipmentActor);
 
 	MoveCurrentItemInInventory();
@@ -169,25 +179,50 @@ void UTMS_EquipmentComponent::ProcessUnequip(EEquipmentType InSlot)
 
 void UTMS_EquipmentComponent::FinishEquip()
 {
-	if (CurrentEquipmentProcess.Slot == EEquipmentType::EET_Main)
+	switch(CurrentEquipmentProcess.Slot)
 	{
+	case EEquipmentType::EET_Main:
 		if (UTMS_WeaponComponent* WC = GetOwner()->GetComponentByClass<UTMS_WeaponComponent>())
 		{
 			WC->SetCurrentWeapon(Cast<ATMS_BaseWeapon>(EquipmentActors[CurrentEquipmentProcess.Slot]));
 		}
+		break;
+	case EEquipmentType::EET_Armor:
+		if (UTMS_ArmorComponent* AC = GetOwner()->GetComponentByClass<UTMS_ArmorComponent>())
+		{
+			if (ATMS_BaseArmor* ArmorItem = Cast<ATMS_BaseArmor>(EquipmentActors[CurrentEquipmentProcess.Slot]))
+			{
+				AC->SetEquipment(ArmorItem->EquipmentData);
+			}
+		}
+		break;
+	default:
+		break;
 	}
+	
 	OnFinishEquip.Broadcast(CurrentEquipmentProcess.Slot);
 	NextPendingEquipment();
 }
 
 void UTMS_EquipmentComponent::FinishUnequip()
 {
-	if (CurrentEquipmentProcess.Slot == EEquipmentType::EET_Main)
+	
+	switch(CurrentEquipmentProcess.Slot)
 	{
+	case EEquipmentType::EET_Main:
 		if (UTMS_WeaponComponent* WC = GetOwner()->GetComponentByClass<UTMS_WeaponComponent>())
 		{
 			WC->SetCurrentWeapon(nullptr);
 		}
+		break;
+	case EEquipmentType::EET_Armor:
+		if (UTMS_ArmorComponent* AC = GetOwner()->GetComponentByClass<UTMS_ArmorComponent>())
+		{
+			AC->SetEquipment(nullptr);
+		}
+		break;
+	default:
+		break;
 	}
 	
 	if (AActor* EquipActor = EquipmentActors[CurrentEquipmentProcess.Slot])
@@ -199,7 +234,7 @@ void UTMS_EquipmentComponent::FinishUnequip()
 	MoveCurrentItemInInventory();
 
 	EquipmentActors.Emplace(CurrentEquipmentProcess.Slot);
-	EquipmentObjects.Emplace(CurrentEquipmentProcess.Slot, FItemSlotData());
+	EquipmentObjects.Emplace(CurrentEquipmentProcess.Slot);
 	
 	OnFinishUnequip.Broadcast(CurrentEquipmentProcess.Slot);
 	NextPendingEquipment();
@@ -214,19 +249,16 @@ void UTMS_EquipmentComponent::MoveCurrentItemInInventory()
 		if (UTMS_InventoryComponent* IC =
 			Player->GetComponentByClass<UTMS_InventoryComponent>())
 		{
-			FItemSlotData ItemData = EquipmentObjects[CurrentEquipmentProcess.Slot];
-			if (ItemData.ItemID == NAME_None) return;
-
-			int32 Amount = ItemData.Amount;
-
-			bool Result = false;
+			UItemObject* Item = EquipmentObjects[CurrentEquipmentProcess.Slot];
+			if (Item->ItemData.ItemID == NAME_None) return;
+			
 			if (CurrentEquipmentProcess.bEquipment)
 			{
-				IC->RemoveItem(FItemSlotData(ItemData.ItemID, ItemData.Amount));
+				IC->RemoveItemAsObject(Item);
 			}
 			else
 			{
-				IC->AddItem(FItemSlotData(ItemData.ItemID, ItemData.Amount), Result);
+				IC->AddItemAsObject(Item);
 			}
 		}
 	}
