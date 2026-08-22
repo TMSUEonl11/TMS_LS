@@ -63,13 +63,12 @@ void AALootItem::Tick(float DeltaTime)
 bool AALootItem::TryInteract(TWeakObjectPtr<class APlayerController> InPC)
 {
 	if (!InPC.IsValid() || !IsValid(HoldingItem)) return false;
-	FItemSlotData ItemSlotData = FItemSlotData(HoldingItem->ItemData.ItemID, HoldingItem->Amount);
 	bool bSuccess = false;
 	
 	UTMS_InventorySubsystem* IS = GetGameInstance()->GetSubsystem<UTMS_InventorySubsystem>();
 	if (IS)
 	{
-		IS->AddItemToController(InPC.Get(), ItemSlotData);
+		IS->AddItemToController(InPC.Get(), HoldingItem);
 	}
 	//InIC->AddItem(ItemSlotData,bSuccess);
 	Destroy();

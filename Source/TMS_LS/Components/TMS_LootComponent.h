@@ -7,6 +7,8 @@
 #include "TMS_LootComponent.generated.h"
 
 
+class UItemObject;
+
 UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
 class TMS_LS_API UTMS_LootComponent : public UActorComponent
 {
@@ -16,7 +18,7 @@ public:
 	UTMS_LootComponent();
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Loot")
-	TArray<FDataTableRowHandle> PossibleLoot;
+	TArray<TSubclassOf<UItemObject>> PossibleLoot;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Loot", meta = (UIMin = 0, ClampMin = 0, UIMax = 255, ClampMax = 255))
 	uint8 LootItemsAmount = 0;

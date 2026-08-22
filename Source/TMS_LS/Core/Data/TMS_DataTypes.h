@@ -71,3 +71,40 @@ public:
 	
 };
 
+USTRUCT(BlueprintType)
+struct FWeaponRuntimeStats
+{
+	GENERATED_BODY()
+	
+	FWeaponRuntimeStats() : Damage(0), FireRate(0),
+	MaxAmmo(0), EffectiveRange(0), AimFOV(0), AimSpeed(0)
+	{};
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float Damage;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float FireRate;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 MaxAmmo;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FVector2D Recoil;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float EffectiveRange;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FVector2D AccuracyAngle;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FVector2D AccuracyAimAngle;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float AimFOV;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float AimSpeed;
+};
+

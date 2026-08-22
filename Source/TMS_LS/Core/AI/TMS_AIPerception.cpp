@@ -29,7 +29,7 @@ TWeakObjectPtr<AActor> UTMS_AIPerception::GetClosestEnemy()
 		const UTMS_HealthComponent* HealthComp = Actor->GetComponentByClass<UTMS_HealthComponent>();
 		if (HealthComp && !HealthComp->bDead)
 		{
-			const float Dist = (Actor->GetActorLocation() - Pawn->GetActorLocation()).Size();
+			const float Dist = (Actor->GetActorLocation() - Pawn->GetActorLocation()).SizeSquared();
 			if (Dist < MinDistance)
 			{
 				MinDistance = Dist;

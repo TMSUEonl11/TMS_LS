@@ -8,7 +8,9 @@
 #include "TMS_InteractInterface.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Kismet/KismetMathLibrary.h"
 #include "Kismet/KismetSystemLibrary.h"
+#include "TMS_LS/Components/TMS_ArmorComponent.h"
 #include "TMS_LS/Components/TMS_WeaponComponent.h"
 
 ATMS_Player::ATMS_Player()
@@ -22,6 +24,28 @@ ATMS_Player::ATMS_Player()
 	Camera->SetupAttachment(SpringArm);
 
 	MotionWarper = CreateDefaultSubobject<UMotionWarpingComponent>("MotionWarper");
+	
+	HelmetMesh = CreateDefaultSubobject<USkeletalMeshComponent>("HelmetMesh");
+	HelmetMesh->SetupAttachment(GetMesh());
+	HelmetMesh->SetLeaderPoseComponent(GetMesh());
+	
+	BodyMesh = CreateDefaultSubobject<USkeletalMeshComponent>("BodyMesh");
+	BodyMesh->SetupAttachment(GetMesh());
+	BodyMesh->SetLeaderPoseComponent(GetMesh());
+	
+	HandsMesh = CreateDefaultSubobject<USkeletalMeshComponent>("HandsMesh");
+	HandsMesh->SetupAttachment(GetMesh());
+	HandsMesh->SetLeaderPoseComponent(GetMesh());
+	
+	LegsMesh = CreateDefaultSubobject<USkeletalMeshComponent>("LegsMesh");
+	LegsMesh->SetupAttachment(GetMesh());
+	LegsMesh->SetLeaderPoseComponent(GetMesh());
+	
+	BootsMesh = CreateDefaultSubobject<USkeletalMeshComponent>("BootsMesh");
+	BootsMesh->SetupAttachment(GetMesh());
+	BootsMesh->SetLeaderPoseComponent(GetMesh());
+	
+	
 	
 	TargetFOV = Camera->FieldOfView;
 }
@@ -78,13 +102,100 @@ void ATMS_Player::BeginPlay()
 	if (!PHUD) return;
 }
 
+void ATMS_Player::OnEquipmentChanged()
+{
+	Super::OnEquipmentChanged();
+	if (UEquipmentConstuctor* EC = ArmorComponent->GetCurrentEquipment())
+	{
+		for (const auto& Pair : EC->MeshesByLayer)
+		{
+			if (USkeletalMeshComponent* SkMC = GetSkMByEquipmentLayer(Pair.Key))
+			{
+				if (USkeletalMesh* SkM = Pair.Value.LoadSynchronous())
+				{
+					SkMC->SetSkeletalMeshAsset(SkM);
+					SkMC->SetLeaderPoseComponent(GetMesh(), true);
+				}
+			}
+		}
+	}
+}
+
+USkeletalMeshComponent* ATMS_Player::GetSkMByEquipmentLayer(EEquipmentLayer Layer)
+{
+	switch (Layer)
+	{
+	case EEquipmentLayer::EEL_Helmet:
+		return HelmetMesh;
+	case EEquipmentLayer::EEL_Head:
+		break;
+	case EEquipmentLayer::EEL_Body:
+		return BodyMesh;
+	case EEquipmentLayer::EEL_Hands:
+		return HandsMesh;
+	case EEquipmentLayer::EEL_Legs:
+		return LegsMesh;
+	case EEquipmentLayer::EEL_Boots:
+		return BootsMesh;
+	case EEquipmentLayer::EEL_MAX:
+		break;
+	}
+	return nullptr;
+}
+
+void ATMS_Player::MathTick(float DeltaTime)
+{
+	// =, -, *, / , %
+	// FMath::
+	const FVector StartPoint = GetActorLocation();
+	const FVector EndPoint = FMath::VRandCone(GetActorForwardVector(), 15.f) * FMath::FRandRange(500.f, 1000.f);
+	const FVector Point = GetActorForwardVector() * FMath::FRandRange(600.F, 800.F);
+	const FVector Closest = FMath::ClosestPointOnLine(StartPoint, EndPoint, Point);
+	
+	UKismetSystemLibrary::DrawDebugLine(this, StartPoint, EndPoint, FLinearColor::Blue, 0, 2.f);
+	UKismetSystemLibrary::DrawDebugLine(this, StartPoint, Point, FLinearColor::Green, 0, 2.f);
+	UKismetSystemLibrary::DrawDebugLine(this, Closest, Point, FLinearColor::Red, 0, 2.f);
+	
+	UKismetSystemLibrary::DrawDebugPoint(this, Closest, 5.f, FLinearColor::Yellow, 0);
+	
+	FVector RandVector = FMath::VRand()*FMath::RandRange(300, 500);
+	FVector RandScale = FMath::VRand()*FMath::RandRange(0.5f, 2.f);
+	FRotator RandRotator = FMath::VRand().Rotation();
+	
+	FTransform RandTransform = FTransform(RandRotator, RandVector, RandScale);
+	FMatrix Matrix = RandTransform.ToMatrixWithScale();
+	
+	UE_LOG(LogTemp, Display, TEXT("Transform: %s, \n Matrix: %s"), *RandTransform.ToHumanReadableString(), *Matrix.ToString() );
+	
+}
+
 void ATMS_Player::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	if (GetCharacterMovement()->IsWalking() && CurrentJumpBufferTime > 0.f)
+	{
+		Jump();
+		CurrentFallBufferTime = 0;
+	}
+	if (GetCharacterMovement()->IsFalling() && GetCharacterMovement()->Velocity.Z < 0)
+	{
+		CurrentFallBufferTime+=DeltaTime;
+	}
+	CurrentJumpBufferTime-=DeltaTime;
 	FOV_Update(DeltaTime);
 	
 	CheckInteractable();
+	
+	//MathTick(DeltaTime);
+}
+
+float ATMS_Player::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent,
+	class AController* EventInstigator, AActor* DamageCauser)
+{
+#if !UE_BUILD_SHIPPING
+	if (CVarPlayerGodMode.GetValueOnGameThread() > 0) return 0;
+#endif
+	return Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
 }
 
 void ATMS_Player::MainInput(const FInputActionValue& InputActionValue)
@@ -212,6 +323,15 @@ void ATMS_Player::SetupPlayerInputComponent(class UInputComponent* PlayerInputCo
 	EIC->BindAction(InputData->PauseInput, ETriggerEvent::Triggered, this, &ATMS_Player::OnPauseInput);
 }
 
+bool ATMS_Player::CanJumpInternal_Implementation() const
+{
+	if (CurrentFallBufferTime > 0 && CurrentFallBufferTime < DefaultJumpBufferTime)
+	{
+		return !bIsCrouched;
+	}
+	return Super::CanJumpInternal_Implementation();
+}
+
 void ATMS_Player::OnMoveInput(const FInputActionValue& Value)
 {
 	UE_LOG(LogTemp, Display, TEXT("OnMoveInput : %s"), *Value.ToString());
@@ -319,6 +439,7 @@ void ATMS_Player::OnInteractInput(const FInputActionValue& Value)
 void ATMS_Player::Jump()
 {
 	if (CanVault() && TryVault()) return;
+	CurrentJumpBufferTime = DefaultJumpBufferTime;
 	Super::Jump();
 }
 

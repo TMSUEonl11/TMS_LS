@@ -8,6 +8,8 @@
 #include "Components/ActorComponent.h"
 #include "TMS_EquipmentComponent.generated.h"
 
+class UItemObject;
+
 USTRUCT(BlueprintType)
 struct FEquipmentProcess
 {
@@ -20,7 +22,7 @@ struct FEquipmentProcess
 		Slot = other.Slot;
 		bEquipment = other.bEquipment;
 	};
-	FEquipmentProcess(const FItemSlotData& InItem, EEquipmentType InSlot, bool bInEquipment)
+	FEquipmentProcess(UItemObject* InItem, EEquipmentType InSlot, bool bInEquipment)
 	{
 		ItemData = InItem;
 		Slot = InSlot;
@@ -28,7 +30,7 @@ struct FEquipmentProcess
 	}
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	FItemSlotData ItemData = FItemSlotData();
+	UItemObject* ItemData = nullptr;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	EEquipmentType Slot = EEquipmentType::EET_MAX;
@@ -39,6 +41,11 @@ struct FEquipmentProcess
 	bool IsValid()
 	{
 		return Slot != EEquipmentType::EET_MAX;
+	}
+	
+	bool operator==(const FEquipmentProcess& Other) const
+	{
+		return Slot == Other.Slot;
 	}
 };
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEquipmentUpdatedSignature);
@@ -63,7 +70,7 @@ protected:
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TMap<EEquipmentType, FItemSlotData> EquipmentObjects;
+	TMap<EEquipmentType, TObjectPtr<UItemObject>> EquipmentObjects;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TMap<EEquipmentType, TObjectPtr<AItemEquipment>> EquipmentActors;
@@ -94,7 +101,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	void GetEquipmentBySlot(EEquipmentType InSlot,
-		FItemSlotData& OutItemData,
+		UItemObject*& OutItem,
 		AItemEquipment*& OutEquipmentActor);
 	
 	UFUNCTION(BlueprintCallable)
@@ -107,7 +114,7 @@ private:
 	void NextPendingEquipment();
 
 	UFUNCTION()
-	void EquipSlot(EEquipmentType InSlot, const FItemSlotData& InItemData);
+	void EquipSlot(EEquipmentType InSlot, UItemObject* InItem);
 	UFUNCTION()
 	void UnequipSlot(EEquipmentType InSlot);
 

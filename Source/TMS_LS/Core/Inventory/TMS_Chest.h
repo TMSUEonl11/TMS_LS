@@ -6,8 +6,9 @@
 #include "TMS_LS/Core/TMS_InteractInterface.h"
 #include "GameFramework/Actor.h"
 #include "ItemDataTypes.h"
-#include "ItemObject.h"
 #include "TMS_Chest.generated.h"
+
+class UItemObject;
 
 UENUM(BlueprintType)
 enum class EChestState : uint8

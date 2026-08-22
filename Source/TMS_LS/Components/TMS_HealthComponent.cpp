@@ -37,7 +37,11 @@ void UTMS_HealthComponent::OnTakeDamage(AActor* DamagedActor, float Damage, cons
 	UE_LOG(LogTemp, Display, TEXT("ResultDamage: %f"), Damage);
 	SetHealth(GetHealth() - Damage);
 	
-	ATMS_Player* Player = Cast<ATMS_Player>(InstigatedBy->GetPawn());
+	ATMS_Player* Player = nullptr;
+	if (InstigatedBy && InstigatedBy->GetPawn())
+	{
+		Player = Cast<ATMS_Player>(InstigatedBy->GetPawn());
+	}
 	
 	if (Health <= 0.f)
 	{

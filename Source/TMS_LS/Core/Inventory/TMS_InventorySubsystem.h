@@ -3,10 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "ItemObject.h"
+#include "ItemDataTypes.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "TMS_InventorySubsystem.generated.h"
 
+class UItemObject;
 /**
  * 
  */
@@ -17,10 +18,10 @@ class TMS_LS_API UTMS_InventorySubsystem : public UGameInstanceSubsystem
 public:
 
 	UFUNCTION(BlueprintCallable)
-	bool AddItemToController(APlayerController* Target, FItemSlotData Item);
+	bool AddItemToController(APlayerController* Target, UItemObject* Item);
 
 	UFUNCTION(BlueprintCallable)
-	bool AddItem(AActor* Target, FItemSlotData Item);
+	bool AddItem(AActor* Target, UItemObject* Item);
 		
 	UFUNCTION(BlueprintCallable)
 	void GetItemData(FName ItemID, FItemData& OutItem);
