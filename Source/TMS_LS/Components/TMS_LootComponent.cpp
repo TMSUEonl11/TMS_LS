@@ -3,6 +3,7 @@
 
 #include "TMS_LootComponent.h"
 #include "TMS_LS/Core/Inventory/TMS_InventorySubsystem.h"
+#include "TMS_LS/Core/Inventory/ItemObjects/ItemObject.h"
 #include "TMS_LS/Utilities/TMS_DeveloperSettings.h"
 
 
@@ -17,14 +18,12 @@ void UTMS_LootComponent::BeginPlay()
 	GenerateLoot();
 }
 
+#if  WITH_EDITOR
 void UTMS_LootComponent::PostEditChangeProperty(struct FPropertyChangedEvent& PropertyChangedEvent)
 {
 	Super::PostEditChangeProperty(PropertyChangedEvent);
-	for (auto& Loot : PossibleLoot)
-	{
-		Loot.DataTable = UTMS_DeveloperSettings::Get()->ItemDataTable.Get();
-	}
 }
+#endif
 
 void UTMS_LootComponent::GenerateLoot()
 {
@@ -32,13 +31,17 @@ void UTMS_LootComponent::GenerateLoot()
 	for (int32 i = 0; i < LootItemsAmount; ++i)
 	{
 		int32 RandID = FMath::RandRange(0, PossibleLoot.Num() - 1);
-		bool bSuccess = false;
-		FItemSlotData ItemData;
-		ItemData.Amount = 1;
-		ItemData.ItemID = PossibleLoot[RandID].RowName;
 		if (UTMS_InventorySubsystem* IS = GetWorld()->GetGameInstance()->GetSubsystem<UTMS_InventorySubsystem>())
 		{
-			IS->AddItem(GetOwner(), ItemData);
+			if (PossibleLoot[RandID])
+			{
+				UItemObject* NewItem = NewObject<UItemObject>(GetOwner(), PossibleLoot[RandID]);
+				if (NewItem)
+				{
+					NewItem->Amount = 1;
+				}
+				IS->AddItem(GetOwner(), NewItem);
+			}
 		}
 	}
 }

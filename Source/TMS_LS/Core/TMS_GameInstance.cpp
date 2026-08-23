@@ -4,7 +4,6 @@
 #include "TMS_GameInstance.h"
 
 #include "TMS_LoadingScreen.h"
-#include "ToolWidgetsStyle.h"
 #include "Blueprint/UserWidget.h"
 #include "Engine/AssetManager.h"
 #include "Kismet/GameplayStatics.h"

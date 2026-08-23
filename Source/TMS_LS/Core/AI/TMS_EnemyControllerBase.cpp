@@ -6,6 +6,7 @@
 #include "TMS_AIPerception.h"
 #include "TMS_EnemyCharacterBase.h"
 #include "BehaviorTree/BlackboardComponent.h"
+#include "Kismet/KismetMathLibrary.h"
 #include "TMS_LS/Utilities/TMS_AIPatrolPath.h"
 #include "TMS_LS/Utilities/TMS_DeveloperSettings.h"
 
@@ -72,8 +73,12 @@ FVector ATMS_EnemyControllerBase::GetTargetHeadBoneLocation()
 void ATMS_EnemyControllerBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	SetFocalPoint(GetTargetHeadBoneLocation());
+	//SetFocalPoint(GetTargetHeadBoneLocation());
 	//SetFocus(GetTargetActor());
+	FRotator TargetRotation = UKismetMathLibrary::FindLookAtRotation(
+		GetPawn()->GetActorLocation(),
+		GetTargetHeadBoneLocation());
+	SetControlRotation(TargetRotation);
 }
 
 void ATMS_EnemyControllerBase::OnPossess(APawn* InPawn)

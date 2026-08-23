@@ -83,6 +83,10 @@ void UTMS_WeaponComponent::SetCurrentWeapon(ATMS_BaseWeapon* InWeaponActor)
 			Player->GetMesh()->GetAnimInstance()->LinkAnimClassLayers(InWeaponActor->AnimLayer);
 		}
 	}
+	else
+	{
+		Player->GetMesh()->GetAnimInstance()->LinkAnimClassLayers(Player->BaseAnimLayer);
+	}
 	OnWeaponUpdate.Broadcast();
 }
 

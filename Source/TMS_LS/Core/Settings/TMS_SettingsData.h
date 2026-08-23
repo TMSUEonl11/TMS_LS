@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ParticleHelper.h"
 #include "TMS_SettingsData.generated.h"
 
 UENUM(BlueprintType)
@@ -31,10 +32,10 @@ struct FSettingData : public FTableRowBase
 	FText SettingName;
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	ESettingsCategory SettingCategory;
+	ESettingsCategory SettingCategory = ESettingsCategory::ESC_MAX;
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	ESettingType SettingType;
+	ESettingType SettingType = ESettingType::EST_MAX;
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (EditCondition = "SettingType == ESettingType::EST_Toggle", EditConditionHides))
 	bool bDefaultValue = false;

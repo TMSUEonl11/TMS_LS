@@ -48,6 +48,7 @@ void ATMS_FireWeapon::OnAnimNotify(EWeaponActionType WeaponAction)
 
 void ATMS_FireWeapon::Main_Input(bool bInActive)
 {
+	if (bReloading) return;
 	if (bIsActive != bInActive)
 	{
 		if (bInActive)
@@ -165,6 +166,7 @@ void ATMS_FireWeapon::Reload()
 	if (CurrentAmmo == MaxAmmo) return;
 
 	bReloading = true;
+	bIsActive = false;
 	const auto Player = Cast<ACharacter>(GetOwner());
 	if (!Player) return;
 

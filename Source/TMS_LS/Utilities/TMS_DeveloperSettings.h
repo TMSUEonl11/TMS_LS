@@ -3,9 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GenericTeamAgentInterface.h"
 #include "Engine/DeveloperSettings.h"
 #include "TMS_LS/Core/Data/TMS_DataTypes.h"
+#include "Sound/SoundCue.h"
 #include "TMS_DeveloperSettings.generated.h"
 
 USTRUCT(BlueprintType)

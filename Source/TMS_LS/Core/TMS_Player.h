@@ -12,6 +12,12 @@
 #include "TMS_HUD.h"
 #include "TMS_Player.generated.h"
 
+#if !UE_BUILD_SHIPPING
+static TAutoConsoleVariable<int32> CVarPlayerGodMode(
+	TEXT("tms_cheats.Player.GodMode"), 0, TEXT("0 for false, >0 for true"));
+#endif
+
+enum class EEquipmentLayer : uint8;
 class UTMS_WeaponComponent;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnKilledSignature, AActor*, KilledActor);
@@ -50,11 +56,30 @@ public:
 	
 	UPROPERTY(BlueprintAssignable)
 	FOnDealtDamageSignature OnDamaged;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Skeleton)
+	TObjectPtr<USkeletalMeshComponent> HelmetMesh;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Skeleton)
+	TObjectPtr<USkeletalMeshComponent> BodyMesh;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Skeleton)
+	TObjectPtr<USkeletalMeshComponent> HandsMesh;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Skeleton)
+	TObjectPtr<USkeletalMeshComponent> LegsMesh;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Skeleton)
+	TObjectPtr<USkeletalMeshComponent> BootsMesh;
 
 private:
 	FVector2D MoveInput;
 
 	float TargetFOV = 90.f;
+	
+	float DefaultJumpBufferTime = 0.15f;
+	float CurrentJumpBufferTime = 0.0f;
+	float CurrentFallBufferTime = 0.0f;
 
 	float CurrentFOV = 90.f;
 
@@ -72,11 +97,18 @@ protected:
 	void OnEquipmentUpdated();
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	
+	virtual void OnEquipmentChanged() override;
+	
+	USkeletalMeshComponent* GetSkMByEquipmentLayer(EEquipmentLayer Layer);
 
-public:	
+public:
+	void MathTick(float DeltaTime);
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+	
+	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
+	
 	void MainInput(const FInputActionValue& InputActionValue);
 	void SecondaryInput(const FInputActionValue& InputActionValue);
 	void ReloadInput(const FInputActionValue& InputActionValue);
@@ -96,6 +128,8 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	virtual bool CanJumpInternal_Implementation() const override;
+	
 	void OnMoveInput(const FInputActionValue& Value);
 	void StopMoveInput(const FInputActionValue& Value);
 	void OnLookInput(const FInputActionValue& Value);

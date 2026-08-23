@@ -11,7 +11,7 @@
 UTMS_HealthComponent::UTMS_HealthComponent()
 {
 	PrimaryComponentTick.bCanEverTick = true;
-	
+
 }
 
 
@@ -31,7 +31,7 @@ void UTMS_HealthComponent::BeginPlay()
 	{
 		GetOwner()->OnTakeAnyDamage.AddDynamic(this, &UTMS_HealthComponent::OnTakeDamage);
 	}
-	
+
 }
 
 void UTMS_HealthComponent::OnTakeDamage(AActor* DamagedActor, float Damage, const class UDamageType* DamageType,
@@ -39,23 +39,26 @@ void UTMS_HealthComponent::OnTakeDamage(AActor* DamagedActor, float Damage, cons
 {
 	if (bDead || Damage < 0.f) return;
 
-	
+
 	UE_LOG(LogTemp, Display, TEXT("ResultDamage: %f"), Damage);
 	SetHealth(GetHealth() - Damage);
-	
-	if (!IsValid(InstigatedBy)) return;
-	ATMS_Player* InstigatorPlayer = Cast<ATMS_Player>(InstigatedBy->GetPawn());
-	
+
+	ATMS_Player* Player = nullptr;
+	if (InstigatedBy && InstigatedBy->GetPawn())
+	{
+		Player = Cast<ATMS_Player>(InstigatedBy->GetPawn());
+	}
+
 	if (Health <= 0.f)
 	{
 		bDead = true;
 		if (!InstigatedBy) return;
-		
+
         if (InstigatorPlayer)
 		{
 			InstigatorPlayer->OnKill(DamagedActor);
 		}
-		
+
 		OnDeath.Broadcast();
 	}
 	else
@@ -81,7 +84,7 @@ void UTMS_HealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 	{
 		GainStamina(DeltaTime);
 	}
-	
+
 	//Fall Damage
 	if (bHasFallDamage)
 	{
@@ -146,7 +149,7 @@ void UTMS_HealthComponent::SprintInput(bool InValue)
 		GetWorld()->GetTimerManager().SetTimer(CoolDownHandle,
 			this, &UTMS_HealthComponent::FinishCooldown, MovementData->StaminaCooldown);
 	}
-	
+
 	if (!CanSprint())
 	{
 		bSprinting = false;
@@ -154,7 +157,7 @@ void UTMS_HealthComponent::SprintInput(bool InValue)
 	}
 
 	bSprinting = InValue;
-	
+
 	if (!Player) return;
 	if (!MovementComponent) return;
 
@@ -205,8 +208,8 @@ void UTMS_HealthComponent::CheckFallDamage()
 				Player->GetController(),
 				nullptr
 			);
-			
+
 		}
-		
+
 	}
 }
