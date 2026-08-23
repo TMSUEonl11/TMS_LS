@@ -249,6 +249,14 @@ void UTMS_EquipmentComponent::FinishEquip()
 	default:
 		break;
 	}
+	if (ACharacter* Player = Cast<ACharacter>(GetOwner()))
+	{
+		if (UTMS_InventoryComponent* IC =
+			Player->GetComponentByClass<UTMS_InventoryComponent>())
+		{
+			IC->InventoryUpdated();
+		}
+	}
 	
 	OnFinishEquip.Broadcast(CurrentEquipmentProcess.Slot);
 	NextPendingEquipment();
@@ -317,20 +325,32 @@ void UTMS_EquipmentComponent::MoveCurrentItemInInventory()
 
 FString UTMS_EquipmentComponent::SerializeToJson() const
 {
-	TSharedPtr<FJsonObject> JObject = MakeShareable(new FJsonObject);
-	TArray<TSharedPtr<FJsonValue>> JTypeArray;
+	 TSharedPtr<FJsonObject> JObject = MakeShareable(new FJsonObject);
+	 TArray<TSharedPtr<FJsonValue>> JTypeArray;
 	
-	for (EEquipmentType Type : TEnumRange<EEquipmentType>())
-	{
-		const FItemSlotData& SlotData = EquipmentObjects[Type];
-		JTypeArray.Add(MakeShareable(new FJsonValueObject(SlotData.AsJsonObject())));
-	}
+	 for (EEquipmentType Type : TEnumRange<EEquipmentType>())
+	 {
+	 	TSharedPtr<FJsonObject> ItemJson;
+	 	const UItemObject* Item  = EquipmentObjects[Type];
+	 	if (Item && Item->ItemData.ItemID != NAME_None)
+	 	{
+	 		ItemJson=Item->SerializeToJson();
+	 	}
+	    else
+	    {
+	    	ItemJson = MakeShareable(new FJsonObject);
+	    	ItemJson->SetStringField(UItemObject::JsonKey_ClassName, TEXT(""));
+	    	ItemJson->SetStringField(UItemObject::JsonKey_ItemID, TEXT(""));
+	    	ItemJson->SetNumberField(UItemObject::JsonKey_Amount, 0);
+	    }
+	 	JTypeArray.Add(MakeShareable(new FJsonValueObject(ItemJson)));
+	 }
 	JObject->SetArrayField(TEXT("Equipment"), JTypeArray);
 	
 	FString OutString;
 	TSharedRef<TJsonWriter<>> Writer = TJsonWriterFactory<>::Create(&OutString);
 	FJsonSerializer::Serialize(JObject.ToSharedRef(), Writer);
-	
+
 	return OutString;
 }
 
@@ -348,6 +368,45 @@ bool UTMS_EquipmentComponent::DeserializeFromJson(const FString& InJsonString)
 	const TArray<TSharedPtr<FJsonValue>>* EquipArray;
 	if (JObject->TryGetArrayField(TEXT("Equipment"), EquipArray))
 	{
+		for (EEquipmentType Type : TEnumRange<EEquipmentType>())
+		{
+			if (Index >= EquipArray->Num())
+				break;
+				
+			TSharedPtr<FJsonValue> Equip = (*EquipArray)[Index];
+			TSharedPtr<FJsonObject> EquipObject = Equip->AsObject();
+			Index++;
+			if (EquipObject.IsValid())
+			{
+				// Проверяем, есть ли класс
+				FString ClassName;
+				if (EquipObject->TryGetStringField(UItemObject::JsonKey_ClassName, ClassName) || ClassName.IsEmpty())
+				{
+					// Создаём объект нужного класса
+					UClass* FoundClass = FindObject<UClass>(this, *ClassName);
+					if (!FoundClass)
+					{
+						// Если класс не найден, пробуем загрузить по пути
+						FoundClass = LoadClass<UItemObject>(nullptr, *ClassName);
+					}
+					if (!FoundClass || !FoundClass->IsChildOf(UItemObject::StaticClass()))
+					{
+						UE_LOG(LogTemp, Warning, TEXT("Unknown class or not UItemObject: %s"), *ClassName);
+						continue;
+					}
+					UItemObject* NewItem = NewObject<UItemObject>(this, FoundClass);
+					if (!NewItem)	continue;
+					if (!NewItem->DeserializeFromJson(EquipObject)) continue;
+					else
+					{
+					//	EquipSlot(Type,NewItem);
+						FEquipmentProcess EquipmentProcess(NewItem, Type, true);
+						AddPendingEquipment(EquipmentProcess);
+					}
+				}
+			}
+		}
+		
 		// for (EEquipmentType Type : TEnumRange<EEquipmentType>())
 		// {
 		// 	if (Index >= EquipArray->Num())
@@ -364,7 +423,7 @@ bool UTMS_EquipmentComponent::DeserializeFromJson(const FString& InJsonString)
 		// 	++Index;
 		// }
 		
-		for (EEquipmentType Type : TEnumRange<EEquipmentType>())
+	/*	for (EEquipmentType Type : TEnumRange<EEquipmentType>())
 		{
 			if (Index >= EquipArray->Num())
 				break;
@@ -373,13 +432,16 @@ bool UTMS_EquipmentComponent::DeserializeFromJson(const FString& InJsonString)
 			TSharedPtr<FJsonObject> EquipObject = Equip->AsObject();
 			if (EquipObject.IsValid())
 			{
-				FItemSlotData NewEquip;
-				NewEquip.FromJson(EquipObject);
-				FEquipmentProcess EquipmentProcess(NewEquip, Type, true);
+				UItemObject Item;
+				Item.DeserializeFromJson(EquipObject);
+				//FItemSlotData NewEquip;
+			//	NewEquip.FromJson(EquipObject);
+				//FEquipmentProcess EquipmentProcess()
+				FEquipmentProcess EquipmentProcess(&Item, Type, true);
 				AddPendingEquipment(EquipmentProcess);
 			}
 			++Index;
-		}
+		}*/
 	}
 	
 	return true;

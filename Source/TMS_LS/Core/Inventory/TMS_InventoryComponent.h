@@ -59,6 +59,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void DEBUG_PrintSlots();
 	
+	UFUNCTION(BlueprintCallable)
+	void InventoryUpdated();
+	
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	bool IsEmpty();
 	

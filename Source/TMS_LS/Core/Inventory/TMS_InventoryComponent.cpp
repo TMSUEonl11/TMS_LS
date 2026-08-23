@@ -130,9 +130,10 @@ void UTMS_InventoryComponent::RemoveItemAsObject(UItemObject* InItem)
 		if (Slots[i] == InItem)
 		{
 			Slots[i] = NewObject<UItemObject>();
-			OnInventoryUpdated.Broadcast();
+			//OnInventoryUpdated.Broadcast();
 		}
 	}
+	OnInventoryUpdated.Broadcast();
 }
 
 void UTMS_InventoryComponent::SwapItems(int32 InSlot, int32 OutSlot)
@@ -145,6 +146,11 @@ void UTMS_InventoryComponent::SwapItems(int32 InSlot, int32 OutSlot)
 
 void UTMS_InventoryComponent::DEBUG_PrintSlots()
 {
+}
+
+void UTMS_InventoryComponent::InventoryUpdated()
+{
+	OnInventoryUpdated.Broadcast();
 }
 
 bool UTMS_InventoryComponent::IsEmpty()
@@ -411,6 +417,7 @@ bool UTMS_InventoryComponent::AddItemToEmptySlot(UItemObject* InItem)
 	if (FindFirstSlotOfType(EmptySlot))
 	{
 		Slots[EmptySlot] = InItem;
+		Slots[EmptySlot]->ItemData=InItem->ItemData;
 		return true;
 	}
 	return false;
