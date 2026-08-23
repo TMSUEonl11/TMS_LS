@@ -2,6 +2,8 @@
 
 
 #include "TMS_FireWeapon.h"
+
+#include "MeshPaintVisualize.h"
 #include "Engine/DamageEvents.h"
 #include "TMS_LS/Core/TMS_BaseCharacter.h"
 
@@ -119,21 +121,21 @@ void ATMS_FireWeapon::Shoot()
 	CollisionParams.AddIgnoredActors(IgnoreActors);
 
 	GetWorld()->LineTraceSingleByChannel(Hit, StartLocation, EndLocation,
-		ECC_Visibility, CollisionParams);
+		ECC_GameTraceChannel4, CollisionParams);
 
 	if (Hit.bBlockingHit)
 	{
-		EndLocation = Hit.Location;
+		FVector Direction = (Hit.Location - GetMuzzleLocation()).GetSafeNormal();
+		EndLocation = GetMuzzleLocation() + Direction * Distance;
 	}
 
 	GetWorld()->LineTraceSingleByChannel(Hit,
 		GetMuzzleLocation(), EndLocation,
-		ECollisionChannel::ECC_Pawn, CollisionParams);
-	DrawDebugLine(GetWorld(),GetMuzzleLocation(), EndLocation, FColor::Green, false, 0.5f, 0, 1.f);
-
+		ECollisionChannel::ECC_GameTraceChannel4, CollisionParams);
+	DrawDebugLine(GetWorld(),GetMuzzleLocation(), EndLocation, FColor::Green, false, 2.5f, 0, 1.f);
+	
 	if (Hit.bBlockingHit && Hit.GetActor())
 	{
-		
 		Hit.GetActor()->TakeDamage(Damage, FDamageEvent{}, Char->GetController(), Char);
 	}
 	

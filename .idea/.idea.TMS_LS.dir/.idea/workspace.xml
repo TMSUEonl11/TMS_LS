@@ -9,16 +9,13 @@
   <component name="ChangeListManager">
     <list default="true" id="655b8281-5753-4a03-8620-77c7f245ea64" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_Enemy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_Enemy.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Core/BP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Core/BP_Player.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/UI/Inventory/WBP_EquipmentSlot.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/UI/Inventory/WBP_EquipmentSlot.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/UI/Inventory/WBP_ItemSlot.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/UI/Inventory/WBP_ItemSlot.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Components/TMS_HealthComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Components/TMS_HealthComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Components/TMS_WeaponComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Components/TMS_WeaponComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_EquipmentComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_EquipmentComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_EquipmentComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_EquipmentComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_Player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_Player.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TMS_LS.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/TMS_LS.uproject" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TMS_LS.uproject.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/TMS_LS.uproject.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Inventory/Items/Weapons/Rifle/BP_WeaponBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Inventory/Items/Weapons/Rifle/BP_WeaponBase.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/UI/WBP_Crosshair.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/UI/WBP_Crosshair.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/P8/KEY3EL483SYZFZV6NWMPHC.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/P8/KEY3EL483SYZFZV6NWMPHC.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Items/Weapons/TMS_FireWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Items/Weapons/TMS_FireWeapon.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +42,8 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="cidr-memory-view://2" root0="FORCE_HIGHLIGHTING" />
-    <setting file="cidr-memory-view://3" root0="FORCE_HIGHLIGHTING" />
+    <setting file="cidr-memory-view://6" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Editor/Kismet/Public/FindInBlueprints.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Containers/Array.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Containers/Queue.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Delegates/DelegateInstancesImpl.h" root0="FORCE_HIGHLIGHTING" />
@@ -292,7 +289,7 @@
       <workItem from="1787071587356" duration="2530000" />
       <workItem from="1787136938356" duration="2438000" />
       <workItem from="1787452765870" duration="224000" />
-      <workItem from="1787453058401" duration="4972000" />
+      <workItem from="1787453058401" duration="12004000" />
     </task>
     <servers />
   </component>
