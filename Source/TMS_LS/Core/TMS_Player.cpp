@@ -61,11 +61,11 @@ void ATMS_Player::OnInventoryUpdated()
 
 void ATMS_Player::OnEquipmentUpdated()
 {
-	if (EquipmentComponent)
-	{
-		FString EquipmentSavePath = FPaths::ProjectSavedDir() + TEXT("PlayerData/Equipment.json");
-		EquipmentComponent->SaveEquipmentToFile(EquipmentSavePath);
-	}
+	// if (EquipmentComponent)
+	// {
+	// 	FString EquipmentSavePath = FPaths::ProjectSavedDir() + TEXT("PlayerData/Equipment.json");
+	// 	EquipmentComponent->SaveEquipmentToFile(EquipmentSavePath);
+	// }
 }
 
 void ATMS_Player::BeginPlay()
@@ -86,13 +86,13 @@ void ATMS_Player::BeginPlay()
 		InventoryComponent->OnInventoryUpdated.AddDynamic(this, &ATMS_Player::OnInventoryUpdated);
 	}
 	
-	if (EquipmentComponent)
-	{
-		FString EquipmentLoadPath = FPaths::ProjectSavedDir() + TEXT("PlayerData/Equipment.json");
-		EquipmentComponent->LoadEquipmentFromFile(EquipmentLoadPath);
-		
-		EquipmentComponent->OnEquipmentUpdated.AddDynamic(this, &ATMS_Player::OnEquipmentUpdated);
-	}
+	// if (EquipmentComponent)
+	// {
+	// 	FString EquipmentLoadPath = FPaths::ProjectSavedDir() + TEXT("PlayerData/Equipment.json");
+	// 	EquipmentComponent->LoadEquipmentFromFile(EquipmentLoadPath);
+	// 	
+	// 	EquipmentComponent->OnEquipmentUpdated.AddDynamic(this, &ATMS_Player::OnEquipmentUpdated);
+	// }
 	
 	PPC = Cast<APlayerController>(GetController());
 	if (!PPC) return;

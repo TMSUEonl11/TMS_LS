@@ -43,10 +43,10 @@ void UTMS_HealthComponent::OnTakeDamage(AActor* DamagedActor, float Damage, cons
 	UE_LOG(LogTemp, Display, TEXT("ResultDamage: %f"), Damage);
 	SetHealth(GetHealth() - Damage);
 
-	ATMS_Player* Player = nullptr;
+	ATMS_Player* InstigatorPlayer  = nullptr;
 	if (InstigatedBy && InstigatedBy->GetPawn())
 	{
-		Player = Cast<ATMS_Player>(InstigatedBy->GetPawn());
+		InstigatorPlayer = Cast<ATMS_Player>(InstigatedBy->GetPawn());
 	}
 
 	if (Health <= 0.f)
@@ -54,18 +54,18 @@ void UTMS_HealthComponent::OnTakeDamage(AActor* DamagedActor, float Damage, cons
 		bDead = true;
 		if (!InstigatedBy) return;
 
-        if (InstigatorPlayer)
+        if (InstigatorPlayer )
 		{
-			InstigatorPlayer->OnKill(DamagedActor);
+			InstigatorPlayer ->OnKill(DamagedActor);
 		}
 
 		OnDeath.Broadcast();
 	}
 	else
 	{
-		if (InstigatorPlayer)
+		if (InstigatorPlayer )
 		{
-			InstigatorPlayer->OnHit(DamagedActor, Damage);
+			InstigatorPlayer ->OnHit(DamagedActor, Damage);
 		}
 	}
 }

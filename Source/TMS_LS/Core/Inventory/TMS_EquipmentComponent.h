@@ -111,11 +111,11 @@ public:
 		UItemObject*& OutItem,
 		AItemEquipment*& OutEquipmentActor);
 	
-	UFUNCTION(BlueprintCallable)
-	bool SaveEquipmentToFile(const FString& FilePath) const;
-	
-	UFUNCTION(BlueprintCallable)
-	bool LoadEquipmentFromFile(const FString& FilePath);
+	// UFUNCTION(BlueprintCallable)
+	// bool SaveEquipmentToFile(const FString& FilePath) const;
+	//
+	// UFUNCTION(BlueprintCallable)
+	// bool LoadEquipmentFromFile(const FString& FilePath);
 
 private:
 	void NextPendingEquipment();
@@ -140,7 +140,7 @@ private:
 	UFUNCTION()
 	void DestroyedEquipment();
 	
-	FString SerializeToJson() const;
-	
-	bool DeserializeFromJson(const FString& InJsonString);
+	// FString SerializeToJson() const;
+	//
+	// bool DeserializeFromJson(const FString& InJsonString);
 };

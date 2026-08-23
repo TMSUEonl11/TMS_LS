@@ -13,7 +13,7 @@ void UTMS_WeaponComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	//SpawnWeapon();
+	// SpawnWeapon();
 }
 
 void UTMS_WeaponComponent::SpawnWeapon()

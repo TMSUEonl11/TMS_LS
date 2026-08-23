@@ -8,297 +8,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="655b8281-5753-4a03-8620-77c7f245ea64" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/CR/LQ/CharacterModular/Modular_005_MilitaryA03/Mesh/BP_Modular.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/SM_TGrass_00.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/SM_TGrass_09.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/SM_TGrass_17.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TMS_LS/EditorUtilities/EUB_NamingCheck.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TMS_LS/EditorUtilities/EUW_AssetEntry.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TMS_LS/EditorUtilities/EUW_Renamer.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TMS_LS/Inventory/Items/Armors/BP_ArmorTest.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TMS_LS/Inventory/Items/Armors/BP_ArmorTestItem.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TMS_LS/Inventory/Items/Armors/DA_ArmorTest.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TMS_LS/Levels/L_MainMenu.umap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/0/D5/9CFYJ7W2JSDT6310EVVX39.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/1/OH/104YKRMHSF4IUCOF4FDWCT.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/1/WA/EI0HEXB2NUVG0YZ6NELCKS.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/1/WV/H08SRIU66JA4FUBYOBC1GM.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/P8/KEY3EL483SYZFZV6NWMPHC.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/7/XL/WYR1X1GYVRA7EM1ZU9MWNV.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/A/N6/KOX3T4P1KRYV58U8YEA6BG.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/C/A8/MKNNQ1NX6J37TAXK3VY4UO.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/C/H5/R1UCG78DC1NEUV5N28315W.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/1/0G/S09YAH4R8CMVDMZ7A20STZ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/1/6T/LR1OAKEVJOOPQRQLMJQ8VD.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/2/KA/641DILFS056EAGXA96WARU.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/2/M5/B1Z4KPTFV1L2EREMS5IW1R.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/3/8Z/8O4O20NVAUFW84ZP4YO7II.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/3/I5/39QMOMX0SBF5P8WX11O0V6.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/3/LO/35SUB29C3KQDMIXSHRFU72.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/3/WW/FO9B6T5LMMCOKJG4HCFNL1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/4/7Y/WQ1G94TAXTE1YVN2INDKQ5.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/4/LP/UZ50PDVAY299IMPNI9D2JC.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/6/OV/83W7IXH4TGHRI72ZDV4BUN.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/6/S7/2NX9ZP7Z2SEKB8KO5J9VC2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/6/U5/8JZFKBCUEF0B387SN8YEIP.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/7/6B/35BADYNNBJZPEYUTHJKTQU.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/7/GT/DVHRIRLU9GVKHFO3UTR8FO.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/7/J6/FATC6RSAGYSG8G4CTB1IAT.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/7/WI/5NFX0QG7YV9FB54TNR4PT1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/8/KH/7UZTS1KQ9C3D8VCY0LU7D4.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/8/VZ/RO3QWXLUI0FCFWSB7PRWYH.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/9/5Q/R91HTPJGCTT11W21J2XSVY.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/9/6V/Y43952I6PADWYXPC2BKZKZ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/9/NC/X5FY5G6NYCW5E554TE5F5H.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/9/Q4/V758X99SGCELUD0EM4HK4G.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/A/H0/LYTDGJWOH7OXH2EDGARXVB.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/B/S4/39R99VDAXF7X1T8FW5O7G5.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/B/UP/HM3YG02LLRWGD06ZK1PRPJ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/B/VA/BP3BNYMRT7OCWW3Q3M2ZTR.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/C/30/EXEN8BYTWNFPJJRLE00CJ2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/C/3W/RB6196BR3NVWEX5183BKEN.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/C/76/YJP85A4P2ZE6QYF4TIS7MO.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/C/FV/0ORXDSHBYQOS2A920WHDXV.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/C/UF/QZCJ2TCKW7XORELZJOKKW3.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/D/HQ/JFSCDHM3DQXDWPJD8RHGWV.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/E/0F/98ISP8O7J3TB8XGN5PCRB0.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/E/Q9/7E8THLUEF2U8O6DZQRWSX9.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleExampleMap/E/RG/6FX3FVZLOTLUYLWS5AEE1A.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/0/5J/C0ICJ8P8TU8TANIKO91ZL4.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/0/66/N7ELVY19D863HQ7848N7IE.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/0/97/WMMSB69PR7GIB51ZJRT211.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/0/B1/K7F7F9DKUK78EXGLFK8082.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/0/EJ/EK3H9OISA6HC2T2K5DU3XS.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/0/HI/1VQADIHZUCN4UMXNIZZZA2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/0/IJ/L1RT3L9M0TIWIH3JYHX90S.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/1/98/M2D80SQDTFQXJL08IA9Y2B.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/1/AD/TQP7M7G6HGE7S5X9NC8K40.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/1/EX/FFAPIDWLLJERKY33G46PBB.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/1/G9/TGSHVVG7B0LZZ0YTDHC7XF.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/1/PJ/1UJNHFA5UDA7B70PVH6X7O.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/1/PY/607EI32F2OE5T701L65UBU.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/1/TM/79SRDO8VMIGKE2GOWPD9TO.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/1/VU/MC4M85CWMGITZSUDBSQOFV.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/1/WA/42EA4WKYDPM75MQ3TNWBF7.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/2/2S/VM33DBTYF5D5J2RZ0M3HD1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/2/5C/5G8PYJ4E4VYUH6BJJZ6714.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/2/6H/XJHLN3DHXET5M8P50S61H4.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/2/AM/FMZNMXP56TSX2S5IL9M7XK.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/2/E2/6I9E7WILXY2EU7RWL5F48V.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/2/GD/QG7BMCJ0HPUE4EV8KLRYCP.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/2/QP/8TFQ014Y8J0VBTNUDT105K.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/2/RX/56XP4QKFGH30U7J61JSB1M.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/2/SJ/ESXDT61L94O12QP3QF75SY.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/2/VF/EQ3II9PWT8KZ8ZWI760AL4.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/3/CY/SK86WXEMPPZUE4YVJTGLQ6.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/3/PB/PMZMUVES09FA7D3OODVDX0.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/3/QK/WHFAHLNTWJMNZYLA9KC53A.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/3/S0/RJKVJCDVTHKGGSDSDG2W9T.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/3/TA/U664AWMHK82ILNKVILVHLI.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/4/1T/OOJ2X5F517ZKN74F48VWTE.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/4/2J/S5952G7WHXP7YVLJVOBUK4.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/4/3J/4F8D55YY876CV2HZ7PRCGA.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/4/86/GLKD8JJZ17E0C65KRFYIG0.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/4/8E/73RUDZPL7XNV4UM4H82ZTJ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/4/C6/CGAQ08W7K77X3A78DOH23G.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/4/F2/ICESASNKO3BIL3VTCW0GXQ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/4/GT/TJBQRIF8YG10O3AE3IINMJ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/4/PF/8LRN384XGCR53NQWG5SV5X.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/4/S3/4UXFKBYM283P19H68XQMZ3.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/4/S5/MPA7VQSYQR3D9NQ57A4RO7.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/5/EX/7QRV68B7DC8QOC9CL45Q7O.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/5/J8/UKED4I7E7S8PCRX6HP5UKJ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/5/QN/VS6AWFCAAFTVJLFSM9DK1P.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/5/SB/2TYBBDS4U6WJC2Y6V6FRDQ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/5/SZ/JYKMNBFHO9JD7KJT354BRE.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/5/T5/8FSQ5RLSOFAP8O94NOSB1B.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/5/WQ/H9OTZ0FZSIA35A3846ZTFK.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/6/9G/Y0KA71R67HHPFQPDZ6FRZC.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/7/8N/A1L60D6VCRPRSRNZPYV78C.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/7/C1/IHFYDWYQQ86R3X6KA2O6CQ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/7/E2/8B0TZ9O1SVJJGT970J4ISO.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/7/G6/3H4VYUFZY2HFAAD3YG37SF.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/7/G7/Y1K5CZIWWVLPDHVN6HRJ6S.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/7/LH/O40QUFV4M4X61OQ4CQTQBG.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/7/NY/WFVR2LPKZ0BZNIBJ3SNOIJ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/7/U6/8ZCPPWSQ5MENJZV56QZM9Z.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/7/Y1/O5VJ91UQF7VJLW9RYGTU78.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/7/Z0/3XWVWGGXHN1AZI6JLUJQIE.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/8/71/B2OBX2FCXXATCMXBTP5M2T.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/8/DK/OTFU7FCI9H36TPVFSDHZPJ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/8/E6/F6IO9BAJMDVV6Y83FP0X54.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/8/IQ/1YANNPHEN149IBJT9JACVT.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/8/ZB/VX72CWBUJMPYSADFZ2185I.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/9/1V/18JQFU0A162B2JBW81OCDM.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/9/2B/I7D9107O94TBJ2IAIOFMVP.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/9/9S/1MVJBLZHBGN4RALSC15FAA.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/9/HE/RNCJ3D1TYII3UBJK1Z4GJ1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/9/MW/M8AO8WH23VGKSLUWBUHPJO.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/9/O4/E3Z8H79ZU52XLU8ILP50RQ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/9/WG/0OY7BI8RUK5EV4PT3CT987.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/A/KE/X26MTD9ACLZI5EOEQM6QXZ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/A/W6/1DKYLR8T6RNIE0Z58JN849.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/B/5L/PUWW987WQV8UX3RAE5X2KQ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/B/AO/22HJ43Y4H5XLJNZMX8N7ZD.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/B/E5/TFNT6CTPHAH8KJGD121E32.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/B/KF/SDG297WKXW8J65CC7F6GXO.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/B/LX/2ZZWWTGAZKHFAJ6WUKO7HP.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/B/P4/NHX3D4XKGXMTMD7ZRZWAGC.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/B/Q3/S6VW6P7811W6A606FQ75M5.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/B/TE/9578C2BRMFTOKIEWU872TA.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/B/TZ/EC892C54JF3LZLFMYOXAII.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/B/UG/9SDZYYD1PNIYWPUIP7HUFW.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/B/X6/ZTE2ZMJSNHGTEGJNSY21KM.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/C/4X/TFUEUCY1IFT2LEF8SGF0FC.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/C/6T/PJ5V0AH3HC3AHUS0PTYRDC.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/C/7R/O4TQCUKM80TLZ9T2ME4EIK.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/C/89/L4UJJKTALP223UZXU90IDP.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/C/EY/3KWNCX3WUA9Q75PT214AKU.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/C/FR/BGEDKJGLZO0RGGU56Y7OH8.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/C/J0/X8DPM3PTTIRQTPI771ZRCJ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/C/QR/VL7AJVLIH3KZ77P35PKDLH.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/C/ZN/VDUTP7FDAA3NP3O8GYT4GR.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/D/1P/LIVOURXQMVQB9GBPKV0RLA.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/D/5D/3ESC50ZOSZICNR5FVRAHMQ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/D/8E/8M1BCHTIQ1TPH55614JSC2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/D/9I/QQ2F8L9GEFB7T08967G82N.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/D/DB/Y937NP92ITHTUWC9LS3KMS.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/D/IM/9L19XYT14UBW4G25Q5ESMY.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/D/JT/00K8RFA59LNPINRWXZ8NWA.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/D/TE/CKY6K12XJNMC6ERL9EKJPU.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/D/ZR/RM943D375MUJPRYY7D8YN8.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/D/ZV/DBH96JSUHLEVNRDWWCMINY.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/E/4B/6Q0N8OXHI18Z64MHV9KKS9.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/E/8P/P8C9N6JIBUT4GI44MAF1R6.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/E/9Q/7OAB1JX9PCWI5W5I8VK6DK.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/E/DQ/OZENY6LDF02Z53NICO9C6W.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/E/DV/SSSDZF2KMOES00KW8WZXNH.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/E/GH/YOQH19T0LMYF4KFPE1EE7P.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/E/K8/DGO7RO4NWOQGQZNIO7UI00.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/E/KB/1RP8T0MJFLB5JD2YIQC3CY.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/VehicleTemplate/Maps/VehicleOffroadExampleMap/E/KC/YQZWWS22NCAMSX1MT7T2AY.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/VehicleTemplate/Maps/VehicleExampleMap/0/IW/DAKW2A6SCQ6ZK9Q92M368D.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/VehicleTemplate/Maps/VehicleExampleMap/1/XO/X6RBKU252RP7CZ9VXF9MR1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/VehicleTemplate/Maps/VehicleExampleMap/3/XY/OU7YANIF0KNUVHCR6XLSE7.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/VehicleTemplate/Maps/VehicleExampleMap/5/BP/7ZZR3F8VA42X0Y8GY9FR5F.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/VehicleTemplate/Maps/VehicleExampleMap/7/BV/OUXRJD33RXC9NIDYKFJB62.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/VehicleTemplate/Maps/VehicleExampleMap/8/HH/AY6CLBSAHJ7OA3GAJGYOOZ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/VehicleTemplate/Maps/VehicleOffroadExampleMap/3/O1/ZU68OYX8E9GSPKN55UURZO.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/VehicleTemplate/Maps/VehicleOffroadExampleMap/5/9C/C2H18IMFHO7GCAKJAJEWR1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/VehicleTemplate/Maps/VehicleOffroadExampleMap/7/0W/5MFYIXWW8GWPA7IC4GN3FB.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/VehicleTemplate/Maps/VehicleOffroadExampleMap/7/I9/SX4BRTOLSHZ4SO97WG9F6S.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/VehicleTemplate/Maps/VehicleOffroadExampleMap/8/KP/UJKIIP0UWRL5P345SHLOEJ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/VehicleTemplate/Maps/VehicleOffroadExampleMap/C/3R/45DCKE3RQWYS2QXLFFGWXK.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/VehicleTemplate/Maps/VehicleOffroadExampleMap/D/RE/TT0PNWXRJG2FZF8C4J0AEQ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/VehicleTemplate/Maps/VehicleOffroadExampleMap/E/QY/BWIOH8DIKNFMOEFU99E2KD.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/TMS_LS/Components/TMS_ArmorComponent.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/TMS_LS/Components/TMS_ArmorComponent.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Data/TMS_StaticWeaponData.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Data/TMS_StaticWeaponData.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Data/TMS_WeaponData.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Data/TMS_WeaponData.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/ItemObjects/ItemEquipmentObject.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/ItemObjects/ItemEquipmentObject.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/ItemObjects/ItemObject.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/ItemObjects/ItemObject.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/ItemObjects/ItemWeaponObject.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/ItemObjects/ItemWeaponObject.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/TMS_LS/Items/Equipment/EquipmentConstuctor.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/TMS_LS/Items/Equipment/EquipmentConstuctor.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/TMS_LS/Items/Equipment/TMS_BaseArmor.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/TMS_LS/Items/Equipment/TMS_BaseArmor.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultGame.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultGame.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CR/LQ/CharacterModular/Modular_005_MilitaryA03/Mesh/SKM_MilitaryA03_Chest_2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CR/LQ/CharacterModular/Modular_005_MilitaryA03/Mesh/SKM_MilitaryA03_Chest_2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/game_ready_grass_texture_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/T_GRGT_0.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/game_ready_grass_texture_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/T_GRGT_1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/game_ready_grass_texture_2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/T_GRGT_2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/game_ready_grass_texture_3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/T_GRGT_3.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/MI_TGrass_1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass1_trasparent_grass1_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass1_trasparent_grass1_0.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/MI_TGrass2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass2_003_trasparent_grass1_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass2_003_trasparent_grass1_0.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass2_003_trasparent_grass2_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/SM_TGrass_15.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass2_003_trasparent_grass3_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/SM_TGrass_14.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass2_003_trasparent_grass4_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/SM_TGrass_13.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass2_trasparent_grass2_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/SM_TGrass_16.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/MI_TGrass_3.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass3_trasparent_grass3_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/SM_TGrass_12.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass4.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/MI_TGrass_4.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass4_002_trasparent_grass1_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/SM_TGrass_08.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass4_002_trasparent_grass3_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/SM_TGrass_10.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass4_002_trasparent_grass4_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass4_002_trasparent_grass4_0.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass4_005_trasparent_grass1_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/SM_TGrass_04.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass4_005_trasparent_grass2_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/SM_TGrass_07.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass4_005_trasparent_grass3_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/SM_TGrass_06.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass4_005_trasparent_grass4_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/SM_TGrass_05.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass4_008_trasparent_grass1_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/SM_TGrass_01.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass4_008_trasparent_grass3_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/SM_TGrass_03.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass4_008_trasparent_grass4_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/SM_TGrass_02.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/trasparent_grass4_trasparent_grass4_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fab/Game_ready_grass/SM_TGrass_11.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/BB_EnemyBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/BB_EnemyBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_CustomNavLinkProxy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_CustomNavLinkProxy.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_Enemy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_Enemy.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_EnemyAI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_EnemyAI.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_EnemyMelee.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_EnemyMelee.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_NavLinkJump.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_NavLinkJump.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/BT_EnemyBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/BT_EnemyBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/BT_EnemyMeleeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/BT_EnemyMeleeBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Animation/ABP_Person.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Animation/ABP_Person.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Core/BP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Core/BP_Player.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Inventory/DT_ItemData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Inventory/DT_ItemData.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Materials/Landscape/GrassData/LGT_Grass.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Materials/Landscape/GrassData/LGT_Grass.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Materials/M_Grass.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Materials/M_Grass.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Materials/M_Grass_Inst1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Materials/M_Grass_Inst1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Materials/M_Grass_Inst2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Materials/M_Grass_Inst2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Textures/Clouds.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Textures/Clouds.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Textures/rain_drops.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Textures/rain_drops.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/UI/Inventory/WBP_DragItem.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/UI/Inventory/WBP_DragItem.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/UI/Inventory/WBP_Equipment.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/UI/Inventory/WBP_Equipment.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/TMS_LS/UI/Inventory/WBP_EquipmentSlot.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/UI/Inventory/WBP_EquipmentSlot.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/UI/Inventory/WBP_Inventory.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/UI/Inventory/WBP_Inventory.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/TMS_LS/UI/Inventory/WBP_ItemSlot.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/UI/Inventory/WBP_ItemSlot.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/UI/WBP_Main.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/UI/WBP_Main.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Maps/ThirdPersonMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPerson/Maps/ThirdPersonMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/0/SX/SKO7AH9HKZVPN4OMFO4DV3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/0/SX/SKO7AH9HKZVPN4OMFO4DV3.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/9/21/WWYX44RDCCS98492P9K9O3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/9/21/WWYX44RDCCS98492P9K9O3.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/D/0D/DJW7AEUS6M3I8NLI9WPRKN.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/D/0D/DJW7AEUS6M3I8NLI9WPRKN.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/D/VL/KUT2U1MQ1ND9CXN070OTDM.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/D/VL/KUT2U1MQ1ND9CXN070OTDM.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/E/T8/46ZIBNTTDDR3AOR2XC9VO6.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/E/T8/46ZIBNTTDDR3AOR2XC9VO6.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Components/TMS_HealthComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Components/TMS_HealthComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Components/TMS_LootComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Components/TMS_LootComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Components/TMS_LootComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Components/TMS_LootComponent.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Components/TMS_WeaponComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Components/TMS_WeaponComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/AI/TMS_AIPerception.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/AI/TMS_AIPerception.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/AI/TMS_EnemyControllerBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/AI/TMS_EnemyControllerBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/AI/Tasks/TMS_FindRandomLocationTask.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/AI/Tasks/TMS_FindRandomLocationTask.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/Data/TMS_DataTypes.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Data/TMS_DataTypes.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/ALootItem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/ALootItem.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/ALootItem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/ALootItem.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/ItemDataTypes.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/ItemDataTypes.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/ItemObject.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/ItemObject.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_Chest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_Chest.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_Chest.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_Chest.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_EquipmentComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_EquipmentComponent.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_EquipmentComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_EquipmentComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_InventoryComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_InventoryComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_InventoryComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_InventoryComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_InventorySubsystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_InventorySubsystem.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_InventorySubsystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Inventory/TMS_InventorySubsystem.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/Settings/TMS_GameSettings.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Settings/TMS_GameSettings.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/Settings/TMS_SettingsData.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Settings/TMS_SettingsData.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_BaseCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_BaseCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_BaseCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_BaseCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_GameInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_GameInstance.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_Player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_Player.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_Player.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_Player.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Items/Weapons/TMS_FireWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Items/Weapons/TMS_FireWeapon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Utilities/TMS_AIPatrolPath.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Utilities/TMS_AIPatrolPath.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Utilities/TMS_AIPatrolPath.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Utilities/TMS_AIPatrolPath.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Utilities/TMS_DeveloperSettings.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Utilities/TMS_DeveloperSettings.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TMS_LS.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/TMS_LS.uproject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS_LS.uproject.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/TMS_LS.uproject.DotSettings.user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -324,7 +44,11 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="cidr-memory-view://2" root0="FORCE_HIGHLIGHTING" />
+    <setting file="cidr-memory-view://3" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Containers/Array.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Containers/Queue.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Delegates/DelegateInstancesImpl.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Delegates/DelegateSignatureImpl.inl" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Logging/LogCategory.h" root0="FORCE_HIGHLIGHTING" />
@@ -342,9 +66,6 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Engine/Classes/GameFramework/Character.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Json/Public/Dom/JsonValue.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Json/Public/Serialization/JsonSerializer.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Admin/Documents/Unreal Projects/TMS_LS/Source/TMS_LS/Core/Inventory/TMS_EquipmentComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Admin/Documents/Unreal Projects/TMS_LS/Source/TMS_LS/Core/Inventory/TMS_EquipmentComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Admin/Documents/Unreal Projects/TMS_LS/Source/TMS_LS/Core/Inventory/TMS_EquipmentComponent.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TMS_LS/Items/Weapons/TMS_ShotgunWeapon.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TMS_LS/Items/Weapons/TMS_ShotgunWeapon.h" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -370,7 +91,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "Uproject.TMS_LS.executor": "Debug",
-    "git-widget-placeholder": "Merging Danil-Permaykov",
+    "git-widget-placeholder": "Danil-Permaykov",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -571,6 +292,7 @@
       <workItem from="1787071587356" duration="2530000" />
       <workItem from="1787136938356" duration="2438000" />
       <workItem from="1787452765870" duration="224000" />
+      <workItem from="1787453058401" duration="4972000" />
     </task>
     <servers />
   </component>
@@ -612,7 +334,7 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Uproject">
-        <watch expression="RandX" />
+        <watch expression="RandX" language="C++" />
       </configuration>
     </watches-manager>
   </component>
