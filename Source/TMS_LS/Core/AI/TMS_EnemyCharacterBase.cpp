@@ -5,6 +5,7 @@
 
 #include "AIController.h"
 #include "BrainComponent.h"
+#include "TMS_LS/Components/NPCConfigComponent.h"
 #include "TMS_LS/Components/TMS_LootComponent.h"
 #include "TMS_LS/Core/TMS_HUD.h"
 
@@ -13,6 +14,8 @@ ATMS_EnemyCharacterBase::ATMS_EnemyCharacterBase()
 	PrimaryActorTick.bCanEverTick = false;
 
 	LootComponent = CreateDefaultSubobject<UTMS_LootComponent>("LootComponent");
+	
+	NPCConfig = CreateDefaultSubobject<UNPCConfigComponent>("NPCConfig");
 }
 
 void ATMS_EnemyCharacterBase::BeginPlay()

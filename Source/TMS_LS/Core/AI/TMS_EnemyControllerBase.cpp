@@ -7,6 +7,7 @@
 #include "TMS_EnemyCharacterBase.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "TMS_LS/Components/NPCConfigComponent.h"
 #include "TMS_LS/Utilities/TMS_AIPatrolPath.h"
 #include "TMS_LS/Utilities/TMS_DeveloperSettings.h"
 
@@ -86,10 +87,10 @@ void ATMS_EnemyControllerBase::OnPossess(APawn* InPawn)
 	Super::OnPossess(InPawn);
 	if (ATMS_EnemyCharacterBase* EnemyPawn = Cast<ATMS_EnemyCharacterBase>(InPawn))
 	{
-		CurrentTeamType = EnemyPawn->TeamType;
-		if (EnemyPawn->BehaviorTree)
+		CurrentTeamType = EnemyPawn->NPCConfig->GetTeamType();
+		if (auto BT = EnemyPawn->NPCConfig->GetDefaultBT())
 		{
-			RunBehaviorTree(EnemyPawn->BehaviorTree);
+			RunBehaviorTree(BT);
 			GetBlackboardComponent()->SetValueAsObject(PatrolPathKeyName, EnemyPawn->PatrolPath.Get());
 		}
 	}
