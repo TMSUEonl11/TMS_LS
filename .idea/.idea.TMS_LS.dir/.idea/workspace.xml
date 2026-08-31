@@ -8,14 +8,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="655b8281-5753-4a03-8620-77c7f245ea64" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_Enemy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_Enemy.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Core/BP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Core/BP_Player.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Inventory/Items/Weapons/Rifle/BP_WeaponBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Inventory/Items/Weapons/Rifle/BP_WeaponBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/UI/WBP_Crosshair.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/UI/WBP_Crosshair.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/P8/KEY3EL483SYZFZV6NWMPHC.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/P8/KEY3EL483SYZFZV6NWMPHC.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Items/Weapons/TMS_FireWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Items/Weapons/TMS_FireWeapon.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CR/Demo/Meshes/SK_Mannequin.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CR/Demo/Meshes/SK_Mannequin.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Animation/WeaponAnims/AS_Idle_Rifle_Hip_Break2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Animation/WeaponAnims/AS_Idle_Rifle_Hip_Break2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Maps/Big_Map.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Maps/Big_Map.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/PCG/PCG_Test.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/PCG/PCG_Test.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/0/Y9/UWZA988MJRRXGRYAIRHNDU.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/0/Y9/UWZA988MJRRXGRYAIRHNDU.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/1C/8WR4UTRVJI1QD9BRSESBHA.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/1C/8WR4UTRVJI1QD9BRSESBHA.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/HN/VZL5CTORFMOO7N4WYB81QW.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/HN/VZL5CTORFMOO7N4WYB81QW.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/KD/94SLWMZFXQ0ZDLHT4LU6LQ.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/3/R7/77W8DXKCDKX158PMZWZHFD.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/5/4S/JRLKPGA6I9Y0QJEK7DUIXX.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/5/4S/JRLKPGA6I9Y0QJEK7DUIXX.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/5/8L/TZKNI36R2FLIDXBWIPQQST.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/5/AY/RAZJQJ6A9U5IJ1JMV3MMJ4.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/5/AY/RAZJQJ6A9U5IJ1JMV3MMJ4.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/6/24/BIXBS4WOXJ2D48QP0SU35T.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/6/46/CCZZV25PQURGHOOEPN2I10.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/6/46/CCZZV25PQURGHOOEPN2I10.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/7/5Y/8TFLJKXLR8QGA5ACF1KD68.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/7/5Y/8TFLJKXLR8QGA5ACF1KD68.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/8/48/RZB08011W0U7GKA6Z4TQQJ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/8/48/RZB08011W0U7GKA6Z4TQQJ.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/9/OQ/Y1DXGNXC1AOK80S105TUPJ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/9/OQ/Y1DXGNXC1AOK80S105TUPJ.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/A/1H/KWKZ27FP9RA4EIWU7EDKHB.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/A/1H/KWKZ27FP9RA4EIWU7EDKHB.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/6R/TN6HY0SVWACRARTIALQ8SR.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/6R/TN6HY0SVWACRARTIALQ8SR.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/OF/G8X7LFVTJKLTKBSKA1IK7O.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/OF/G8X7LFVTJKLTKBSKA1IK7O.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/RK/ERGAF1KMS52BNT3V0FZ2MI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/RK/ERGAF1KMS52BNT3V0FZ2MI.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/KN/1PC75YM25KCX6XTETMRYGM.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/LH/2W4VMZNQGEPPON5VJ8M4KO.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/M7/TM9496UV11KBMRNFTXVPN6.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/QV/DG0O4N3NE9GH9PRAUXWZEJ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/QV/DG0O4N3NE9GH9PRAUXWZEJ.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/RY/65GLLZQMYK193Z71KTQVIQ.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/D/LA/MA5EWOSL6SXJLY92M084HA.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/D/LA/MA5EWOSL6SXJLY92M084HA.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/D/N8/DNG80K1W33B30B9R2WTW67.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/D/N8/DNG80K1W33B30B9R2WTW67.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/E/US/42DG9P4OARYEX2LGSM9HVU.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/E/US/42DG9P4OARYEX2LGSM9HVU.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/D/0D/DJW7AEUS6M3I8NLI9WPRKN.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/D/0D/DJW7AEUS6M3I8NLI9WPRKN.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/alstra_infinite/PolyPack-Starter/Shooter-Essentials/Meshes/Props/SM_SandbagCurvedWallV1_SandbagCurvedWallV1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/alstra_infinite/PolyPack-Starter/Shooter-Essentials/Meshes/Props/SM_SandbagCurvedWallV1_SandbagCurvedWallV1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS_LS.uproject.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/TMS_LS.uproject.DotSettings.user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +65,6 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="cidr-memory-view://6" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Editor/Kismet/Public/FindInBlueprints.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Containers/Array.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Containers/Queue.h" root0="FORCE_HIGHLIGHTING" />
@@ -80,24 +102,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Uproject.TMS_LS.executor": "Debug",
-    "git-widget-placeholder": "Danil-Permaykov",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Uproject.TMS_LS.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Danil-Permaykov&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="TMS_LS" type="Uproject" factoryName="rider.uproject">
       <configuration_1 setup="1">
@@ -290,6 +312,7 @@
       <workItem from="1787136938356" duration="2438000" />
       <workItem from="1787452765870" duration="224000" />
       <workItem from="1787453058401" duration="12004000" />
+      <workItem from="1788062070119" duration="3251000" />
     </task>
     <servers />
   </component>
