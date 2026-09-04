@@ -75,6 +75,7 @@ void ATMS_EnemyControllerBase::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	//SetFocalPoint(GetTargetHeadBoneLocation());
 	//SetFocus(GetTargetActor());
+	if (!GetPawn())return;
 	FRotator TargetRotation = UKismetMathLibrary::FindLookAtRotation(
 		GetPawn()->GetActorLocation(),
 		GetTargetHeadBoneLocation());
