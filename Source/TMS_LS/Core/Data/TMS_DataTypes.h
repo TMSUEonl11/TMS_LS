@@ -4,6 +4,11 @@
 #include "GenericTeamAgentInterface.h"
 #include "TMS_DataTypes.generated.h"
 
+#if !UE_BUILD_SHIPPING
+static TAutoConsoleVariable<int32> CVarDebugMode(
+	TEXT("tms_cheats.Debug"), 0, TEXT("0 for false, >0 for true"));
+#endif
+
 USTRUCT(Blueprintable, BlueprintType)
 struct FTMS_AnimData
 {
