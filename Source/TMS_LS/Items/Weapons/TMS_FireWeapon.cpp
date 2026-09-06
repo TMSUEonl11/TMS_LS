@@ -134,6 +134,13 @@ void ATMS_FireWeapon::Shoot()
 		ECollisionChannel::ECC_GameTraceChannel4, CollisionParams);
 	DrawDebugLine(GetWorld(),GetMuzzleLocation(), EndLocation, FColor::Green, false, 2.5f, 0, 1.f);
 	
+#if !UE_BUILD_SHIPPING
+	if (CVarDebugMode.GetValueOnGameThread())
+	{
+		DrawDebugLine(GetWorld(),GetMuzzleLocation(), EndLocation, FColor::Green, false, 0.5f, 0, 1.f);
+	}
+#endif
+	
 	if (Hit.bBlockingHit && Hit.GetActor())
 	{
 		Hit.GetActor()->TakeDamage(Damage, FDamageEvent{}, Char->GetController(), Char);

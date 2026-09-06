@@ -7,6 +7,7 @@
 #include "TMS_LS/Core/TMS_InteractInterface.h"
 #include "TMS_EnemyCharacterBase.generated.h"
 
+class UNPCConfigComponent;
 class UTMS_LootComponent;
 class ATMS_AIPatrolPath;
 
@@ -19,17 +20,15 @@ public:
 	// Sets default values for this character's properties
 	ATMS_EnemyCharacterBase();
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
-	TEnumAsByte<ETeamType> TeamType = ETeamType::ETT_Bandits;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="AI")
-	TObjectPtr<class UBehaviorTree> BehaviorTree;
-
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category="AI")
 	TSoftObjectPtr<ATMS_AIPatrolPath> PatrolPath;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Loot")
 	TObjectPtr<UTMS_LootComponent> LootComponent;
+	
+		
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="NPC")
+	TObjectPtr<UNPCConfigComponent> NPCConfig;
 
 protected:
 	// Called when the game starts or when spawned

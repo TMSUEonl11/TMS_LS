@@ -40,6 +40,9 @@ protected:
 
 public:
 	AActor* GetTargetActor();
+	
+	
+	UFUNCTION(Blueprintable, BlueprintPure)
 	FVector GetTargetHeadBoneLocation();
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

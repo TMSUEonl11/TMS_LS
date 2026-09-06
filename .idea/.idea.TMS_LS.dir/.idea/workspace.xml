@@ -8,38 +8,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="655b8281-5753-4a03-8620-77c7f245ea64" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Content/CR/Demo/Meshes/SK_Mannequin.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CR/Demo/Meshes/SK_Mannequin.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Animation/WeaponAnims/AS_Idle_Rifle_Hip_Break2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Animation/WeaponAnims/AS_Idle_Rifle_Hip_Break2.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TMS_LS/Components/NPCConfigComponent.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TMS_LS/Components/NPCConfigComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TMS_LS.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AssetsvilleTown/Maps/Demonstration.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AssetsvilleTown/Maps/Demonstration.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AssetsvilleTown/Materials/MI_ColorPalette.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AssetsvilleTown/Materials/MI_ColorPalette.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AssetsvilleTown/Materials/MasterMaterials/M_BaseColorPalette.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AssetsvilleTown/Materials/MasterMaterials/M_BaseColorPalette.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_Enemy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_Enemy.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_EnemyMelee.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/AI/BP_EnemyMelee.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Core/BP_GM_Test.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Core/BP_GM_Test.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/TMS_LS/Maps/Big_Map.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/Maps/Big_Map.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/TMS_LS/PCG/PCG_Test.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/PCG/PCG_Test.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/UI/Inventory/WBP_ItemSlot.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/UI/Inventory/WBP_ItemSlot.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/UI/Settings/WB_Settings.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/UI/Settings/WB_Settings.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TMS_LS/UI/WBP_Pause.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TMS_LS/UI/WBP_Pause.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Levels/L_BigMap_WP/4/6Z/XJI77NRAZFJCIH2RLR9ZH9.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Levels/L_BigMap_WP/4/6Z/XJI77NRAZFJCIH2RLR9ZH9.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Levels/L_BigMap_WP/4/DK/CSYRT4RFOGQ4KPCE94SVR9.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Levels/L_BigMap_WP/4/DK/CSYRT4RFOGQ4KPCE94SVR9.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Levels/L_BigMap_WP/7/CD/9B9GWV5TCSGUTDODBAF6XX.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Levels/L_BigMap_WP/7/CD/9B9GWV5TCSGUTDODBAF6XX.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Levels/L_BigMap_WP/E/JT/FJXTM2NQ69AAUVODMUYXKR.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Levels/L_BigMap_WP/E/JT/FJXTM2NQ69AAUVODMUYXKR.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/0/K3/JUVI7XIIX1NCUUPK6RCO2V.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/0/K3/JUVI7XIIX1NCUUPK6RCO2V.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/0/Y9/UWZA988MJRRXGRYAIRHNDU.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/0/Y9/UWZA988MJRRXGRYAIRHNDU.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/1C/8WR4UTRVJI1QD9BRSESBHA.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/1C/8WR4UTRVJI1QD9BRSESBHA.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/HN/VZL5CTORFMOO7N4WYB81QW.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/HN/VZL5CTORFMOO7N4WYB81QW.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/2/KD/94SLWMZFXQ0ZDLHT4LU6LQ.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/3/R7/77W8DXKCDKX158PMZWZHFD.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/4/CB/Q3L5NCKJ1J31329UE0SAGQ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/4/CB/Q3L5NCKJ1J31329UE0SAGQ.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/5/4S/JRLKPGA6I9Y0QJEK7DUIXX.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/5/4S/JRLKPGA6I9Y0QJEK7DUIXX.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/5/8L/TZKNI36R2FLIDXBWIPQQST.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/5/AY/RAZJQJ6A9U5IJ1JMV3MMJ4.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/5/AY/RAZJQJ6A9U5IJ1JMV3MMJ4.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/6/24/BIXBS4WOXJ2D48QP0SU35T.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/6/46/CCZZV25PQURGHOOEPN2I10.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/6/46/CCZZV25PQURGHOOEPN2I10.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/7/5Y/8TFLJKXLR8QGA5ACF1KD68.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/7/5Y/8TFLJKXLR8QGA5ACF1KD68.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/8/48/RZB08011W0U7GKA6Z4TQQJ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/8/48/RZB08011W0U7GKA6Z4TQQJ.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/9/OQ/Y1DXGNXC1AOK80S105TUPJ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/9/OQ/Y1DXGNXC1AOK80S105TUPJ.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/9/ZB/SYLRXA8QS9BSQFOZ032QWI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/9/ZB/SYLRXA8QS9BSQFOZ032QWI.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/A/1H/KWKZ27FP9RA4EIWU7EDKHB.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/A/1H/KWKZ27FP9RA4EIWU7EDKHB.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/A/BZ/HC0EIRITU5YM7DI1HP7ZY4.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/A/BZ/HC0EIRITU5YM7DI1HP7ZY4.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/6R/TN6HY0SVWACRARTIALQ8SR.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/6R/TN6HY0SVWACRARTIALQ8SR.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/OF/G8X7LFVTJKLTKBSKA1IK7O.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/OF/G8X7LFVTJKLTKBSKA1IK7O.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/RK/ERGAF1KMS52BNT3V0FZ2MI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/B/RK/ERGAF1KMS52BNT3V0FZ2MI.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/KN/1PC75YM25KCX6XTETMRYGM.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/LH/2W4VMZNQGEPPON5VJ8M4KO.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/M7/TM9496UV11KBMRNFTXVPN6.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/QV/DG0O4N3NE9GH9PRAUXWZEJ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/QV/DG0O4N3NE9GH9PRAUXWZEJ.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/RY/65GLLZQMYK193Z71KTQVIQ.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/1Q/RY61H38JWPZK26TNRZNSQE.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/C/1Q/RY61H38JWPZK26TNRZNSQE.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/D/HX/DX3LKJVD5YI4JK9EIBAINH.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/D/HX/DX3LKJVD5YI4JK9EIBAINH.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/D/LA/MA5EWOSL6SXJLY92M084HA.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/D/LA/MA5EWOSL6SXJLY92M084HA.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/D/N8/DNG80K1W33B30B9R2WTW67.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/D/N8/DNG80K1W33B30B9R2WTW67.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/E/US/42DG9P4OARYEX2LGSM9HVU.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/E/US/42DG9P4OARYEX2LGSM9HVU.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/D/0D/DJW7AEUS6M3I8NLI9WPRKN.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/D/0D/DJW7AEUS6M3I8NLI9WPRKN.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/alstra_infinite/PolyPack-Starter/Shooter-Essentials/Meshes/Props/SM_SandbagCurvedWallV1_SandbagCurvedWallV1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/alstra_infinite/PolyPack-Starter/Shooter-Essentials/Meshes/Props/SM_SandbagCurvedWallV1_SandbagCurvedWallV1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TMS_LS.uproject.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/TMS_LS.uproject.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/D/US/LBDX3KO412V2QFTGIIAZC3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/D/US/LBDX3KO412V2QFTGIIAZC3.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/F/41/N7EA8FHIAS0UX9K63SAV4K.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TMS_LS/Maps/Big_Map/F/41/N7EA8FHIAS0UX9K63SAV4K.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/AI/TMS_EnemyCharacterBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/AI/TMS_EnemyCharacterBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/AI/TMS_EnemyCharacterBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/AI/TMS_EnemyCharacterBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/AI/TMS_EnemyControllerBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/AI/TMS_EnemyControllerBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/AI/TMS_EnemyControllerBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/AI/TMS_EnemyControllerBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/Data/TMS_DataTypes.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/Data/TMS_DataTypes.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_HUD.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_HUD.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_HUD.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Core/TMS_HUD.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TMS_LS/Items/Weapons/TMS_FireWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TMS_LS/Items/Weapons/TMS_FireWeapon.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +76,10 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="cidr-memory-view://1" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Plugins/Experimental/ChaosCachingUSD/Source/ChaosCachingUSD/ChaosCachingUSD.build.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Editor/Kismet/Public/FindInBlueprints.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Editor/UnrealEd/Classes/CookOnTheSide/CookOnTheFlyServer.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Containers/Array.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Containers/Queue.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Core/Public/Delegates/DelegateInstancesImpl.h" root0="FORCE_HIGHLIGHTING" />
@@ -85,6 +99,8 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Engine/Classes/GameFramework/Character.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Json/Public/Dom/JsonValue.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Json/Public/Serialization/JsonSerializer.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TMS_LS/Components/NPCConfigComponent.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TMS_LS/Components/NPCConfigComponent.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TMS_LS/Items/Weapons/TMS_ShotgunWeapon.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TMS_LS/Items/Weapons/TMS_ShotgunWeapon.h" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -313,6 +329,11 @@
       <workItem from="1787452765870" duration="224000" />
       <workItem from="1787453058401" duration="12004000" />
       <workItem from="1788062070119" duration="3251000" />
+      <workItem from="1788143411361" duration="2595000" />
+      <workItem from="1788278981591" duration="2286000" />
+      <workItem from="1788347672005" duration="2544000" />
+      <workItem from="1788451788749" duration="2014000" />
+      <workItem from="1788667452662" duration="2297000" />
     </task>
     <servers />
   </component>

@@ -4,6 +4,12 @@
 #include "GenericTeamAgentInterface.h"
 #include "TMS_DataTypes.generated.h"
 
+
+#if !UE_BUILD_SHIPPING
+static TAutoConsoleVariable<int32> CVarDebugMode(
+	TEXT("tms_cheats.Debug"), 0, TEXT("0 for false, >0 for true"));
+#endif
+
 USTRUCT(Blueprintable, BlueprintType)
 struct FTMS_AnimData
 {
@@ -106,5 +112,23 @@ struct FWeaponRuntimeStats
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float AimSpeed;
+};
+
+
+USTRUCT(BlueprintType)
+struct FLevelData : public FTableRowBase
+{
+	GENERATED_BODY()
+public:
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Level")
+	FText  LevelName;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Level")
+	TSoftObjectPtr<UTexture2D> PreviewImage;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Level")
+	TSoftObjectPtr<UWorld> LevelMap;
+	
 };
 

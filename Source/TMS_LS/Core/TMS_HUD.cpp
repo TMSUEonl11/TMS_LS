@@ -10,6 +10,16 @@ void ATMS_HUD::DrawHUD()
 	//DrawCrosshair();
 }
 
+void ATMS_HUD::PostRender()
+{
+	Super::PostRender();
+	
+	for (const auto& widget : HUD_Widgets)
+	{
+		widget->SetVisibility(bShowHUD ? ESlateVisibility::Visible : ESlateVisibility::Hidden);
+	}
+}
+
 void ATMS_HUD::BeginPlay()
 {
 	Super::BeginPlay();
@@ -19,6 +29,7 @@ void ATMS_HUD::BeginPlay()
 			CreateWidget(GetOwningPlayerController(), HUD_Widget, "HUD_Main"))
 		{
 			WHUD->AddToViewport();
+			HUD_Widgets.AddUnique(WHUD);
 		}
 	}
 }

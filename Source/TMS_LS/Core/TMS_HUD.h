@@ -31,6 +31,7 @@ class TMS_LS_API ATMS_HUD : public AHUD
 public:
 	virtual void DrawHUD() override;
 
+	virtual void PostRender() override;
 	virtual void BeginPlay() override;
 
 	UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -47,6 +48,9 @@ public:
 
 private:
 	void DrawCrosshair();
+	
+	UPROPERTY()
+	TArray<UUserWidget*> HUD_Widgets;
 
 	UPROPERTY()
 	EUIState CurrentUIState;
